@@ -1,9 +1,3 @@
-%Send to all psychonomics DE contributors, Keri,
-
-%Hyde05
-%https://qz.com/1190996/scientific-research-shows-gender-is-not-just-a-social-construct/
-%Fine13a
-%https://institutions.newscientist.com/article/mg24132190-100-how-neuroscience-is-exploding-the-myth-of-male-and-female-brains/
 
 \documentclass[fignum,man]{apa}
 
@@ -35,7 +29,7 @@
 \title{Genesis or Evolution of Gender Differences? Worldview-based Dilemmas in The Processing of Scientific Information}
 	
 \threeauthors{Stephan Lewandowsky}{Jan K. Woike}{Klaus Oberauer}
-%or \threeauthors{}{}{}
+
 \threeaffiliations{University of Bristol and University of Western Australia}
 {Max Planck Institute for Human Development}{University of Zurich}
 \abstract{Some issues that have been settled by the scientific community, such as evolution, the effectiveness of vaccinations, and the role of CO$_2$ emissions in climate change, continue to be rejected by segments of the public. This rejection is typically driven by people's worldviews,
@@ -94,13 +88,6 @@ as homeopathy, are ineffective. Reliance on CAM can
 even lead to unnecessary deaths if it 
 causes cancer patients 
 to refuse or delay evidence-based treatment \cite{Johnson18}.
-
-%*** The Chan18 paper is only a review but it is quite detailed and gives us a good idea of what the current thinking is among the anti-liberal-bias brigade. The Cofnas article is also interesting because it blames scientists (who else) about conservatives’ opinions of science. Co-author Carl is a rightwing extremist.
-%
-%**** In the meantime, here are a few sobering telegrams from reality:
-%\url{https://www.washingtonpost.com/news/wonk/wp/2015/06/02/this-astonishing-chart-shows-how-republicans-are-an-endangered-species/?utm_term=.ef1690d365f9 }
-%
-%\url{https://www.vox.com/policy-and-politics/2018/8/3/17644180/political-correctness-free-speech-liberal-data-georgetown}
 
 The scientific consensus for evolution and vaccinations, and against complementary ``medicine'', stands in sharp contrast to the
 opinions of a sizable segment of the public. 
@@ -220,18 +207,6 @@ might expect people on the political left
 to be more hesitant to reject CAM
  despite the lack of scientific evidence supporting it
  than people on the right. 
-%The 
-%second reason we chose CAM is because 
-%to date most examinations of science denial have involved 
-%constructs whose \textit{endorsement} represented acceptance
-%of scientific evidence. It is therefore conceivable
-%that people on the political left are generally more disposed
-%towards endorsing constructs. Most 
-%extant research has sought to control an endorsement
-%bias by using items of reversed polarity (i.e., agreeing
-%with the item that ``climate change is a natural fluctuation''
-%maps into rejection of mainstream climate science), but it is
-%nonetheless possible that 
 
 \subsection{Gender equality vs. differences}
 One of the
@@ -254,7 +229,6 @@ has found strong associations between conservatism and
 sexism \cite<e.g.,>{Hodson17}, and between other indicators 
 of rightwing politics such as Rightwing Authoritarianism (RWA) or 
 social dominance orientation (SDO) and sexism \cite<e.g.,>{Hellmer18,VanAssche19}.
-%VanAssche19: claims with citations that all religions are gender-unequal.
 
 The scientific debate whether nature (i.e., biology, evolution, and
 genetics) or nurture (i.e., social variables such as parenting and 
@@ -262,8 +236,6 @@ societal stereotypes) has a stronger influence on gender
 differences has been raging for decades \cite<for a recent review, see>{Eagly13}. Arguably, some of the positions taken 
 during this debate were shaped and constrained by ideology in addition
 to data and evidence \cite{Eagly18}.
-%Scarborough19: fewer traditionals, more egalitarians over time. Social survey across decades 
-%Ellemers18: latest annual review of gender stereotypes
 The involvement of ideology is unsurprising in light of
 a long-standing and deep
 fissure among American feminists and legal scholars between 
@@ -367,7 +339,6 @@ not relevant here). The results showed that
 the sampled scientists overwhelmingly accepted the theory of evolution,
 providing a mean rating of 88\% on a scale from 0-100\% that Darwin's
 ideas are likely to be true. By contrast, the mean ratings 
-%But only 55\% agree that evolution also applies to ``human mind and many of our social attitudes and preferences evolved over millions of years''.
 for the propositions that ``women's brains evolved to be more verbally talented'' and that ``men's brains evolved to be more mathematically talented'' 
 were at 40\% and 30\%, respectively.
 In another survey of sociologists, \citeA{Horowitz14} found that 43\% of
@@ -600,20 +571,8 @@ This data file (stripped of geo-tagging and other potentially identifying
 information), 
 the R scripts for all analyses, and the \LaTeX ~source file 
 that weaves the results of the analysis directly into the paper can be found 
-at \url{XXXXXX}. 
+at \url{https://git.io/fjpL5}. 
 
-% received from Q: Attitudes_towards_science_evolution+raw from Q 19 June.csv
-% downloaded and used for analysis: full1200downloadednotDeanom.csv
-
-%Although our preregistered analysis plan did not specify any further exclusion criteria,
-%we discovered that several participants responded identically (before reverse-coding)
-%to all
-%items for one or more constructs. We deemed this to be indicative of potential
-%inattention and therefore eliminated any participant who responded identically 
-%to all items for more than one construct.
-%After exclusion, \Sexpr{dim(relig15)[1]}
-%observations 
-%were retained for analysis. 
 The final sample included \Sexpr{males} men and \Sexpr{females} women, with a mean age of 
 \Sexpr{mage} years
  (median \Sexpr{mdage};
@@ -1055,11 +1014,6 @@ One model estimated all parameters independently for
 men and women, and the second model constrained the covariances
 among latent variables to be equal between groups.
 The constrained model 
-%was preferred based on AIC
-%($AICs$ \Sexpr{round(aovresult$AIC[1],3)} vs. 
-%\Sexpr{round(aovresult$AIC[2],3)} 
-%for the full and constrained model, respectively), 
-%although it 
 incurred a significant loss of fit, 
 $\chi^2$(\Sexpr{aovresult$"Df diff"[2]})$=$\Sexpr{round(aovresult$"Chisq diff"[2],2)}, 
 $p < \Sexpr{sprintf("%5.4f",aovresult$"Pr(>Chisq)"[2]+.0001)}$, but 
@@ -1357,7 +1311,6 @@ The result also adds to the list of failed attempts
 to discover science denial on the political left
 \cite<e.g.,>{Hamilton11,Hamilton15a,Hamilton15b,Hamilton15c,Kahan10a,Lewandowsky13b,Tom18}. 
 
-%Wilson18: efficacy of critical thinking teaching
 \subsection{Attitudes towards gender differences}
 We now consider the principal novel aspect of our study,
 relating to the interplay of attitudes towards general Darwinian evolution,

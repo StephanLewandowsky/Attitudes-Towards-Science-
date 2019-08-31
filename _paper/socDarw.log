@@ -1,0 +1,1124 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  31 AUG 2019 19:39
+entering extended mode
+**./socDarw.tex
+(socDarw.tex
+LaTeX2e <2018-12-01>
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/apa\apa.cls
+Document Class: apa 2008/12/09 American Psychological Association format v1.3.4
+
+
+Class apa Warning: Using BibTeX with apacite for citations and references.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\size11.clo"
+File: size11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/apacite\apacite.sty
+Package: apacite 2013/07/21 v6.03 APA citation
+\c@BibCnt=\count88
+\bibleftmargin=\skip43
+\bibindent=\skip44
+\bibparsep=\skip45
+\bibitemsep=\skip46
+\biblabelsep=\skip47
+)
+\b@level@one@skip=\skip48
+\e@level@one@skip=\skip49
+\b@level@two@skip=\skip50
+\e@level@two@skip=\skip51
+\b@level@three@skip=\skip52
+\e@level@three@skip=\skip53
+\b@level@four@skip=\skip54
+\e@level@four@skip=\skip55
+\b@level@five@skip=\skip56
+\e@level@five@skip=\skip57
+\c@APAenum=\count89
+\@text@par@indent=\skip58
+\gr@box=\box27
+\gr@boxwidth=\skip59
+\gr@boxheight=\skip60
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\bm.sty"
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup4
+\symboldletters=\mathgroup5
+\symboldsymbols=\mathgroup6
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
+)
+\c@appendix=\count90
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/endnotes\endnotes.sty
+\c@endnote=\count91
+\endnotesep=\dimen103
+\@enotes=\write3
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/endfloat\endfloat.sty
+Package: endfloat 2018/03/24 v2.6 LaTeX2e package puts figures and tables at en
+d (jdm)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\c@posttable=\count92
+\efloat@postttt=\write4
+\@ef@tttopen=\count93
+\c@postfigure=\count94
+\efloat@postfff=\write5
+\@ef@fffopen=\count95
+
+*** Using endfloat.cfg ***
+(endfloat.cfg ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\rotating.sty"
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count96
+\rotFPtop=\skip61
+\rotFPbot=\skip62
+\rot@float@box=\box28
+\rot@mess@toks=\toks15
+)))
+\openout5 = `socDarw.fff'.
+
+ (socDarw.fff)
+\openout4 = `socDarw.ttt'.
+
+
+(socDarw.ttt)) ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\color.sty"
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip63
+\fb@frw=\dimen106
+\fb@frh=\dimen107
+\FrameRule=\dimen108
+\FrameSep=\dimen109
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\alltt.sty"
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+("C:/Program Files/R/R-3.5.2/share/texmf\tex/latex\Sweave.sty"
+Package: Sweave 
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2019/01/15
+
+Style option: `fancyvrb' v3.2a <2019/01/15> (tvz)
+\FV@CodeLineNo=\count97
+\FV@InFile=\read1
+\FV@TabBox=\box29
+\c@FancyVerbLine=\count98
+\FV@StepNumber=\count99
+\FV@OutFile=\write6
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\textcomp.sty"
+Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1enc.dfu"
+File: ts1enc.dfu 2018/10/05 v1.2f UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+FEFF (decimal 65279)
+))
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\fontenc.sty"
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\t1enc.def"
+File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/ae\ae.sty"
+Package: ae 2001/02/12 1.3 Almost European Computer Modern
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\fontenc.sty"
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\t1enc.def"
+File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+)
+LaTeX Font Info:    Try loading font information for T1+aer on input line 105.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/ae\t1aer.fd"
+File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
+))))
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\longtable.sty"
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip64
+\LTright=\skip65
+\LTpre=\skip66
+\LTpost=\skip67
+\LTchunksize=\count100
+\LTcapwidth=\dimen110
+\LT@head=\box30
+\LT@firsthead=\box31
+\LT@foot=\box32
+\LT@lastfoot=\box33
+\LT@cols=\count101
+\LT@rows=\count102
+\c@LT@tables=\count103
+\c@LT@chunks=\count104
+\LT@p@ftn=\toks16
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty"
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip68
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen111
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+LaTeX Info: Redefining \boldsymbol on input line 28.
+\pmbraise@=\dimen112
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count105
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count106
+\leftroot@=\count107
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count108
+\DOTSCASE@=\count109
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box34
+\strutbox@=\box35
+\big@size=\dimen113
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count110
+\c@MaxMatrixCols=\count111
+\dotsspace@=\muskip10
+\c@parentequation=\count112
+\dspbrk@lvl=\count113
+\tag@help=\toks18
+\row@=\count114
+\column@=\count115
+\maxfields@=\count116
+\andhelp@=\toks19
+\eqnshift@=\dimen114
+\alignsep@=\dimen115
+\tagshift@=\dimen116
+\tagwidth@=\dimen117
+\totwidth@=\dimen118
+\lineht@=\dimen119
+\@envbody=\toks20
+\multlinegap=\skip69
+\multlinetaggap=\skip70
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/multirow\multirow.sty"
+Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
+\multirow@colwidth=\skip71
+\multirow@cntb=\count117
+\multirow@dima=\skip72
+\bigstrutjot=\dimen120
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/todonotes\todonotes.sty
+Package: todonotes 2019/01/24 v1.1.2 Todonotes source and documentation.
+Package: todonotes 2018/11/22
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/xkeyval\xkeyval.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/xkeyval\xkvutils.tex"
+\XKV@toks=\toks22
+\XKV@tempa@toks=\toks23
+)
+\XKV@depth=\count118
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/frontendlayer\tikz.sty
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/utilities\pgfrcs.sty
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfutil-co
+mmon.tex
+\pgfutil@everybye=\toks24
+\pgfutil@tempdima=\dimen121
+\pgfutil@tempdimb=\dimen122
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfutil-co
+mmon-lists.tex))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfutil-la
+tex.def
+\pgfutil@abb=\box36
+ (C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/ms\everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfrcs.cod
+e.tex
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2019/02/02 v3.1.1 (3.1.1)
+))
+Package: pgf 2019/02/02 v3.1.1 (3.1.1)
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/basiclayer\pgfcore.sty
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/systemlayer\pgfsys.sty
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/systemlayer\pgfsys.c
+ode.tex
+Package: pgfsys 2019/02/02 v3.1.1 (3.1.1)
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfkeys.co
+de.tex
+\pgfkeys@pathtoks=\toks25
+\pgfkeys@temptoks=\toks26
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfkeysfil
+tered.code.tex
+\pgfkeys@tmptoks=\toks27
+))
+\pgf@x=\dimen123
+\pgf@y=\dimen124
+\pgf@xa=\dimen125
+\pgf@ya=\dimen126
+\pgf@xb=\dimen127
+\pgf@yb=\dimen128
+\pgf@xc=\dimen129
+\pgf@yc=\dimen130
+\w@pgf@writea=\write7
+\r@pgf@reada=\read2
+\c@pgf@counta=\count119
+\c@pgf@countb=\count120
+\c@pgf@countc=\count121
+\c@pgf@countd=\count122
+\t@pgf@toka=\toks28
+\t@pgf@tokb=\toks29
+\t@pgf@tokc=\toks30
+\pgf@sys@id@count=\count123
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/systemlayer\pgf.cfg
+File: pgf.cfg 2019/02/02 v3.1.1 (3.1.1)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/systemlayer\pgfsys-p
+dftex.def
+File: pgfsys-pdftex.def 2019/02/02 v3.1.1 (3.1.1)
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/systemlayer\pgfsys-c
+ommon-pdf.def
+File: pgfsys-common-pdf.def 2019/02/02 v3.1.1 (3.1.1)
+)))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/systemlayer\pgfsysso
+ftpath.code.tex
+File: pgfsyssoftpath.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfsyssoftpath@smallbuffer@items=\count124
+\pgfsyssoftpath@bigbuffer@items=\count125
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/systemlayer\pgfsyspr
+otocol.code.tex
+File: pgfsysprotocol.code.tex 2019/02/02 v3.1.1 (3.1.1)
+))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore.c
+ode.tex
+Package: pgfcore 2019/02/02 v3.1.1 (3.1.1)
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmath.code.te
+x
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathcalc.cod
+e.tex
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathutil.cod
+e.tex)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathparser.c
+ode.tex
+\pgfmath@dimen=\dimen131
+\pgfmath@count=\count126
+\pgfmath@box=\box37
+\pgfmath@toks=\toks31
+\pgfmath@stack@operand=\toks32
+\pgfmath@stack@operation=\toks33
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfunction
+s.code.tex
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfunction
+s.basic.code.tex)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfunction
+s.trigonometric.code.tex)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfunction
+s.random.code.tex)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfunction
+s.comparison.code.tex)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfunction
+s.base.code.tex)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfunction
+s.round.code.tex)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfunction
+s.misc.code.tex)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfunction
+s.integerarithmetics.code.tex)))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfloat.co
+de.tex
+\c@pgfmathroundto@lastzeros=\count127
+))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcorepo
+ints.code.tex
+File: pgfcorepoints.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@picminx=\dimen132
+\pgf@picmaxx=\dimen133
+\pgf@picminy=\dimen134
+\pgf@picmaxy=\dimen135
+\pgf@pathminx=\dimen136
+\pgf@pathmaxx=\dimen137
+\pgf@pathminy=\dimen138
+\pgf@pathmaxy=\dimen139
+\pgf@xx=\dimen140
+\pgf@xy=\dimen141
+\pgf@yx=\dimen142
+\pgf@yy=\dimen143
+\pgf@zx=\dimen144
+\pgf@zy=\dimen145
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcorepa
+thconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@path@lastx=\dimen146
+\pgf@path@lasty=\dimen147
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcorepa
+thusage.code.tex
+File: pgfcorepathusage.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@shorten@end@additional=\dimen148
+\pgf@shorten@start@additional=\dimen149
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcoresc
+opes.code.tex
+File: pgfcorescopes.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfpic=\box38
+\pgf@hbox=\box39
+\pgf@layerbox@main=\box40
+\pgf@picture@serial@count=\count128
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcoregr
+aphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgflinewidth=\dimen150
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcoretr
+ansformations.code.tex
+File: pgfcoretransformations.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@pt@x=\dimen151
+\pgf@pt@y=\dimen152
+\pgf@pt@temp=\dimen153
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcorequ
+ick.code.tex
+File: pgfcorequick.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcoreob
+jects.code.tex
+File: pgfcoreobjects.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcorepa
+thprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcorear
+rows.code.tex
+File: pgfcorearrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfarrowsep=\dimen154
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcoresh
+ade.code.tex
+File: pgfcoreshade.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@max=\dimen155
+\pgf@sys@shading@range@num=\count129
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcoreim
+age.code.tex
+File: pgfcoreimage.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcoreex
+ternal.code.tex
+File: pgfcoreexternal.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfexternal@startupbox=\box41
+))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcorela
+yers.code.tex
+File: pgfcorelayers.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcoretr
+ansparency.code.tex
+File: pgfcoretransparency.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcorepa
+tterns.code.tex
+File: pgfcorepatterns.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcorerd
+f.code.tex
+File: pgfcorerdf.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/modules\pgfmodulesha
+pes.code.tex
+File: pgfmoduleshapes.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfnodeparttextbox=\box42
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/modules\pgfmoduleplo
+t.code.tex
+File: pgfmoduleplot.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/compatibility\pgfcomp-
+version-0-65.sty
+Package: pgfcomp-version-0-65 2019/02/02 v3.1.1 (3.1.1)
+\pgf@nodesepstart=\dimen156
+\pgf@nodesepend=\dimen157
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/compatibility\pgfcomp-
+version-1-18.sty
+Package: pgfcomp-version-1-18 2019/02/02 v3.1.1 (3.1.1)
+))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/utilities\pgffor.sty
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/utilities\pgfkeys.sty
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfkeys.co
+de.tex))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmath.code.te
+x))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgffor.cod
+e.tex
+Package: pgffor 2019/02/02 v3.1.1 (3.1.1)
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmath.code.te
+x)
+\pgffor@iter=\dimen158
+\pgffor@skip=\dimen159
+\pgffor@stack=\toks34
+\pgffor@toks=\toks35
+))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/frontendlayer/tikz\t
+ikz.code.tex
+Package: tikz 2019/02/02 v3.1.1 (3.1.1)
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/libraries\pgflibrary
+plothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgf@plot@mark@count=\count130
+\pgfplotmarksize=\dimen160
+)
+\tikz@lastx=\dimen161
+\tikz@lasty=\dimen162
+\tikz@lastxsaved=\dimen163
+\tikz@lastysaved=\dimen164
+\tikzleveldistance=\dimen165
+\tikzsiblingdistance=\dimen166
+\tikz@figbox=\box43
+\tikz@figbox@bg=\box44
+\tikz@tempbox=\box45
+\tikz@tempbox@bg=\box46
+\tikztreelevel=\count131
+\tikznumberofchildren=\count132
+\tikznumberofcurrentchild=\count133
+\tikz@fig@count=\count134
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/modules\pgfmodulemat
+rix.code.tex
+File: pgfmodulematrix.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfmatrixcurrentrow=\count135
+\pgfmatrixcurrentcolumn=\count136
+\pgf@matrix@numberofcolumns=\count137
+)
+\tikz@expandcount=\count138
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/frontendlayer/tikz/l
+ibraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)))
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/frontendlayer/tikz/l
+ibraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/frontendlayer/tikz/l
+ibraries\tikzlibraryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/frontendlayer/tikz/l
+ibraries\tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/libraries\pgflibrary
+fadings.code.tex
+File: pgflibraryfadings.code.tex 2019/02/02 v3.1.1 (3.1.1)
+))) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count139
+\calc@Bcount=\count140
+\calc@Adimen=\dimen167
+\calc@Bdimen=\dimen168
+\calc@Askip=\skip73
+\calc@Bskip=\skip74
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count141
+\calc@Cskip=\skip75
+)
+\c@@todonotes@numberoftodonotes=\count142
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/url\url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(socDarw.aux)
+\openout1 = `socDarw.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 128.
+
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 128.
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/apa\english.apa
+File: english.apa 2006/01/01
+)
+\c@maskedRefs=\count143
+
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/apacite\english.apc
+File: english.apc 2013/07/21 v6.03 apacite language file
+LaTeX Info: Redefining \BPBI on input line 129.
+LaTeX Info: Redefining \BHBI on input line 130.
+)
+(C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/context/base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count144
+\scratchdimen=\dimen169
+\scratchbox=\box47
+\nofMPsegments=\count145
+\nofMParguments=\count146
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count147
+\MPscratchDim=\dimen170
+\MPnumerator=\count148
+\makeMPintoPDFobject=\count149
+\everyMPtoPDFconversion=\toks37
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+))))
+("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\ifpdf.sty"
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+ABD: EveryShipout initializing macros [1{C:/Users/Lewan/AppData/Local/MiKTeX/2.
+9/pdftex/config/pdftex.map}
+
+] [2] [3] [4]
+\openout3 = `socDarw.ent'.
+
+ [5] [6] [7] [8] [9] [10]
+LaTeX Font Info:    Try loading font information for T1+aett on input line 541.
+
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/ae\t1aett.fd"
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+) [11] [12] [13] [14]
+[15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] (socDarw.bbl
+[27] [28
+
+] [29] [30] [31] [32] [33] [34] [35]) [36]
+Overfull \hbox (23.99998pt too wide) in alignment at lines 1636--1677
+ [] [] 
+ []
+
+
+Overfull \hbox (23.99998pt too wide) in alignment at lines 1677--1720
+ [] [] 
+ []
+
+[37]
+Overfull \hbox (23.99998pt too wide) in alignment at lines 1720--1750
+ [] [] 
+ []
+
+[38] [39] [40] (../_outputTex/_t.freemarket.tex
+Overfull \hbox (1.05293pt too wide) in paragraph at lines 1770--1
+[]|\T1/aer/m/n/10.95 FMUnresBest| 
+ []
+
+
+Overfull \hbox (6.65907pt too wide) in paragraph at lines 2--2
+[]|\T1/aer/m/n/10.95 FMLimitSocial| 
+ []
+
+
+Overfull \hbox (3.97661pt too wide) in paragraph at lines 4--4
+[]|\T1/aer/m/n/10.95 FMThreatEnv| 
+ []
+
+) (../_outputTex/_t.relig.tex) (../_outputTex/_t.evo.tex
+Overfull \hbox (2.9034pt too wide) in paragraph at lines 2--2
+[]|\T1/aer/m/n/10.95 EvoSupported| 
+ []
+
+)
+Overfull \hbox (66.77336pt too wide) in alignment at lines 1755--1788
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(../_outputTex/_t.vax.tex) (../_outputTex/_t.cam.tex
+Overfull \hbox (1.56755pt too wide) in paragraph at lines 5--5
+[]|\T1/aer/m/n/10.95 CAMSuperior| 
+ []
+
+) (../_outputTex/_t.mwevo.tex
+Overfull \hbox (12.67084pt too wide) in paragraph at lines 3--3
+[]|\T1/aer/m/n/10.95 MWEvoNurture| 
+ []
+
+
+Overfull \hbox (2.98024pt too wide) in paragraph at lines 4--4
+[]|\T1/aer/m/n/10.95 MWEvoTraits| 
+ []
+
+)
+Overfull \hbox (66.77336pt too wide) in alignment at lines 1788--1823
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(../_outputTex/_t.mwnat.tex
+Overfull \hbox (5.80533pt too wide) in paragraph at lines 1826--1
+[]|\T1/aer/m/n/10.95 MWNatStrong| 
+ []
+
+
+Overfull \hbox (11.10521pt too wide) in paragraph at lines 2--2
+[]|\T1/aer/m/n/10.95 MWNatAggress| 
+ []
+
+
+Overfull \hbox (6.4186pt too wide) in paragraph at lines 3--3
+[]|\T1/aer/m/n/10.95 MWNatCaring| 
+ []
+
+
+Overfull \hbox (2.52031pt too wide) in paragraph at lines 4--4
+[]|\T1/aer/m/n/10.95 MWNatTraits| 
+ []
+
+) (../_outputTex/_t.mwequ.tex
+Overfull \hbox (12.01361pt too wide) in paragraph at lines 3--3
+[]|\T1/aer/m/n/10.95 MWEquCulture| 
+ []
+
+
+Overfull \hbox (5.47693pt too wide) in paragraph at lines 4--4
+[]|\T1/aer/m/n/10.95 MWEquNoBio| 
+ []
+
+
+Overfull \hbox (5.63019pt too wide) in paragraph at lines 5--5
+[]|\T1/aer/m/n/10.95 MWEquInvent| 
+ []
+
+)
+Overfull \hbox (66.77336pt too wide) in alignment at lines 1823--1846
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[41] [42] [43] [44] [45] [46] (socDarw.ent)
+AED endfloat: Processing end Figures and Tables [47] (socDarw.ttt
+Overfull \hbox (12.1732pt too wide) in paragraph at lines 9--114
+[][] 
+ []
+
+(../_outputTex/_t.lvcor.tex) (../_outputTex/_t.compcor.tex)
+(../_outputTex/_t.crtcor.tex)
+Overfull \hbox (27.53595pt too wide) in paragraph at lines 206--224
+ [][] 
+ []
+
+) [48] [49] [50] [51] (socDarw.lof [52
+
+
+
+])
+\tf@lof=\write8
+\openout8 = `socDarw.lof'.
+
+ [53] (socDarw.fff
+<"../_figures/"dilemmas.pdf, id=204, 822.5469pt x 432.56847pt>
+File: "../_figures/"dilemmas.pdf Graphic file (type pdf)
+<use "../_figures/"dilemmas.pdf>
+Package pdftex.def Info: "../_figures/"dilemmas.pdf  used on input line 6.
+(pdftex.def)             Requested size: 433.62pt x 228.03911pt.
+File: "../_figures/"dilemmas.pdf Graphic file (type pdf)
+<use "../_figures/"dilemmas.pdf>
+Package pdftex.def Info: "../_figures/"dilemmas.pdf  used on input line 6.
+(pdftex.def)             Requested size: 346.89731pt x 182.42996pt.
+File: "../_figures/"dilemmas.pdf Graphic file (type pdf)
+<use "../_figures/"dilemmas.pdf>
+Package pdftex.def Info: "../_figures/"dilemmas.pdf  used on input line 6.
+(pdftex.def)             Requested size: 346.89731pt x 182.42996pt.
+
+
+LaTeX Warning: Float too large for page by 0.0376pt on input line 14.
+
+<"../_figures/"slidersSocDarw.pdf, id=205, 469.755pt x 650.43pt>
+File: "../_figures/"slidersSocDarw.pdf Graphic file (type pdf)
+<use "../_figures/"slidersSocDarw.pdf>
+Package pdftex.def Info: "../_figures/"slidersSocDarw.pdf  used on input line 1
+8.
+(pdftex.def)             Requested size: 433.62pt x 600.39774pt.
+
+LaTeX Warning: Float too large for page by 9.90274pt on input line 25.
+
+<"../_figures/"histoSocDarw.pdf, id=206, 469.755pt x 650.43pt>
+File: "../_figures/"histoSocDarw.pdf Graphic file (type pdf)
+<use "../_figures/"histoSocDarw.pdf>
+Package pdftex.def Info: "../_figures/"histoSocDarw.pdf  used on input line 29.
+
+(pdftex.def)             Requested size: 433.62pt x 600.39774pt.
+
+LaTeX Warning: Float too large for page by 9.90274pt on input line 43.
+
+<"../_figures/"finalSEM.pdf, id=207, 578.16pt x 578.16pt>
+File: "../_figures/"finalSEM.pdf Graphic file (type pdf)
+<use "../_figures/"finalSEM.pdf>
+Package pdftex.def Info: "../_figures/"finalSEM.pdf  used on input line 47.
+(pdftex.def)             Requested size: 433.62pt x 433.61893pt.
+File: "../_figures/"finalSEM.pdf Graphic file (type pdf)
+<use "../_figures/"finalSEM.pdf>
+Package pdftex.def Info: "../_figures/"finalSEM.pdf  used on input line 47.
+(pdftex.def)             Requested size: 346.89731pt x 346.89867pt.
+<"../_figures/"conslibevogrid.pdf, id=208, 867.24pt x 578.16pt>
+File: "../_figures/"conslibevogrid.pdf Graphic file (type pdf)
+<use "../_figures/"conslibevogrid.pdf>
+Package pdftex.def Info: "../_figures/"conslibevogrid.pdf  used on input line 6
+2.
+(pdftex.def)             Requested size: 433.62pt x 289.07928pt.
+File: "../_figures/"conslibevogrid.pdf Graphic file (type pdf)
+<use "../_figures/"conslibevogrid.pdf>
+Package pdftex.def Info: "../_figures/"conslibevogrid.pdf  used on input line 6
+2.
+(pdftex.def)             Requested size: 346.89731pt x 231.26872pt.
+File: "../_figures/"conslibevogrid.pdf Graphic file (type pdf)
+<use "../_figures/"conslibevogrid.pdf>
+Package pdftex.def Info: "../_figures/"conslibevogrid.pdf  used on input line 6
+2.
+(pdftex.def)             Requested size: 346.89731pt x 231.26872pt.
+
+LaTeX Warning: Float too large for page by 0.0376pt on input line 72.
+
+<"../_figures/"conslibequalitygrid.pdf, id=209, 867.24pt x 578.16pt>
+File: "../_figures/"conslibequalitygrid.pdf Graphic file (type pdf)
+<use "../_figures/"conslibequalitygrid.pdf>
+Package pdftex.def Info: "../_figures/"conslibequalitygrid.pdf  used on input l
+ine 76.
+(pdftex.def)             Requested size: 433.62pt x 289.07928pt.
+File: "../_figures/"conslibequalitygrid.pdf Graphic file (type pdf)
+<use "../_figures/"conslibequalitygrid.pdf>
+Package pdftex.def Info: "../_figures/"conslibequalitygrid.pdf  used on input l
+ine 76.
+(pdftex.def)             Requested size: 346.89731pt x 231.26872pt.
+File: "../_figures/"conslibequalitygrid.pdf Graphic file (type pdf)
+<use "../_figures/"conslibequalitygrid.pdf>
+Package pdftex.def Info: "../_figures/"conslibequalitygrid.pdf  used on input l
+ine 76.
+(pdftex.def)             Requested size: 346.89731pt x 231.26872pt.
+
+LaTeX Warning: Float too large for page by 0.0376pt on input line 87.
+
+) [54 <../_figures/dilemmas.pdf, page is rotated 90 degrees>] [55 <../_figures/
+slidersSocDarw.pdf>] [56 <../_figures/histoSocDarw.pdf>] [57 <../_figures/final
+SEM.pdf>] [58 <../_figures/conslibevogrid.pdf>] [59 <../_figures/conslibequalit
+ygrid.pdf>] (socDarw.aux) ) 
+Here is how much of TeX's memory you used:
+ 15749 strings out of 492946
+ 300633 string characters out of 3135527
+ 390997 words of memory out of 3000000
+ 19217 multiletter control sequences out of 15000+200000
+ 26873 words of font info for 59 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 62i,13n,81p,752b,512s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on socDarw.pdf (59 pages, 362563 bytes).
+PDF statistics:
+ 303 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+

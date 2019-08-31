@@ -1,0 +1,116 @@
+qvarname,reverse,shortname,longname
+StartDate,,,Start Date
+EndDate,,,End Date
+Status,,,Response Type
+IPAddress,,,IP Address
+Progress,,,Progress
+Duration (in seconds),,,Duration (in seconds)
+Finished,,,Finished
+RecordedDate,,,Recorded Date
+ResponseId,,,Response ID
+RecipientLastName,,,Recipient Last Name
+RecipientFirstName,,,Recipient First Name
+RecipientEmail,,,Recipient Email
+ExternalReference,,,External Data Reference
+LocationLatitude,,,Location Latitude
+LocationLongitude,,,Location Longitude
+DistributionChannel,,,Distribution Channel
+UserLanguage,,,User Language
+consentChecks,,,Please indicate your consent below to proceed:
+Qage,,Age,What is your age?
+Qgender,,Gender,What is your gender?
+QB_1,,Abortion,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Abortion"
+QB_2,,Welfare,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Welfare benefits"
+QB_3,,Tax,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Tax"
+QB_4,,Immigration,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Immigration"
+QB_5,,LimGov,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Limited government"
+QB_6,,Military,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Military and national security"
+QB_7,,Religion,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Religion"
+QB_8,,Guns,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Gun ownership"
+QB_9,,TradMarriage,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Traditional marriage"
+QB_10,,TradValues,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Traditional values"
+QB_11,,FiscalResp,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Fiscal responsibility"
+QB_12,,Business,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Business"
+QB_13,,Family,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - The family unit"
+QB_14,,Patriotism,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Patriotism"
+QB_15,,AFQ20,"Please indicate the extent to which you feel positive or negative towards each issue. Scores of 0 indicate greater negativity, and scores of 100 indicate greater positivity. Scores of 50 indicate that you feel neutral about the issue. - Please select 'twenty' on the scale"
+QBT_First Click,,,Timing - First Click
+QBT_Last Click,,,Timing - Last Click
+QBT_Page Submit,,,Timing - Page Submit
+QBT_Click Count,,,Timing - Click Count
+QC.1,,FMUnresBest,An economic system based on free markets unrestrained by government interference automatically works best to meet human needs.
+QC.2,R,FMLimitSocial ,The free market system may be efficient for resource allocation but it is limited in its capacity to promote social justice.
+QC.3,,FMMoreImp,The preservation of the free market system is more important than localized environmental concerns
+QC.4,R,FMThreatEnv ,Free and unregulated markets pose important threats to sustainable development.
+QC.5,R,FMUnsustain ,The free market system is likely to promote unsustainable consumption.
+QE.1,,EvoAnimals,I believe that animals have changed over time by a process of evolution .
+QE.2,,EvoSupported,I accept evolution by natural selection as a well-supported scientific theory.
+QE.3,,EvoSpecies,"I believe that all species, including humans, have a common evolutionary origin."
+QE.4,R,EvoCreated,I believe that species were created individually and do not change over time.
+QE.5,R,EvoCrisis,I believe that the theory of evolution by natural selection is in crisis and about to be overturned.
+QF.1,R,CAMDanger,Complementary medicine can be dangerous in that it may prevent people getting proper treatment.
+QF.2,,CAMCure,"Complementary medicine builds up the body’s own defenses, so leading to a permanent cure."
+QF.3,R,CAMIneffect,Homeopathy has been shown again and again to be ineffective as a cure for anything.
+QF.4,,CAMSaves,Complementary medicine has often saved the lives of patients who were already given up by conventional doctors.
+QF.5,,CAMSuperior,"Complementary medicine is superior to conventional medicine in treating chronic ailments such as allergies, headaches, and back pains."
+QH.1,,MWEvoDiff,Men and women evolved to be different and these biological differences cannot be overcome by education.
+QH.2,,MWEvoViol,Evolutionary history has predisposed men more strongly than women towards violence.
+QH.3,,MWEvoNurture,Evolutionary history has predisposed women more strongly than men towards being helpful and nurturing.
+QH.4,,MWEvoTraits,All human traits are the product of evolution and therefore resist change.
+QH.5,,MWEvoDiff2,Thousands of years of evolution explain why differences between men and women are very difficult to overcome.
+QI.1,,MWNatStrong,Men are naturally stronger than women and those differences cannot be overcome by education.
+QI.2,,MWNatAggress,It is the in the nature of men to be physically aggressive more often than women.
+QI.3,,MWNatCaring,Women are naturally more caring and socially supportive than men.
+QI.4,,MWNatTraits,All human traits are part of our natural makeup and therefore very difficult to change.
+QI.5,,MWNatDiff,"Men and women are naturally different from each other and those differences are bound to stay, even if we try hard to overcome them."
+QJ.1,,MWEqu,Men and women are equally capable and powerful in all respects.
+QJ.2,,MWEquDiff,All differences between men and women are created by society and can be eliminated if we change society.
+QJ.3,,MWEquCulture,Without the pressures of culture and society women would be as much in control as men.
+QJ.4,,MWEquNoBio,There are no biological or physical reasons that prevent a girl today to achieve as much as a boy.
+QJ.5,,MWEquInvent,"The categories ""male"" and ""female"" are primarily cultural inventions that have little basis in human nature."
+QAC,,AFQAnimal,Which of these is not an animal?
+QD.1,,RelComf,"Do you agree with the following statement? ""Religion gives me a great amount of comfort and security in my life."""
+QD.2,,RelGod,I believe in God.
+QD.3,,RelAfterlife,I believe in some kind of afterlife.
+QD.4,R,RelNatWorld,I do not think religion can or should make claims about the natural world.
+QD.5,R,RelRelig,I do not consider myself a religious person.
+QG.1,,VaxSafe  ,I believe that vaccines are a safe and reliable way to help avert the spread of preventable diseases
+QG.2,R,VaxNegSide  ,I believe that vaccines have negative side effects that outweigh the benefits of vaccination for children
+QG.3,,VaxTested  ,Vaccines are thoroughly tested in the laboratory and wouldn't be made available to the public unless it was known that they are safe
+QG.4,R,VaxRisky ,The risk of vaccinations to maim and kill children outweighs their health benefits
+QG.5,,VaxContrib ,Vaccinations are one of the most significant contributions to public health
+CRT.1_1,,CRT1,"A
+bat and a ball cost $1.10 in total. The bat costs a dollar more than the ball.
+How much does the ball cost? - [cents]"
+CRT.1T_First Click,,,Timing - First Click
+CRT.1T_Last Click,,,Timing - Last Click
+CRT.1T_Page Submit,,,Timing - Page Submit
+CRT.1T_Click Count,,,Timing - Click Count
+CRT.2_1,,CRT2,"If
+it takes 5 machines 5 min to make 5 widgets, how long would it take 100
+machines to make 100 widgets? - [minutes]"
+CRT.2T_First Click,,,Timing - First Click
+CRT.2T_Last Click,,,Timing - Last Click
+CRT.2T_Page Submit,,,Timing - Page Submit
+CRT.2T_Click Count,,,Timing - Click Count
+CRT.3_1,,CRT3,"In
+a lake, there is a patch of lily pads. Every day, the patch doubles in size. If
+it takes 48 days for the patch to cover the entire lake, how long would it take
+for the patch to cover half of the lake? - [days]"
+CRT.3T_First Click,,,Timing - First Click
+CRT.3T_Last Click,,,Timing - Last Click
+CRT.3T_Page Submit,,,Timing - Page Submit
+CRT.3T_Click Count,,,Timing - Click Count
+randomTrack,,,randomTrack
+passCode,,,passCode
+saveCountry,,,saveCountry
+saveCountryCode,,,saveCountryCode
+saveCity,,,saveCity
+rid,,,rid
+RISN,,,RISN
+opp,,,opp
+Q_TotalDuration,,,Q_TotalDuration
+V,,,V
+gc,,,gc
+term,,,term
+age,,,age

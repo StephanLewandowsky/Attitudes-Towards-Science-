@@ -1,6 +1,7 @@
 #' ---
 #' title: "Analysis of Qualtrics Data L'sky - Woike - Oberauer"
 #' ---
+
 #analyze qualtrics darwinian evolution representative sample 
 rm(list=ls())
 library(lattice)
@@ -128,6 +129,8 @@ if (correctaffirmbias) {
   
 } else {
   darwin1.5$affirmbias <- 0
+  revmean <- NA   #so LaTex compilation does not crash
+  posmean <- NA
 }
 
 #* --------------------- reverse score such that polarity is: -----------------------------------------------------
@@ -258,6 +261,32 @@ cor(compositedarwin)
 histogram(~cam|gender,data=compositedarwin)
 aggregate(cam~gender,data=compositedarwin,FUN=mean)
 
+
+## ---- Deal with CRT --------------------------------------------------------------------------------
+crt1 <- darwin2$CRT.1_1 %>% as.character %>% str_to_lower %>% str_replace(.,"cents","") %>% str_replace(.,"$","") %>% as.numeric
+crt1 <- sapply(crt1,FUN=function(x) ifelse(x>=5,x/100,x)) #convert from cents to dollars where applicable
+
+crt2 <- darwin2$CRT.2_1 %>% as.character %>% str_to_lower %>% str_replace(.,"minutes","") %>% str_replace(.,"min","") %>%  as.numeric
+
+crt3 <- darwin2$CRT.3_1 %>% as.character %>% str_to_lower %>% str_replace(.,"days","") %>% as.numeric
+
+darwin2$crtScore <- apply(cbind(crt1==.05,crt2==5,crt3==47),1,sum,na.rm=TRUE)
+crtnums <- table(darwin2$crtScore)
+crtperc <- round(crtnums/sum(crtnums)*100,2)
+crtmn   <- mean(darwin2$crtScore) 
+
+#check if CRT can be added to SEM by using measurement model with ordered variables
+tmp.data <- data.frame(crt1==.05,crt2==5,crt3==47)
+names(tmp.data) <- c("crt1", "crt2", "crt3") 
+compositedarwin <- data.frame(compositedarwin,tmp.data)
+
+crtmodel <- c("crtFac =~ a*crt1 + a*crt2 + a*crt3")
+crtmodfit <- sem(crtmodel, data=compositedarwin, missing="pairwise", ordered = c("crt1", "crt2", "crt3"), std.lv=TRUE) 
+summary(crtmodfit, standardized=TRUE, fit.measures=TRUE)
+crtmodgof <- fitMeasures(crtmodfit)
+
+
+
 #*------------- correlation structure among latent constructs -----------------------------------------------------
 smallCorrel <- c("
                  evoFac   =~ evo
@@ -292,7 +321,8 @@ modelCorrel <- c("
                  religFac =~ relig
                  vaxFac   =~ vax
                  consFac  =~ bc*cons
-                 bc > 0                 
+                 bc > 0             
+                 crtFac =~ a*crt1 + a*crt2 + a*crt3
                  
                  fm ~~",     fmSI$eSImod,    "*fm",
                  "evo ~~ ",  evoSI$eSImod,   "*evo",
@@ -313,15 +343,15 @@ modelCorrel <- c("
  
  #now compute p-values
  pvals2tailed <- pnorm(abs(inspect(fitCorrel,what="est")$psi/inspect(fitCorrel,what="se")$psi),lower.tail = FALSE)*2
- colnames(pvals2tailed) <- rownames(pvals2tailed) <- c(clusterlabels,"Conservatism")
+ colnames(pvals2tailed) <- rownames(pvals2tailed) <- c(clusterlabels,"Conservatism","CRT")
  pvals2tailed[upper.tri(pvals2tailed)] <- 0
  
   #get matrix printed
  lvcormat <- lavInspect(fitCorrel, what = "cor.lv")
  lvcormat[upper.tri(lvcormat,diag=TRUE)] <- NA
- colnames(lvcormat) <- rownames(lvcormat) <- c(clusterlabels,"Conservatism")
+ colnames(lvcormat) <- rownames(lvcormat) <- c(clusterlabels,"Conservatism","CRT")
  cormat <- stargazer(lvcormat, title="Correlations among all latent variables") 
- for (i in 1:9) {
+ for (i in 1:10) {
    lvcp<-i+11
    cormat[lvcp] <- str_replace_all(cormat[lvcp],fixed("$-$"),"-")
    sigs<-unique(as.numeric(round(lvcormat[i,which(pvals2tailed[i,]>.05)],3)))
@@ -337,21 +367,58 @@ modelCorrel <- c("
      }
    }
  }
- write.table(cormat[13:20],file=paste(texdir,"_t.lvcor.tex",sep="/"),quote=FALSE,col.names=FALSE,row.names=FALSE) 
+ write.table(cormat[13:21],file=paste(texdir,"_t.lvcor.tex",sep="/"),quote=FALSE,col.names=FALSE,row.names=FALSE) 
  
  #now look at effects of gender: unconstrained first
  fitCorrelFM <- sem(modelCorrel, compositedarwin, 
                                       std.lv=TRUE, estimator="ML",
                                       group="gender")
  summary(fitCorrelFM,standardized=TRUE, fit.measures=TRUE)
+ #now constrain all
  fitCorrelFM2 <- sem(modelCorrel, compositedarwin, 
                                       std.lv=TRUE, estimator="ML",
                                       group="gender",
                                       group.equal = c("lv.covariances"))
  summary(fitCorrelFM2,standardized=TRUE, fit.measures=TRUE)
- aovresult <- anova(fitCorrelFM,fitCorrelFM2)
+ 
+ #and finally partial constraints embodied in model
+ modelCorrelcons <- c("
+                  fmFac    =~ fm
+                 evoFac   =~ evo
+                 camFac   =~ cam
+                 mwevoFac =~ mwevo
+                 mwnatFac =~ mwnat
+                 mwequFac =~ mwequ
+                 religFac =~ relig
+                 vaxFac   =~ vax
+                 consFac  =~ bc*cons
+                 bc > 0        
+                  crtFac =~ a*crt1 + a*crt2 + a*crt3
+                 
+                 mwevoFac ~~ c(v1,v1)*mwnatFac
+                 mwevoFac ~~ c(v2,v2)*mwequFac
+                 mwnatFac ~~ c(v3,v3)*mwequFac
+                 
+                 fm ~~",     fmSI$eSImod,    "*fm",
+                  "evo ~~ ",  evoSI$eSImod,   "*evo",
+                  "cam ~~",   camSI$eSImod,   "*cam",
+                  "mwevo ~~", mwevoSI$eSImod, "*mwevo",
+                  "mwnat ~~", mwnatSI$eSImod, "*mwnat",
+                  "mwequ ~~", mwequSI$eSImod, "*mwequ",
+                  "relig ~~", religSI$eSImod, "*relig",
+                  "cons ~~",  consSI$eSImod,  "*cons",
+                  "vax ~~",   vaxSI$eSImod,   "*vax"
+ )
+ fitCorrelFM3 <- sem(modelCorrelcons, compositedarwin, 
+                     std.lv=TRUE, estimator="ML",
+                     group="gender")
+ summary(fitCorrelFM3,standardized=TRUE, fit.measures=TRUE)
+ 
+ aovresult <- anova(fitCorrelFM,fitCorrelFM3,fitCorrelFM2)
  equcovgof <- fitMeasures(fitCorrelFM2)
+ equpartcovgof <- fitMeasures(fitCorrelFM3)
 
+ 
  
 #* ------------- Now model various scientific propositions, each on its own first -------------
  # Rejection of CAM : with mwnatFac as well as mwevoFac as predictor, cov matrix not positive definite.
@@ -460,11 +527,40 @@ modelCorrel <- c("
  semPaths(fitVax, what="std", title =FALSE, curvePivot = TRUE,residuals=FALSE,
           structural=TRUE, layout="tree2",rotation=2)
  
+ 
+ #2nd order factor vax as function of all of politics combined
+ modelVax2O <- c("vaxFac  ~ allPolFac + fmFac
+                  allPolFac =~ fmFac + consFac + religFac
+                  
+                  fmFac    =~ bc*fm
+                  consFac  =~ bc*cons
+                  bc > 0
+                  religFac =~ relig
+                  vaxFac   =~ vax
+
+                  fm ~~",     fmSI$eSImod,    "*fm",
+                 "cons ~~",  consSI$eSImod, "*cons",
+                 "relig ~~", religSI$eSImod, "*relig",
+                 
+                 "vax ~~",   vaxSI$eSImod,    "*vax"
+ )
+ fitVax2O <- sem(modelVax2O, compositedarwin, std.lv=TRUE, estimator="ML")
+ summary(fitVax2O,standardized=TRUE, fit.measures=TRUE)
+ fitVax2Ogof <- fitMeasures(fitVax2O)
+#modificationIndices(fitVax2O, sort. = TRUE, maximum.number = 4)
+ 
+#reliability(fitVax2O) # Should provide a warning for the endogenous variables
+ reliabilityL2(fitVax2O, "allPolFac")
+ 
+ 
+ 
+ 
  #*-----------------------------------------------------------------------------------
- # Vax & evolution & CAM rejection: first full then slightly reduced (i.e., some covariances reduced to 0)
- modelVaxEvoCAMfull <- c("  vaxFac   ~ fmFac +  mwequFac + consFac 
+ # Vax & evolution & CAM rejection: first full then slightly reduced (i.e., some covariances reduced to 0)  
+ modelVaxEvoCAMfull <- c("  vaxFac   ~ fmFac +  mwequFac + consFac
                             evoFac   ~ fmFac +  religFac + mwequFac + mwevoFac  + consFac 
                             camFac   ~ fmFac +  religFac
+                            
                       mwnatFac =~ mwnat
                       fmFac    =~ fm
                       evoFac   =~ evo
@@ -489,13 +585,12 @@ modelCorrel <- c("
  summary(fitVaxEvoCamfull,standardized=TRUE, fit.measures=TRUE)
  
 
- modelVaxEvoCAM <- c("  vaxFac   ~ fmFac +  mwequFac + consFac 
-                        evoFac   ~ fmFac +  religFac + mwequFac + mwevoFac  + consFac 
-                        camFac   ~ fmFac +  religFac 
-
-                         mwevoFac ~~ 0*consFac
-                         evoFac   ~~ 0*camFac
-
+ modelVaxEvoCAM <- c("vaxFac   ~ fmFac +  mwequFac + consFac
+                      evoFac   ~ fmFac +  religFac + mwequFac + mwevoFac  + consFac 
+                      camFac   ~ fmFac +  religFac
+                      
+                      evoFac ~~ 0*camFac
+                 
                          mwnatFac =~ mwnat
                          fmFac    =~ fm
                          evoFac   =~ evo
@@ -504,7 +599,8 @@ modelCorrel <- c("
                          mwequFac =~ mwequ
                          religFac =~ relig
                          vaxFac   =~ vax
-                         consFac  =~ cons
+                         consFac  =~ bc*cons
+                         bc > 0
                          
                          fm ~~",     fmSI$eSImod,    "*fm",
                          "evo ~~ ",  evoSI$eSImod,   "*evo",
@@ -516,8 +612,10 @@ modelCorrel <- c("
                          "relig ~~", religSI$eSImod, "*relig",
                          "vax ~~",   vaxSI$eSImod,    "*vax"
  )
+ 
  fitVaxEvoCam <- sem(modelVaxEvoCAM, compositedarwin, std.lv=TRUE, estimator="ML")
  summary(fitVaxEvoCam,standardized=TRUE, fit.measures=TRUE)
+ modificationIndices(fitVaxEvoCam, sort. = TRUE, maximum.number = 6)
  
  aovfullvfin <- anova(fitVaxEvoCamfull,fitVaxEvoCam)
  aovfullvfindf<- aovfullvfin[["Df"]][2]- aovfullvfin[["Df"]][1]
@@ -538,20 +636,110 @@ modelCorrel <- c("
  dev.off()
  
  
+
  
-## ---- Deal with CRT --------------------------------------------------------------------------------
- crt1 <- darwin2$CRT.1_1 %>% as.character %>% str_to_lower %>% str_replace(.,"cents","") %>% str_replace(.,"$","") %>% as.numeric
- crt1 <- sapply(crt1,FUN=function(x) ifelse(x>=5,x/100,x)) #convert from cents to dollars where applicable
+ #------ Use a different route: first zero in on politics alone, then add other components.
+ polmodelVaxEvoCAM <- c("vaxFac   ~ fmFac + 0*allPolFac
+                         evoFac   ~ religFac + 0*allPolFac 
+                         camFac   ~ allPolFac 
+                        
+                         allPolFac =~ fmFac + consFac + religFac
+                        
+                         evoFac ~~ 0*camFac
+
+                         fmFac    =~ fm
+                         evoFac   =~ evo
+                         camFac   =~ cam
+                         religFac =~ relig
+                         vaxFac   =~ vax
+                         consFac  =~ cons
+                         
+                         fm ~~",     fmSI$eSImod,    "*fm",
+                     "evo ~~ ",  evoSI$eSImod,   "*evo",
+                     "cam ~~",   camSI$eSImod,   "*cam",
+                     
+                     "cons ~~",  consSI$eSImod, "*cons",
+                     "relig ~~", religSI$eSImod, "*relig",
+                     "vax ~~",   vaxSI$eSImod,    "*vax"
+ )
+ fitPolVaxEvoCam <- sem(polmodelVaxEvoCAM, compositedarwin, std.lv=TRUE, estimator="ML")
+ summary(fitPolVaxEvoCam,standardized=TRUE, fit.measures=TRUE) 
+ finalpolmodelgof <- fitMeasures(fitPolVaxEvoCam)
  
- crt2 <- darwin2$CRT.2_1 %>% as.character %>% str_to_lower %>% str_replace(.,"minutes","") %>%  as.numeric
+ fitPolVaxEvoCamfree <- sem(str_replace_all(polmodelVaxEvoCAM,"0\\*a","a"), compositedarwin, std.lv=TRUE, estimator="ML")
+ summary(fitPolVaxEvoCamfree,standardized=TRUE, fit.measures=TRUE) 
  
- crt3 <- darwin2$CRT.3_1 %>% as.character %>% str_to_lower %>% str_replace(.,"days","") %>% as.numeric
+ aovpol <- anova(fitPolVaxEvoCamfree,fitPolVaxEvoCam)
+ aovpolfindf<- aovpol[["Df"]][2]- aovpol[["Df"]][1]
  
- darwin2$crtScore <- apply(cbind(crt1==.05,crt2==5,crt3==47),1,sum,na.rm=TRUE)
- crtnums <- table(darwin2$crtScore)
- crtperc <- round(crtnums/sum(crtnums)*100,2)
- crtmn   <- mean(darwin2$crtScore) 
+ lmx <- matrix(c(4,4, 1,1, 7,7, 4,7, 7,1, 1,7, 4,1)/7,nrow=7,byrow=TRUE)
+ pdf(file=paste(figdir,"finalpolSEM.pdf",sep="/"),height=8,width=8) 
+ semPaths(fitPolVaxEvoCam, "std", title =FALSE, residuals=FALSE, intercepts=FALSE,
+          sizeLat=12,sizeLat2=12,curveAdjacent="cov",arrows=TRUE,
+          curvature=5, nCharNodes=0, edge.label.cex=1.2,mar=c(3,3,3,3),
+          structural=TRUE, layout=lmx,rotation=1, thresholds = 0.01,
+          label.scale.equal=TRUE,label.prop=0.95,
+          nodeLabels=c("All politics","Free Market","Evolution","Reject\nCAM",
+                       "Religiosity","Vaccinations","Conservatism"))
+ dev.off()
  
+ 
+ #---- now add CRT to get super model
+ supermodel <- c("   vaxFac   ~ fmFac +  mwequFac + crtFac 
+                     evoFac   ~ religFac + mwevoFac  + mwnatFac + crtFac
+                     camFac   ~ allPolFac + crtFac
+                            
+                     
+                       evoFac ~~ 0* camFac
+                        mwevoFac ~~ 0* allPolFac
+                        crtFac ~~ 0*mwnatFac
+                        crtFac ~~ 0*mwevoFac
+               
+                      crtFac =~ a*crt1 + a*crt2 + a*crt3
+                      allPolFac =~ fmFac + consFac + religFac
+                      mwnatFac =~ mwnat
+                      fmFac    =~ fm
+                      evoFac   =~ evo
+                      camFac   =~ cam
+                      mwevoFac =~ mwevo
+                      mwequFac =~ mwequ
+                      religFac =~ relig
+                      vaxFac   =~ vax
+                      consFac  =~ cons
+                      
+                      fm ~~",     fmSI$eSImod,    "*fm",
+                 "evo ~~ ",  evoSI$eSImod,   "*evo",
+                 "cam ~~",   camSI$eSImod,   "*cam",
+                 "mwevo ~~", mwevoSI$eSImod, "*mwevo",
+                 "mwnat ~~", mwnatSI$eSImod, "*mwnat",
+                 "mwequ ~~", mwequSI$eSImod, "*mwequ",
+                 "cons ~~",  consSI$eSImod, "*cons",
+                 "relig ~~", religSI$eSImod, "*relig",
+                 "vax ~~",   vaxSI$eSImod,    "*vax"
+ )
+ supermodelfit <- sem(supermodel, data=compositedarwin, missing="pairwise", ordered = c("crt1", "crt2", "crt3"), std.lv=TRUE) 
+ summary(supermodelfit, standardized=TRUE, fit.measures=TRUE)
+ supermodelgof <- fitMeasures(supermodelfit)
+ modificationIndices(supermodelfit, sort. = TRUE, maximum.number = 6)
+ 
+ #for extraction of covariances
+ covars <-  supermodelfit@ParTable$op=="~~" & supermodelfit@ParTable$est != 0 & supermodelfit@ParTable$est != 1 & (supermodelfit@ParTable$lhs != supermodelfit@ParTable$rhs)
+ supermodelfit@ParTable$lhs[covars]
+ supermodelfit@ParTable$rhs[covars]
+ supermodelfit@ParTable$est[covars]
+ 
+ 
+ # pdf(file=paste(figdir,"superSEM.pdf",sep="/"),height=8,width=8) 
+ # semPaths(supermodelfit, what="std", title =FALSE, curvePivot = TRUE,residuals=FALSE, intercepts=FALSE,
+ #          sizeLat=12,sizeLat2=12,
+ #          curvature=5, nCharNodes=0, edge.label.cex=1.2,mar=c(3,10,3,3),
+ #          structural=TRUE, layout="tree",rotation=2, 
+ #          label.scale.equal=TRUE,label.prop=0.95,
+ #          #edge.label.position=c(rep(0.4,21),rep(0.5,20),rep(0.6,20)),
+ #          nodeLabels=c("CRT","M&W\nnaturally \n different","Free Market","Evolution","Reject\nCAM",
+ #                       "M&W\nevolved \ndifferently","M&W\nthe same","Religiosity","Vaccinations","Conservatism"))
+ 
+
  
 ## ---- Create mean-indicators for all clusters for correlation with CRT -------
 meanIndicators <- NULL
@@ -670,6 +858,17 @@ if (lowerab==0 & upperab==1) {
     ggfn <- paste(figdir,paste("conslibequalitygrid",lowerab,upperab,".pdf",sep=""),sep="/") 
 }
 ggsave(ggfn, plot=gridplt2, width=12, height=8)
+
+#now combine both figures as one using only the top/bottom 50%
+x11(width=12,height=8)
+ggpanels3 <- list(ggpanels[[3]],ggpanels[[4]],ggpanels2[[3]],ggpanels2[[4]])
+gridplt3 <- do.call("grid.arrange", c(ggpanels3, nrow=2))
+if (lowerab==0 & upperab==1) {
+  ggfn <- paste(figdir,"conslibequalitygridAll.pdf",sep="/") 
+} else {
+  ggfn <- paste(figdir,paste("conslibequalitygridAll",lowerab,upperab,".pdf",sep=""),sep="/") 
+}
+ggsave(ggfn, plot=gridplt3, width=12, height=8)
 
 
 

@@ -1,0 +1,1745 @@
+
+\documentclass[fignum,man]{apa}
+
+\usepackage{Sweave}
+\usepackage{apacite}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{todonotes}
+
+%\usepackage{draftwatermark}
+%\SetWatermarkText{Please do not cite}
+%\SetWatermarkScale{0.5}
+
+\usepackage[hyphens]{url}
+\usepackage{endfloat}
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+\newcommand{\helv}[1]{{\Huge\fontfamily{phv}\selectfont{#1}}}
+
+\makeatletter
+\def\input@path{{"../_outputTex/"}}
+\makeatother
+\graphicspath{{"../_figures/"}}
+
+\title{Genesis or Evolution of Gender Differences? Worldview-based Dilemmas in The Processing of Scientific Information}
+	
+\threeauthors{Stephan Lewandowsky}{Jan K. Woike}{Klaus Oberauer}
+
+\threeaffiliations{University of Bristol and University of Western Australia}
+{Max Planck Institute for Human Development}{University of Zurich}
+\abstract{Some issues that have been settled by the scientific community, such as evolution, the effectiveness of vaccinations, and the role of CO$_2$ emissions in climate change, continue to be rejected by segments of the public. This rejection is typically driven by people's worldviews,
+and to date most research has found that conservatives are uniformly more likely to reject scientific
+findings than liberals across a number of domains.
+We report a large (N$>$1,000) preregistered study that (a) examined people's attitudes
+towards complementary and alternative medicines (CAM),
+which has been anecdotally cited as being more consonant with liberals
+than conservatives, 
+and (b) examined how liberals and conservatives resolve dilemmas in which an issue triggers two opposing facets of their worldviews. We probed attitudes on gender equality and the evolution of sex differences---two constructs that may create conflicts for liberals (who endorse evolution but also equality) and conservatives (who endorse gender differences but are sceptical of evolution). We find that many conservatives reject both gender equality and evolution of sex differences, and instead embrace ``naturally occurring'' gender differences. Many liberals, by contrast, reject evolved gender differences, as well as naturally occurring gender differences, while nonetheless 
+strongly endorsing evolution. We find more support for CAM among conservatives than
+liberals.
+}
+
+\acknowledgements{Address correspondence to the first author at the 
+School of Psychological Science,
+University of Bristol,
+12a Priory Road,
+Bristol BS8 1TU, United Kingdom. email: stephan.lewandowsky@bristol.ac.uk.
+Personal web page: http://www.cogsciwa.com.}
+
+\shorttitle{Worldview-based Dilemmas}
+\rightheader{Worldview-based Dilemmas}
+\leftheader{Worldview-based Dilemmas}
+
+\ifapamodeman{%
+\note{Word count: 10,000 excluding references (approximate count due to use of \LaTeX)
+
+\begin{flushleft}
+Stephan Lewandowsky \\
+School of Psychological Science and Cabot Institute \\
+University of Bristol \\
+12a Priory Road \\
+Bristol BS8 1TU, United Kingdom \\
+stephan.lewandowsky@bristol.ac.uk \\
+URL: http://www.cogsciwa.com \\
+\end{flushleft}}
+}
+{% else, i.e., in jou and doc mode
+\note{}
+}
+\begin{document}
+\maketitle
+<<preamble, echo=FALSE, message=FALSE>>=
+knitr::opts_chunk$set(results="hide",echo=FALSE,message=FALSE,error=FALSE)
+@
+<<doanalysis, echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.keep='none'>>=
+# run the analysis which should generate figures and tables
+
+source({"../_sourceR/darwinismQ.r"})
+@
+%print big warning if the analysis is uncorreceted for affirmation bias
+\Sexpr{ifelse(correctaffirmbias,"","UNCORRECTED ANALYSIS")}
+There is no scientific debate about the fact that all species, including humans, evolved by a process of natural selection \cite{PRC15}. There is no debate in the 
+medical community about the
+vast improvement to public health that has resulted from
+widespread childhood vaccinations \cite{Whitney14}. 
+There is also overwhelming evidence that many forms
+of complementary and alternative ``medicine'' (CAM), such
+as homeopathy, are ineffective. Reliance on CAM can 
+even lead to unnecessary deaths if it 
+causes cancer patients 
+to refuse or delay evidence-based treatment \cite{Johnson18}.
+
+The scientific consensus for evolution and vaccinations, and against complementary ``medicine'', stands in sharp contrast to the
+opinions of a sizable segment of the public. 
+For example, whereas 98\% of scientists accept that
+humans evolved over time, only 65\% of the American
+public shares that view \cite{PRC15}. Similarly, whereas 86\% of scientists believe that 
+childhood vaccinations should be mandatory, this view is only 
+shared by 68\% of the public \cite{PRC15}.
+The presence of contrarian public opinions, even if they 
+are only held by a minority, can have adverse 
+consequences: anti-vaccination movements have had 
+discernable impact
+on public health \cite{Gangarosa98,Smith07b} and
+organizations that oppose evolution have 
+undermined science curricula in many American school 
+districts \cite{Watts17}.
+
+In consequence, there has been increasing research interest in
+the variables that explain why people reject scientific facts. 
+Two consistent findings have emerged from this
+research:
+First, educational attainment,
+scientific knowledge, and science literacy
+are at best modestly predictive of attitudes concerning scientific issues
+\cite<e.g.,>{Allum08,Tom18}. 
+Second, 
+people's worldviews, that is their deeply-held beliefs 
+about the world and how society should be 
+organized, have been identified as the
+preeminent predictor of attitudes towards scientific evidence
+across numerous topics. 
+In particular, in American participants, the rejection
+of science is principally associated with 
+rightwing or libertarian 
+worldviews. Whether it is climate change \cite<e.g.,>{Hamilton11,Hamilton15b,Lewandowsky13b}, 
+vaccinations \cite<e.g.,>{Hamilton15a,Kahan10a,Lewandowsky13b}, evolution \cite<e.g.,>{Hamilton15c,Tom18},
+genetically-modified organisms \cite<e.g.,>{Hamilton15c}, or even
+nuclear energy \cite<e.g.,>{Hamilton15c}, people on the political left 
+trust scientists more on those issues
+and tend to accept the pertinent scientific findings more than
+their counterparts on the political right. 
+
+Two important questions, however, remain unresolved: first, 
+are there any domains in which
+the role of worldviews is reversed---that is, do American 
+liberals reject well-established scientific findings that conservatives endorse? 
+Second, how do people respond to situations in which
+their worldview provides conflicting imperatives that are
+not readily reconcilable?
+The present study was designed to address these two questions.
+
+\subsection{Attitudinal symmetry and scientific evidence}
+In many cases, the association
+between rightwing worldviews and rejection of scientific 
+evidence is easy to understand. For example, 
+climate change is
+a direct consequence of fossil-fuel powered economic growth, and 
+successful
+climate mitigation
+will require cuts to greenhouse gas emissions \cite<e.g.,>{Knutti15}
+that 
+are not achievable without massive restructuring of the global
+economy and large-scale deployment of new 
+technologies \cite{Anderson16}. Accepting the existence and
+origins of climate change 
+is therefore tantamount to accepting that unregulated 
+markets can create problems whose solution requires state intervention---clearly a challenging proposition for many conservatives
+and libertarians. 
+Similarly, libertarians may oppose public-health measures, such as
+ mandatory 
+childhood vaccinations, because they consitute
+government intervention \cite{Kahan10a}. Evolution is typically
+opposed for religious reasons \cite{Mazur04,Miller06c,Tom18}, and 
+via the association between religiosity and 
+rightwing worldviews \cite{Malka12}, this opposition will
+also express itself when worldviews are measured to
+predict attitudes towards evolution.
+
+If conservatives' rejection of science arises because 
+the evidence
+challenges their political worldviews, then liberals might
+likewise adopt problematic attitudes or reasoning strategies
+when scientific evidence runs counter
+to their own worldviews. Previous
+attempts to discover scientific propositions that are
+rejected by the political left 
+have focused on genetically-modified organisms (GMO)
+and vaccinations, based largely on anecdotal media
+reports 
+that claimed left-wing opposition to GMO foods \cite<e.g.,>{Shermer13W} 
+and vaccinations \cite<e.g.,>{Mooney11W}. Those suggestions
+have not withstood scrutiny 
+\cite{Hamilton15c,Lewandowsky13b,Rabinowitz16}.\footnote{ Here we are
+concerned only with attitudes towards scientific issues,
+as revealed in surveys. We are not concerned with
+laboratory experiments involving synthetic stimuli, which
+have often shown ideological symmetry in people's
+reliance on cognitive shortcuts \cite<e.g.,>{Washburn17}.} 
+
+Here we continue our search for science denial on the left
+by examining attitudes towards 
+ complementary and alternative
+medicine (CAM). 
+CAM is 
+particularly suitable for this search because
+of anecdotal claims that 
+alternative medicine 
+and vaguely left-wing ideas may have found a symbiotic home
+under the ``New Age'' umbrella \cite<see, e.g.,>{Keshet09}.  
+Sociologists have also linked CAM use to ``resistance'' movements, such
+as antipharmaceutical
+activism or community development \cite{Gale14}. 
+Homeopathy, for example, has been cited as ``feminist medicine'' 
+\cite{Scott98a}. 
+On the basis of this largely qualitative research one
+might expect people on the political left
+to be more hesitant to reject CAM
+ despite the lack of scientific evidence supporting it
+ than people on the right. 
+
+\subsection{Gender equality vs. differences}
+One of the
+core tenets of liberalism is the 
+belief in the capacity to improve people
+and their circumstances. 
+This belief, often known as meliorism, 
+is at the heart of liberalism \cite<e.g.,>{Castagno17,Porter13}, 
+whereas disbelief or skepticism in that possibility
+characterizes conservatives. 
+Belief in the possibility of general human
+improvement is therefore higher among liberals than
+conservatives \cite{Miller99}. 
+One long-standing and strong implication of liberal meliorism is 
+belief in gender equality. 
+Assuming that no important difference between the sexes is given by nature makes it easier to argue that all existing differences can be remedied by societal reform. 
+Conservatives, by contrast, reject this possibility. 
+A large body of literature
+has found strong associations between conservatism and
+sexism \cite<e.g.,>{Hodson17}, and between other indicators 
+of rightwing politics such as Rightwing Authoritarianism (RWA) or 
+social dominance orientation (SDO) and sexism \cite<e.g.,>{Hellmer18,VanAssche19}.
+
+The scientific debate whether nature (i.e., biology, evolution, and
+genetics) or nurture (i.e., social variables such as parenting and 
+societal stereotypes) has a stronger influence on gender
+differences has been raging for decades \cite<for a recent review, see>{Eagly13}. Arguably, some of the positions taken 
+during this debate were shaped and constrained by ideology in addition
+to data and evidence \cite{Eagly18}.
+The involvement of ideology is unsurprising in light of
+a long-standing and deep
+fissure among American feminists and legal scholars between 
+``sameness'' and 
+``difference.'' Mid-twentieth-century feminism
+laid claim to the essential equality between men and women by
+highlighting their fundamental similarity. This 
+emphasis on sameness shifted towards greater recognition of gender
+differences in the closing decades of the twentieth century \cite{Williams89}. 
+Both approaches share the goal of
+achieving gender equality but they pursue quite different 
+strategies. For example, when confronted with the issue of pregnancy
+in the workplace, the approaches share a
+common goal---supporting pregnant women---but differ in 
+``whether to stress the similarities between
+men and women (in order to gain support for pregnant
+women) or whether (and when) to stress their differences (in order
+to gain support for pregnant women)'' \cite[p.~804]{Cain89}.
+At one end of this continuum, scholars
+search for ``feminist insights into women's true nature'' \cite[p.~4]{West88}. 
+At the other extreme, scholars 
+have replaced this ``essentialist'' view of women, 
+whether biologically
+or socially inspired, with radical social constructivism 
+\cite<e.g.,>{MacKinnon89}. 
+
+Although the scientific nature-nurture debate has not
+been conclusively resolved \cite{Eagly13}, the available
+evidence appears to rule out either extreme position. 
+For example, a purely biological invariant essentialism is
+challenged by the fact that gender-specific mate
+preferences have changed considerably over the past 50 years.
+Men
+increasingly prefer women with
+good financial prospects whereas housekeeping skills have
+become less important, and conversely, 
+women increasingly desire men with good looks
+\cite<e.g.,>{Buss01}. Overall, there has been 
+substantial convergence between the sexes in their stated
+mate preferences during the past few decades.  
+Similarly, a purely constructivist view
+of gender differences is difficult to reconcile, at
+first glance, with the fact that the more gender-equal
+countries are, the \textit{greater} their gender gap in 
+the number of graduates in science,
+technology, engineering, and mathematics \cite{Stoet18}.
+For example, 
+Finland excels in gender equality but 
+has one of the world's
+largest gender gaps in science-based college degrees. 
+
+For our study, the unresolved scientific
+status of gender differences shifts
+emphasis from comparing 
+people's attitudes to a scientific ``gold standard''---as is possible
+with issues such as evolution, vaccinations, or climate change--- 
+to examining how people resolve dilemmas arising from 
+conflicting imperatives of their worldview. 
+It turns out that liberals' 
+belief in gender equality gives 
+rise to conflicting imperatives that are not necessarily easy to resolve.
+Conservatives are similarly confronted with gender-related dilemmas,
+albeit of a different nature. 
+ 
+\subsection{Conflicting imperatives of worldview}
+The fact that humans evolved is widely accepted
+by people on the political left, and rejected by 
+some on the right \cite{Tom18}.
+Acceptance of evolution creates a potential
+dilemma for liberals, given that some evolutionary
+psychologists have been instrumental in drawing
+scientific attention to ostensibly biologically-determined
+gender differences, such as mate choice 
+\cite<e.g.,>{Buss89}.\footnote{ Nothwithstanding the
+ostensibly evolutionary constraints on mate choice illustrated
+by \citeA{Buss89}, subsequent research
+has shown that the preferences (e.g., for men who ``provide'' for women) 
+are actually related to nations' gender parity \cite{Zentner12}.}
+``To an evolutionary psychologist, the likelihood that
+the sexes are psychologically identical in 
+domains in which they have recurrently confronted different 
+adaptive problems over the long expanse of human evolutionary history is essentially zero'' \cite[p.~301]{Buss96}.
+How, then, will liberals reconcile their acceptance of Darwinian
+evolution
+with its potential detrimental impact, by some interpretations,
+on another cherished aspect of
+liberalism, namely meliorism and its tacit acceptance of gender
+equality? Although research on 
+evolved gender differences does not necessarily compromise society's
+commitment to gender equality, the invocation of seemingly ineluctable evolutionary 
+factors does provide political actors with opportunities to argue against equality.
+
+We are not aware of any research that has examined this
+question in the public at large. However, 
+some scholarly attention has focused on how members of 
+scientific disciplines often identified
+with a liberal orientation---namely, social psychology
+and sociology---navigate the waters between Darwinian 
+evolution and the implications of a variant of evolutionary 
+psychology that postulates evolved differences in behavior and its
+neural substrate.
+\citeA{VonHippel17} asked a sample of more than 300 social psychologists 
+about evolution and gender differences 
+(and other traits and behaviors
+not relevant here). The results showed that
+the sampled scientists overwhelmingly accepted the theory of evolution,
+providing a mean rating of 88\% on a scale from 0-100\% that Darwin's
+ideas are likely to be true. By contrast, the mean ratings 
+for the propositions that ``women's brains evolved to be more verbally talented'' and that ``men's brains evolved to be more mathematically talented'' 
+were at 40\% and 30\%, respectively.
+In another survey of sociologists, \citeA{Horowitz14} found that 43\% of
+respondents found it plausible or highly plausible that ``differences between women and men in such skills as
+communication and spatial reasoning are linked to biological
+differences in female and male brains''. A further 22\% were undecided and only 35\% found this possibility implausible. 
+Moreover, \citeauthor{Horowitz14} found that
+self-identified feminist theoreticians were less likely to endorse
+biological-evolutionary factors as underpinning social behavior
+than sociologists with a different theoretical orientation.
+
+These data suggest that although scientists generally accept
+the importance of nature in explaining gender differences, they are
+more skeptical of claims linking evolved differences
+in brain structure to gender differences in behavior.
+This skepticism appears amply justified by 
+recent work in neuroscience
+that has emphasized the plasticity of human brains 
+as well as the fluidity of 
+gender differences \cite<e.g.,>{Fine13,Fine13a,Fine14}.
+Recent research on neuroplasticity may thus 
+point to a resolution of the dilemma for scientists, 
+but it remains to be seen how members of the public respond to the same dilemma.
+
+The reverse dilemma confronts conservatives:
+their known preference to reject gender equality could be 
+buttressed by appealing to evolved, biological gender differences.
+However, any such appeal 
+would require at least tacit acceptance of Darwinian evolution, which 
+would also be conflicting for many conservatives. How will
+conservatives reconcile their reluctance to embrace evolution
+with its potential utility in buttressing another cherished
+aspect of conservatism, namely its endorsement of immutable 
+gender differences?
+
+Our study explored these worldview-based dilemmas for
+liberals and conservatives by measuring 
+three different constructs relating to gender differences.
+We measured
+people's beliefs about men and women being the same in all
+respects, men and women having evolved differently,
+and men and women being ``naturally different.'' 
+The latter two constructs both allowed for an endorsement
+of gender differences, but in one case those differences
+were presumed to exist ``naturally'' without appealing
+to evolution (or any other underlying causal process) 
+whereas in the other case those differences 
+were presented as the result of evolution. 
+By remaining ambiguous about the mechanism underlying
+gender differences, the ``naturally-different'' construct 
+avoids triggering worldview-based opposition to any
+particular means by which gender differences may have arisen 
+(e.g., evolution or divine intervention).
+
+Figure~\ref{fig:dilemmas} illustrates the relationship
+between our gender constructs, and participants' presumed
+core beliefs. For liberals, we expected endorsement of
+Darwinian evolution and gender equality to constitute core beliefs. Conversely,
+for conservatives, rejection of evolution and rejection of 
+gender equality were expected to constitute core beliefs.
+The conflicts indicated in the figure follow from those core
+beliefs: although evolved gender differences would explain
+why men and women are different, this would be in conflict with
+conservatives' rejection of evolution. Conversely,
+for liberals the idea of evolved differences fits
+well with acceptance of evolution but is in potential conflict with 
+gender equality.
+\begin{figure}[tp] %fig:dilemmas
+	\fitfigure{dilemmas.pdf}
+	\caption{Overview of the dilemmas facing liberals (left panel) and conservatives
+	(right panel) in the context of gender differences and evolution. Core beliefs
+    are shown in white (liberals) and black (conservatives) to reflect their
+	opposing polarity. Because core beliefs are thought to be inviolable
+	they are connected by chains. Potential explanatory variables for gender
+	differences are shown in gray. Arrows represent presumed conflict between constructs,
+	support, or neutrality. }
+	\label{fig:dilemmas}
+\end{figure}
+
+At least two possible resolutions of those dilemmas can be anticipated:
+First, people might recruit the explanatory construct (e.g., evolved
+gender differences) to support their core attitudes about gender. Thus,
+conservatives might accept evolved gender differences because they buttress
+their belief in differences between men and women, and liberals might
+reject evolved gender differences because no such differences are presumed to exist.
+This resolution would create conflict for both groups regarding their core attitudes
+towards evolution. The second resolution would involve the reverse: both groups 
+ensure that their attitudes involving evolution are internally consistent, 
+with liberals endorsing
+evolved gender differences and conservatives rejecting them. This resolution 
+would create conflict for both groups regarding their core attitudes towards 
+gender differences instead.
+
+\section{Method}
+
+\subsection{Overview}
+We conducted a representative survey of 1,000 American residents.
+Our results and conclusions are therefore specific to the American cultural
+context.
+The survey 
+measured 10 constructs that belonged
+to 5 conceptual groups:
+(1) We measured people's endorsement of
+two scientific constructs, namely evolution and vaccinations.
+(2) We also measured people's attitudes towards
+one instance of pseudoscience, namely
+complementary and alternative medicines (CAM). 
+To faciliate comparison with the other scientific constructs,
+we coded this construct to represent \textit{rejection }of CAM
+(and hence acceptance of the scientific view that
+CAM is ineffective).
+(3) We measured people's worldviews via three
+related but distinct constructs; namely,
+religiosity, conservatism, and endorsement of free markets.
+(4) The three constructs related to gender differences (Figure~\ref{fig:dilemmas}).
+(5) The final construct comprised the
+three questions from the cognitive reflection test 
+(CRT; \citeNP{Frederick05}).
+The CRT measures people's propensity to engage in analytical reasoning.
+CRT performance 
+has been previously identified as a 
+strong predictor of science understanding \citeA{Shtulman14}, and we therefore
+expect it to predict acceptance of science, and rejection of pseudoscience, in our
+study as well.
+
+The sampling plan and procedure as well as an analysis
+plan were preregistered before data collection
+commenced. The preregistration document, including a complete
+copy of the survey can be found on \textit{GitHub} at 
+\url{https://git.io/fjpeB}.
+
+
+\subsection{Materials}
+The survey comprised 60 items, broken
+down into 2 demographic queries presented at the outset (age and gender); 
+14 items involving a ``slider'' scale (0-100) for the conservatism
+construct; 
+40 items on a 7-point scale (from ``Strongly Disagree'' to ``Strongly Agree'') 
+to measure 
+our remaining core attitudinal constructs;
+the three items of the CRT;
+and one item that served as attention filter. 
+The attention filter asked people to identify which of a list of 5 items
+was not an animal.
+
+The conservatism items were taken from \citeA{Everett13} and asked participants to indicate ``the extent 
+to which you feel positive or negative towards an issue'', with 50 taken
+to be the neutral point and 0 representing great negativity and 
+100 great positivity, respectively.
+The 14 issues probed (and, where applicable, their short labels used
+for presentation of the results) were
+Abortion,
+Welfare benefits (\textit{Welfare}),
+Tax,
+Immigration,
+Limited government (\textit{LimGov}),
+Military and national security (\textit{Military}),
+Religion,
+Gun ownership (\textit{Guns}),
+Traditional marriage (\textit{TradMar}),
+Traditional values (\textit{TradVal}),
+Fiscal responsibility (\textit{FiscResp}),
+Business,
+The family unit (Family), and
+Patriotism.
+Each participant received the 14 slider scales 
+in a uniquely-generated random order. 
+
+The 40 items that measured core attitudinal constructs
+and the attention filter were presented in a 
+different random order for each participant.
+Table~\ref{tab:items} 
+provides a verbatim list of these 40 items together
+with brief labels (e.g., 
+\emph{FMUnresBest} for ``An economic system based on free markets unrestrained by government interference automatically works best to meet human needs'') 
+that are used for presentation of
+the results.
+
+The items for the three gender-related constructs were designed by
+the authors for this study. (Pilot testing confirmed that their psychometric
+properties were satisfactory.)
+The items for the free-market and vaccination constructs 
+were taken from our earlier research 
+\cite<e.g.,>{Lewandowsky13b}. 
+The items for the religiosity and evolution constructs 
+were adapted from \citeA{Lombrozo08}.
+The CAM-rejection construct
+was probed by taking two items (\textit{CAMDanger} and \textit{CAMCure}) from \citeA{Hyland03}, and combining them with three other items developed by the authors.
+
+\subsection{Ethics statement}
+The Ethics Committee of the Max Planck Institute for Human Development
+in Berlin approved the study. 
+The survey was prefixed
+by an introductory information sheet outlining the research.
+Participants indicated their informed consent after reading this information sheet 
+by 
+a mouse click, which commenced presentation of the
+survey questions.
+
+\subsection{Participants and procedure}
+
+A sample of 1,000 U.S. residents 18 years and older was recruited during June 2018
+via electronic invitations by Qualtrics.com, a firm that
+specializes in representative internet surveys. 
+Participants were
+drawn from a representative panel of more than 5.5 million
+U.S. residents (as of January 2013), via propensity weighting to
+ensure representativeness in terms of gender, age, and income.
+Participants were compensated by Qualtrics using the company's
+standard reward scheme.
+
+As part of the sampling procedure, Qualtrics conducts a
+``softlaunch'' ($N \simeq 50$) that provides an opportunity for
+inspection of the data. We discovered that numerous participants 
+in this preliminary sample 
+responded identically (before reverse-coding)
+to all items for one or more constructs. 
+To deal with this indicator
+of inattention, a further attention filter question was
+inserted as part of the conservatism slider scale that asked
+participants to select the value ``20''. Upon relaunch, 
+an inspection of a further preliminary sample ($N=50$) suggested
+that the additional attention filter
+solved the inattention problem and hence sampling proceeded
+for the full quota.
+
+\section{Results}
+The final sample, after exclusion of participants from 
+the initial softlaunch, included \Sexpr{dim(darwin1.5)[1]} responses that passed the Qualtrics
+quality checks (including the two attention filters). The sample size
+slightly exceeded the contracted quota of 1,000 because of a brief delay
+between achieving the quota and shutting down of the survey.
+This data file (stripped of geo-tagging and other potentially identifying 
+information), 
+the R scripts for all analyses, and the \LaTeX ~source file 
+that weaves the results of the analysis directly into the paper can be found 
+at \url{https://git.io/fjpL5}. 
+
+The final sample included \Sexpr{males} men and \Sexpr{females} women, with a mean age of 
+\Sexpr{mage} years
+ (median \Sexpr{mdage};
+range \Sexpr{minage}--\Sexpr{maxage}). 
+Mean age differed between men (\Sexpr{sprintf("%4.1f",agebygender[3])}) and women (\Sexpr{sprintf("%4.1f",agebygender[4])}). 
+
+
+\subsection{Data summary and adjustment}
+Figure~\ref{fig:slidersSocDarw} shows the distribution
+of slider responses to the 14 items of the conservatism scale.
+Table~\ref{tab:itemResponses}
+shows the number and percentages of responses to the 40 core
+items before
+reverse-scoring (for item labels, see Table~\ref{tab:items}).
+For the constructs that contained items of varying polarities,
+the mean of the responses to all reverse-scored items (\Sexpr{round(mean(revmean),2)})
+was found to be 
+closer to the midpoint of the scale (4) than the mean response to all non-reverse-scored
+items (\Sexpr{round(mean(posmean),2)}), suggesting the presence of an
+affirmation bias, that is a tendency to respond ``yes'' to any item regardless of
+its polarity. Moreover, the magnitude of that affirmation bias (i.e., the difference 
+between the two item sets of different polarity for each participant) varied
+considerably across individuals. Individual differences in 
+affirmation bias are problematic because they can inflate estimates
+of correlations between items with the same polarity, and 
+underestimate correlations between items with differing polarity.
+
+For most constructs, this affirmation bias was at least partially controlled
+by the inclusion of items of both polarities. However, the three gender-related sets 
+of items did not include any reverse-scored items (with the entire ``men and women are the same''
+cluster instead serving as reverse-polarity items for gender). 
+We therefore
+controlled the affirmation
+bias for the gender-related items by statistical means.
+We defined the mean response across all remaining items (i.e., all clusters other than
+gender irrespective of polarity) before reverse scoring
+as a person's affirmation-bias score. 
+Responses to each of the gender items were then regressed
+on that affirmation-bias score, and the resulting residuals were added
+to the mean response for that item to create bias-adjusted responses. 
+This procedure leaves the mean of each gender item across participants unchanged,
+but replaces each person's observation with a ``true endorsement'' score that
+is obtained by removing his or her individual affirmation bias.
+
+All
+analyses are based on the affirmation-bias adjusted responses for the three 
+gender constructs.
+Because this affirmation bias was unexpected, the
+adjustment could not be preregistered, and all remaining analyses
+therefore depart from the preregistered analysis plan for the gender
+constructs. The conclusions from this study are not materially altered if 
+unadjusted responses are used instead. We do not report the 
+unadjusted analysis in this article but all output and figures for the unadjusted
+analysis can be found at \url{https://bit.ly/32nm3W9}.
+
+Composite scores for each construct in Table~\ref{tab:itemResponses}
+ were then formed by averaging 
+responses across
+all relevant items after reverse-scoring where necessary. 
+Larger numbers refer to greater endorsement of a construct. 
+Figure~\ref{fig:histoSocDarw} shows the distributions 
+of the average scores for the 8 constructs. 
+\begin{figure}[tp] %fig:slidersSocDarw
+	\fitfigure{slidersSocDarw.pdf}
+	\caption{Frequency distributions of responses for the
+		14 items of the conservatism scale.
+		Each histogram shows the distribution
+		across subjects of the slider response which
+		ranged from 0 (strong negativity) to 100 (high positivity). }
+	\label{fig:slidersSocDarw}
+\end{figure}
+
+\begin{figure}[tp] %fig:histoSocDarw
+	\fitfigure{histoSocDarw.pdf}
+	\caption{Frequency distributions of the composite scores for all constructs
+		excluding conservatism,
+		formed by averaging responses across items within each construct 
+		after
+		reverse scoring. Each histogram shows the distribution
+		across subjects of the composite score. 		
+		Table~\ref{tab:items} provides an overview of the items for
+		each construct. All items were accompanied by a 7-point 
+		response scale ranging 
+		from ``Strongly agree'' (coded as 7 for analysis) to
+		 ``Strongly disagree'' (1) with ``Neither agree nor disagree'' (4)
+		at the midpoint. }
+	\label{fig:histoSocDarw}
+\end{figure}
+
+Analysis of the three items for the CRT revealed that participants on average
+achieved \Sexpr{round(crtmn,2)} correct (out of a possible 3).
+This mean is lower than what is typically observed, although
+mean and distribution of responses were commensurate with the lowest-performing
+sample reported by \citeA{Frederick05}.
+The percentage of participants who got 0, 1, 2, or 3 correct was 
+\Sexpr{round(crtperc[1],1)}, \Sexpr{round(crtperc[2],1)}, \Sexpr{round(crtperc[3],1)},
+and \Sexpr{round(crtperc[4],1)}, respectively. (Missing values
+arising from responses such as ``unsure'' or ``I don't know'' were omitted from computation
+of each person's total and were thus considered errors).
+
+\subsection{Latent variable modeling}
+Our
+preregistered analysis plan identified structural equation modeling (SEM)
+as our principal analysis technique. 
+We therefore sought to represent each construct by a 
+latent variable that was estimated from the 
+responses to the corresponding set of items. 
+Latent variables are free of measurement error, and thus none of the estimated effects 
+are attenuated by measurement error \cite{Coffman05}. 
+The analysis plan did not, however, 
+specify particular SEM models, and our 
+remaining analysis 
+thus conformed to the analysis plan without being 
+ prescribed by it.
+ All SEM was conducted using the \textit{lavaan} package in R \cite{Rosseel12}.
+
+SEM models with more than 20 items overall are often 
+too complex and unwieldy to achieve adequate 
+levels of model fit \cite{Bentler87}.
+One way to overcome this problem 
+is by averaging the item scores measuring 
+each construct into a single-indicator 
+variable for SEM, a procedure known as item parceling.
+Averaging, however, may obscure multi-dimensionality \cite{Little02}. 
+To retain the advantage of parceling without acquiring 
+the problems arising from averaging, 
+we first modeled each hypothesized 
+latent variable using conventional SEM. These models
+used each construct's respective items as a separate indicator 
+variable and checked for the presence of multi-dimensionality.
+
+\subsubsection{Measurement models}
+To reduce potentially
+problematic differences in variance between the slider variables (range 0--100)
+and the remaining items, the slider results were rescaled to the range 1--7. 
+All 8 constructs measured by the 7-point items 
+exhibited an essentially uni-dimensional
+structure, except that in all cases a 
+correlation between the residuals of two items
+had to be
+added to the single-factor model to achieve a satisfactory fit.
+Table~\ref{tab:indicatormodels} reports the fit statistics for  those 
+8 measurement models. For the free-market and vaccination constructs that
+had been employed in previous SEM modeling \cite{Lewandowsky13b}, 
+the fit statistics were similar and the
+correlated residuals involved the same items as before.
+All models fit well or extremely well, with the possible 
+exception of the measurement model for evolution, one of
+whose fit indices was not satisfactory (RMSEA=$\Sexpr{round(as.numeric(evogof["rmsea"]),3)}$).
+
+\begin{sidewaystable} %tab:indicatormodels
+\caption{Model fit indices associated with the
+	measurement models for all uni-dimensional constructs}
+\label{tab:indicatormodels}
+%\centering
+\begin{tabular}{l rrrrrr l}
+\thickline
+\multicolumn{1}{c}{Construct}   & $\chi^2$ & $df$ & SRMR & CFI & RMSEA & \multicolumn{1}{c}{90\% CI} & \multicolumn{1}{c}{Correlated residuals} \\
+\hline
+
+Free market & 
+\Sexpr{round(as.numeric(fmgof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(fmgof["df"]))} & 
+\Sexpr{round(as.numeric(fmgof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(fmgof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(fmgof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(fmgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(fmgof["rmsea.ci.upper"]),3)}  & 
+\textit{FMUnresBest}$\leftrightarrow$ \textit{FMMoreImp}
+\\
+Religiosity & 
+\Sexpr{round(as.numeric(religgof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(religgof["df"]))} & 
+\Sexpr{round(as.numeric(religgof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(religgof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(religgof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(religgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(religgof["rmsea.ci.upper"]),3)}  & 
+\textit{RelGod  }$\leftrightarrow$ \textit{RelAfterlife}
+\\
+ 
+Evolution & 
+\Sexpr{round(as.numeric(evogof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(evogof["df"]))} & 
+\Sexpr{round(as.numeric(evogof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(evogof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(evogof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(evogof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(evogof["rmsea.ci.upper"]),3)}  & 
+\textit{EvoCreated  }$\leftrightarrow$ \textit{EvoCrisis}
+\\
+
+Vaccinations & 
+\Sexpr{round(as.numeric(vaxgof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(vaxgof["df"]))} & 
+\Sexpr{round(as.numeric(vaxgof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(vaxgof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(vaxgof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(vaxgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(vaxgof["rmsea.ci.upper"]),3)}  & 
+\textit{VaxNegSide   }$\leftrightarrow$ \textit{VaxRisky }
+\\
+
+Rejection of CAM & 
+\Sexpr{round(as.numeric(camgof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(camgof["df"]))} & 
+\Sexpr{round(as.numeric(camgof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(camgof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(camgof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(camgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(camgof["rmsea.ci.upper"]),3)}  & 
+\textit{CAMDanger   }$\leftrightarrow$ \textit{CAMIneffect }
+\\
+
+Men \& women evolved differently & 
+\Sexpr{round(as.numeric(mwevogof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(mwevogof["df"]))} & 
+\Sexpr{round(as.numeric(mwevogof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(mwevogof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(mwevogof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(mwevogof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(mwevogof["rmsea.ci.upper"]),3)}  & 
+\textit{MWEvoViol   }$\leftrightarrow$ \textit{MWEvoNurture }
+\\
+
+Men \& women naturally different &
+\Sexpr{round(as.numeric(mwnatgof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(mwnatgof["df"]))} & 
+\Sexpr{round(as.numeric(mwnatgof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(mwnatgof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(mwnatgof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(mwnatgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(mwnatgof["rmsea.ci.upper"]),3)}  & 
+\textit{MWNatAggress }$\leftrightarrow$ \textit{MWNatCaring }
+\\
+
+Men \& women are the same &
+\Sexpr{round(as.numeric(mwequgof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(mwequgof["df"]))} & 
+\Sexpr{round(as.numeric(mwequgof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(mwequgof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(mwequgof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(mwequgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(mwequgof["rmsea.ci.upper"]),3)}  & 
+\textit{MWEquDiff   }$\leftrightarrow$ \textit{MWEquInvent }
+\\
+Conservatism &
+\Sexpr{round(as.numeric(consertismgof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(consertismgof["df"]))} & 
+\Sexpr{round(as.numeric(consertismgof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(consertismgof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(consertismgof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(consertismgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(consertismgof["rmsea.ci.upper"]),3)}  & 
+\textit{TradMarriage   }$\leftrightarrow$ \textit{TradValues} \\
+& & & & & & & 
+\textit{Military   }$\leftrightarrow$ \textit{Patriotism} 
+\\
+CRT &
+\Sexpr{round(as.numeric(crtmodgof["chisq"]),2)} & 
+\Sexpr{round(as.numeric(crtmodgof["df"]))} & 
+\Sexpr{round(as.numeric(crtmodgof["srmr"]),3)} & 
+\Sexpr{round(as.numeric(crtmodgof["cfi"]),3)} & 
+\Sexpr{round(as.numeric(crtmodgof["rmsea"]),3)} &
+\Sexpr{round(as.numeric(crtmodgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(crtmodgof["rmsea.ci.upper"]),3)} & \multicolumn{1}{c}{N/A} \\
+
+\thickline
+\end{tabular}
+\end{sidewaystable}
+
+Unlike for the other constructs, it proved impossible to create a unidimensional 
+model for the 14 items of the conservatism scale. Inspection of the correlations among
+items revealed that items of different polarity correlated little with each
+other: that is, responses to the issues abortion, welfare, tax, and immigration
+correlated little with the remaining issues, even after reverse scoring. 
+We resolved this difficulty in two ways: First, we focused
+exclusively on the 10 items
+with a conservative polarity to create 
+a uni-dimensional measurement model.
+The penultimate row in Table~\ref{tab:indicatormodels} contains the
+fit statistic for this single-factor model, which 
+had to be augmented with two pairwise correlations between residuals.
+Second, 
+  we created a composite score by averaging across all 
+  14 items irrespective of polarity. 
+  We report an analysis based on composites for all constructs (cf. Figure~\ref{fig:histoSocDarw}) 
+  in parallel to the SEM modeling where appropriate (e.g., Table~\ref{tab:compcor}).
+  
+Finally, to represent CRT performance, we created 
+a measurement model from the three  
+binary indicators of performance, 
+constraining the weights to be equal and
+imposing an ordinal level of measurement. 
+The last row in Table~\ref{tab:indicatormodels} contains the
+fit statistics for this model. 
+
+\subsubsection{Single-indicator latent variable models}
+We consider the performance of the unidimensional measurement models 
+after addition of single pairwise
+correlations sufficient to establish the essentially 
+unidimensional structure
+of our contructs. This conclusion is supported by the
+fact that the model fit ranged from good to excellent \cite{Hooper08}
+for most constructs. However, the conclusion 
+ comes with the qualification that for the Evolution
+construct the fit was acceptable but not spectacular, and that two pairwise
+correlations were required for the Conservatism construct (although this construct
+also comprised many more items, which justifies inclusion of a further pairwise correlation). 
+
+We proceeded with the construction of
+single-indicator latent variables \cite{Hayduk96,Joreskog82}.
+In single-indicator models, each latent variable is defined 
+by one indicator consisting of an equally-weighted composite 
+of the items (i.e., the mean score).
+The true-score variance for each latent variable is then obtained by 
+constraining the single-indicator's error variance 
+to: $(1 - $reliability$) \times s^2$, 
+where $s^2$ is equal to the composite score's total variance \cite{Joreskog82}.
+
+An accurate 
+estimator of reliability 
+is $\omega$ \cite{Komaroff97,Raykov97}, which
+  we estimated using the individual measurement 
+models (Table~\ref{tab:indicatormodels}; 
+for details, see \citeNP{Raykov97}).
+The error variances of the indicators were set to 
+the values shown in Table~\ref{tab:descriptives}
+and all remaining SEM models used the single-indicator latent variables 
+thus defined. 
+The present estimates of $\omega$ are in close agreement to the values observed by 
+\citeA{Lewandowsky13b} for the constructs used by both studies (free market and vaccinations). 
+When present in a model, CRT performance was represented by the latent variable defined by the
+three binary indicators as described above.
+
+\begin{table} %tab:descriptives
+	\centering
+	\caption{Summary statistics of single-indicator latent variable models}
+	\label{tab:descriptives}
+
+	\begin{tabular}{l r r c }
+		\thickline
+		\multicolumn{1}{c}{Construct}   & $s$ \tabfnm{\textit{a}}&  $\omega$ \tabfnm{\textit{b}}& $(1-\omega) \times s^2$ \tabfnm{\textit{c}} \\
+		\hline
+		Free market & 
+		\Sexpr{round(fmSI$SDSImod,2)} &
+		\Sexpr{round(fmSI$OmegaSImod,2)} &
+		\Sexpr{round(fmSI$eSImod,3)} \\		
+		
+		Religiosity & 
+		\Sexpr{round(religSI$SDSImod,2)} &
+		\Sexpr{round(religSI$OmegaSImod,2)} &
+		\Sexpr{round(religSI$eSImod,3)} \\
+		
+		Evolution & 
+		\Sexpr{round(evoSI$SDSImod,2)} &
+		\Sexpr{round(evoSI$OmegaSImod,2)} &
+		\Sexpr{round(evoSI$eSImod,3)} \\			
+		
+		Vaccinations & 
+		\Sexpr{round(vaxSI$SDSImod,2)} &
+		\Sexpr{round(vaxSI$OmegaSImod,2)} &
+		\Sexpr{round(vaxSI$eSImod,3)} \\		
+		
+        Rejection of CAM & 
+		\Sexpr{round(camSI$SDSImod,2)} &
+		\Sexpr{round(camSI$OmegaSImod,2)} &
+		\Sexpr{round(camSI$eSImod,3)} \\		
+        
+        
+        Men \& women evolved differently & 
+		\Sexpr{round(mwevoSI$SDSImod,2)} &
+		\Sexpr{round(mwevoSI$OmegaSImod,2)} &
+		\Sexpr{round(mwevoSI$eSImod,3)} \\		
+        
+        Men \& women naturally different & 
+		\Sexpr{round(mwnatSI$SDSImod,2)} &
+		\Sexpr{round(mwnatSI$OmegaSImod,2)} &
+		\Sexpr{round(mwnatSI$eSImod,3)} \\		
+
+
+		Men \& women are the same & 
+		\Sexpr{round(mwequSI$SDSImod,2)} &
+		\Sexpr{round(mwequSI$OmegaSImod,2)} &
+		\Sexpr{round(mwequSI$eSImod,2)} \\		
+		
+		Conservatism &
+		\Sexpr{round(consSI$SDSImod,2)} &
+		\Sexpr{round(consSI$OmegaSImod,2)} &
+		\Sexpr{round(consSI$eSImod,2)} \\		
+
+		\thickline
+	\end{tabular}
+    \tabfnt{\textit{a}}{ Standard deviation of composite score}.
+	\tabfnt{\textit{b}}{ $\sqrt{\omega}$
+		corresponds to the loading of a 
+		single-indicator manifest variable on its factor.} 
+	\tabfnt{\textit{c}}{ Error variance of each single-indicator latent variable}
+\end{table}
+
+
+\subsubsection{Correlations among constructs}
+Table~\ref{tab:lvcor} shows the correlation 
+matrix for the single-indicator latent variables (and the CRT latent variable). 
+All correlations
+were significant at $p<.01$ or less, with the exception 
+of those identified as ``\textit{ns}'' in the table.
+The covariance matrix of latent variables
+for this solution was not positive definite, likely reflecting
+linear dependency between 
+factors deriving from the high correlation between
+the two constructs probing
+differences between men and women (evolved differently vs.
+naturally different). 
+To ensure that the ill-conditioned covariance matrix did
+not compromise the results,
+Table~\ref{tab:compcor} shows the same correlations
+based on the composite scores instead of latent variables.
+As expected, those correlations are attenuated owing 
+to measurement error compared to the correlations based
+on latent variables. However, their pattern is identical
+to that shown in Table~\ref{tab:lvcor}, suggesting 
+that the latent-variable model is
+adequately identified notwithstanding the ill-conditioned covariance
+matrix.
+
+The results generally replicate relevant previous research. The modest
+negative correlation between free-market endorsement and acceptance of
+vaccinations parallels a similar association observed by \citeA{Hornsey18},
+albeit using a different instrument to measure Libertarian
+attidudes (hierarchical-individualism as opposed to free-market endorsement).
+The positive correlation between free-market endorsement and conservatism
+has been observed previously \cite{Lewandowsky13b}, as has been the 
+strong association between religiosity and conservatism \cite{Malka12}.
+Likewise, the strong
+negative correlation between religiosity and 
+acceptance of evolution replicates existing research \cite<e.g.,>{Ecklund17},
+as does the positive correlation between CAM rejection and
+acceptance of vaccinations \cite<e.g.,>{Attwell18,Browne15,Bryden18,Ernst02}.
+
+Turning to the associations involving CRT performance, the observed 
+modest but significant negative correlation with
+religiosity replicates previous results \cite{Gervais12a,Shenhav12,Stagnaro19}. 
+\citeA{Jost17} reported a 
+meta analysis of 13 studies that related CRT performance to political views.
+The vast majority of those studies showed
+that liberals exhibited more cognitive reflection than conservatives.
+In the present data, this is echoed by the modest negative
+correlation with free market, although it was not reflected in the
+conservatism measure. 
+The positive associations of the CRT with endorsement of all three
+scientific constructs, vaccination, CAM rejection, and evolution
+replicate similar previous findings \cite{Shtulman14,WagnerEgger18}.
+The association also meshes well with recent findings that analytical thinking
+is associated with better differentiation between ``fake news'' and
+valid information \cite{Pennycook18}. 
+
+\begin{sidewaystable}[!htbp] \centering 
+\caption{Correlations among latent variables} 
+\label{tab:lvcor} 
+\begin{tabular}{ l rr rr rr rr rr} 
+\\[-1.2ex]\hline 
+\hline \\[-1.8ex] 
+&
+ \rotatebox[origin=c]{80}{Free market} & \rotatebox[origin=c]{80}{Evolution} &  \rotatebox[origin=c]{80}{Rejection of CAM} &  \rotatebox[origin=c]{80}{Men/women evolved differently} &  \rotatebox[origin=c]{80}{Men/women naturally different} & 
+		 \rotatebox[origin=c]{80}{Men/women are the same} & 
+		 	\rotatebox[origin=c]{80}{Religiosity} & 
+		 	 	 \rotatebox[origin=c]{80}{Vaccinations} & 
+		 	 	 \rotatebox[origin=c]{80}{Conservatism} \\ 
+\hline \\[-2ex]
+
+\input{_t.lvcor.tex}
+
+\hline \\[-1.8ex] 
+\end{tabular} 
+\\
+\textit{Note.} Correlations identified with ``$ns$'' are non-significant, $p>.10$. All others are significant at $p<.01$ or less.
+\end{sidewaystable}
+
+
+\begin{sidewaystable}[!htbp] \centering 
+\caption{Correlations among composite measures for all constructs } 
+\label{tab:compcor} 
+\begin{tabular}{ l rr rr rr rr r} 
+\\
+\hline 
+\hline \\
+&
+\multicolumn{1}{l}{
+	\rotatebox[origin=c]{80}{Free market}} & \rotatebox[origin=c]{80}{Evolution} &  \rotatebox[origin=c]{80}{Rejection of CAM} &  \rotatebox[origin=c]{80}{Men/women evolved differently} &  \rotatebox[origin=c]{80}{Men/women naturally different} & 
+\rotatebox[origin=c]{80}{Men/women are the same} & 
+\rotatebox[origin=c]{80}{Religiosity} & 
+\rotatebox[origin=c]{80}{Vaccinations} &
+\rotatebox[origin=c]{80}{Conservatism} \\ 
+\hline 
+\input{_t.compcor.tex}
+%\hline \\[-2ex] 
+\input{_t.crtcor.tex} 
+\hline
+\end{tabular} 
+\textit{Note.} Correlations identified with ``$ns$'' are non-significant, $p>.10$. All others are significant at $p<.01$ or less.
+\end{sidewaystable}
+
+Because three of our constructs related to gender
+differences, we used participants' gender as a
+grouping variable in two additional
+SEM models of the correlations among latent variables
+to examine whether men and women
+differed in their attitude structures.
+One model estimated all parameters independently for
+men and women. 
+We compared this full model to two constrained
+models: in the first, partially constrained model
+we forced the covariances between the three gender-related
+constructs to be equal, and in the second fully constrained model 
+all covariances
+among latent variables were forced to be equal between groups.
+The partially constrained model fit as well as the 
+full model, $\chi^2$(\Sexpr{aovresult$"Df diff"[2]})$=$\Sexpr{round(aovresult$"Chisq diff"[2],2)}, 
+$p < \Sexpr{sprintf("%5.4f",aovresult$"Pr(>Chisq)"[2]+.0001)}$.
+The fully constrained model, by contrast, 
+incurred a significant loss of fit compared to the partially constrained model, 
+$\chi^2$(\Sexpr{aovresult$"Df diff"[3]})$=$\Sexpr{round(aovresult$"Chisq diff"[3],2)}, 
+$p < \Sexpr{sprintf("%5.4f",aovresult$"Pr(>Chisq)"[3]+.0001)}$.
+
+Because the associations among the gender related constructs did not differ 
+with gender of the participants, 
+and because the 
+fully constrained model nonetheless
+fit well in absolute terms, SRMR=
+\Sexpr{round(as.numeric(equcovgof["srmr"]),3)}; 
+CFI=\Sexpr{round(as.numeric(equcovgof["cfi"]),3)}; RMSEA= 
+\Sexpr{round(as.numeric(equcovgof["rmsea"]),3)}, CI:
+\Sexpr{round(as.numeric(equcovgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(equcovgof["rmsea.ci.upper"]),3)},
+we decided that for our purposes, the fully constrained model provided an adequate
+description of the data. We therefore  
+do not consider the
+effects of participants' gender further.  
+
+\subsubsection{Predictive models}
+
+We next explored the relationship among the political worldview constructs,
+(conservatism, religiosity, and free-market endorsement), and how those constructs
+in turn would predict attitudes to the scientific themes (vaccinations, CAM rejection, and
+evolution). This exploration appeared necessary for at least two reasons. First, the observed first-order
+correlations were not homogeneous across constructs (e.g., conservatism was uncorrelated with
+vaccination attitudes but free-market endorsement was negatively associated with vaccinations).
+Second, this divergence between otherwise highly related worldview components 
+has been observed previously. For example, \citeA{Lewandowsky13b} found that conservatism
+predicted endorsement of vaccinations whereas free-market endorsement predicted anti-vaccination
+attitudes. Development of the following models was thus guided by prior theorizing and results, but they 
+must nonetheless 
+be considered to be exploratory.
+ 
+We first created a hierarchical-factor model in which the three worldview constructs 
+were used as indicators for an over-arching second-order factor (called ``All politics''). 
+The polarity of this factor was pointing towards increasingly conservative worldviews (i.e., greater
+endorsement of free markets, conservatism, and religiosity). 
+We used this second-order factor, in turn, to predict scientific 
+attitudes, adding direct links from the first-order constructs where necessary,
+and constraining non-significant links to zero when possible without
+incurring loss of fit.
+The final political model obtained in this manner fit very well,
+SRMR=
+\Sexpr{round(as.numeric(finalpolmodelgof["srmr"]),3)}; 
+CFI=\Sexpr{round(as.numeric(finalpolmodelgof["cfi"]),3)}; RMSEA= 
+\Sexpr{round(as.numeric(finalpolmodelgof["rmsea"]),3)}, CI:
+\Sexpr{round(as.numeric(finalpolmodelgof["rmsea.ci.lower"]),3)} -- 
+\Sexpr{round(as.numeric(finalpolmodelgof["rmsea.ci.upper"]),3)},
+ and is shown in Figure~\ref{fig:finalpolSEM}.
+\begin{figure}[tp] %fig:finalpolSEM
+	\fitfigure{finalpolSEM.pdf}
+	\caption{Predictive structural equation model relating all political
+		worldview constructs to all scientific constructs. 
+		All links and correlations shown are 
+		standardized and significant; all $p \leq .05$.
+		Indicator variables and their loadings, and disturbances on endogenous factors are not
+		shown. Links between latent variables that are not shown are 
+		constrained to zero.
+		Loadings and variances of single-indicator latent 
+		variables are reported in Tables~\ref{tab:indicatormodels}
+		and~\ref{tab:descriptives}.}
+	\label{fig:finalpolSEM}
+\end{figure}
+
+=== The figure is missing one covariance and a parameter from another covariance. 
+
+The figure shows that the All politics factor is negatively associated with rejection of CAM, suggesting that people with conservative worldviews
+are more likely to accept CAM. The All politics factor is not associated with the remaining two scientific themes. Instead, it is sub-components
+of conservatism that predict rejection of those other issues. Rejection of vaccinations is predicted exclusively by free-market endorsement and rejection of evolution 
+by religiosity. 
+The model goes beyond a simplistic left-right political-orientation view of the world. 
+Instead, we show that a more differentiated assessment of political orientation 
+pays off by identifying relevant sub-dimensions of the overall cluster of worldviews, and
+how they determine people's acceptance or rejection of scientific propositions.
+
+We next sought to expand this model by adding the remaining potential predictors,
+namely the three gender-related constructs and CRT performance. 
+To build this final model we retained the predictive structure in Figure~\ref{fig:finalpolSEM}
+and added the other constructs as needed until a parsimonious 
+description of the data was achieved with a satisfactory fit.
+This final model is shown in Figure~\ref{fig:superSEM} and
+fit acceptably well, 
+$\chi^2(\Sexpr{supermodelgof["df"]})=\Sexpr{round(supermodelgof["chisq"],2)}$; 
+SRMR=\Sexpr{round(supermodelgof["srmr"],3)}; CFI=\Sexpr{round(supermodelgof["cfi"],3)}; 
+RMSEA=\Sexpr{round(supermodelgof["rmsea"],3)} (90\% CI:
+\Sexpr{round(supermodelgof["rmsea.ci.lower"],3)}--
+\Sexpr{round(supermodelgof["rmsea.ci.upper"],3)}).
+\begin{figure}[tp] %fig:superSEM
+\fitfigure{superSEM.pdf}
+\caption{Final predictive structural equation model. 
+	All links and correlations shown are 
+	standardized and significant; all $p \leq .05$.
+	Indicator variables and their loadings, and disturbances on endogenous factors are not
+	shown. Regression weights between latent variables that are not shown are 
+	constrained to zero. Covariances between latent variables are not shown to avoid clutter.
+	Loadings and variances of single-indicator latent 
+	variables are reported in Tables~\ref{tab:indicatormodels}
+	and~\ref{tab:descriptives}.}
+\label{fig:superSEM}
+\end{figure}
+
+
+==== Matrix of covariances still needed (if we choose to omit them from the figure, which would make life a little easier and less cluttered).
+
+==== Discussion of the model still awaiting completion.
+
+%The model captures the strong correlations (of varying polarity) among the gender-related constructs.
+%It also captures the correlations between the three scientific constructs (although 
+%unlike for the first-order correlations (Table~\ref{tab:lvcor}), 
+%CAM rejection
+%was not significantly correlated with evolution). 
+%This replicates other findings that people's attitudes towards scientific issues often covary \cite<e.g.>{Lewandowsky12a}. Accordingly, each of the two worldview constructs, conservatism
+%and free market, affected scientific issues in a uniform manner. Increasing free-market
+%endorsement predicted reduced acceptance of vaccination and evolution and reduced
+%rejection (i.e., greater endorsement) of CAM. Conversely, increasing conservatism
+%predicted an \textit{increase }in the acceptance of evolution and vaccination, although the 
+%effect on CAM rejection failed to reach significance. The role of conservatism in this model
+%differed from its first-order correlations with the scientific constructs. In particular, the negative first-order correlation between conservatism and evolution (Table~\ref{tab:lvcor}) here turned into
+%a positive regression coefficient. 
+%In light of the strong negative weight for religiosity, we interpret this to mean
+%that it is religiosity---not conservatism \textit{per se}---that is driving rejection
+%of evolution, with free-market endorsement being a second, weaker predictor. 
+
+\subsection{Nurture vs. nature vs. evolution}
+The final analysis considered the relationship between people's
+acceptance of evolution and the 
+constructs that probed the origins and extent of gender differences. 
+This analysis therefore explored the dilemmas postulated in 
+Figure~\ref{fig:dilemmas}.
+We divided participants according to their political views,
+conducting a median split of the composite conservatism scale.
+
+Figure~\ref{fig:conslibevogrid} illustrates the results,
+using composite scores for all constructs. 
+Each panel 
+plots
+the two constructs concerning the origin of gender differences (men and women evolved
+differently vs. men and women are naturally different), with liberals shown
+on the left and convervatives on the right.
+Color of plotting symbols shows acceptance of evolution (top panels) and
+belief in gender equality (bottom panels).
+Several observations can be made:
+First, the two constructs for the origins of gender differences are highly
+correlated irrespective of political views.
+Second, conservatives are more likely overall to think that
+men and women differ naturally than liberals. 
+
+Third, focusing on the top panels, 
+the clusters of dark points are of particular interest. These points
+represent people
+who reject evolution. As expected from the pattern of correlations in 
+Table~\ref{tab:compcor}, it is 
+clear that there are more conservatives
+than liberals who reject Darwinian evolution (more dark points on the right). 
+Irrespective
+of political orientation, people
+who reject evolution also tend to endorse gender differences---however,
+notably that endorsement mainly involves the idea that men and women are
+somehow ``naturally'' different, rather than the idea that they
+``evolved differently.'' This is particularly pronounced for conservatives:
+the top-left cluster of dark points represents participants who reject
+evolution generally as well as its role in producing gender differences, but instead
+endorse the notion that men and women are naturally different.
+
+\begin{figure}[tp] %fig:conslibevogrid
+\fitfigure{conslibequalitygridAll.pdf}
+\caption{Relationship between the three gender constructs and acceptance of evolution.
+	Participants with liberal political
+	views are shown on the left and conservatives on the right (median split).
+	The top panels show
+	acceptance of evolution (represented by color
+of plotting symbols) and people's responses to the constructs probing the
+origin of gender differences. 
+	The bottom panels show belief in gender equality (represented by
+color of plotting symbols) and people's responses to the constructs probing the
+origin of gender differences. 
+Composite scores are used for all constructs.
+Points are jittered to reduce over-printing.}
+\label{fig:conslibevogrid}
+\end{figure}
+
+Finally, turning to the bottom panels, all three constructs are highly associated with
+each other:
+higher belief in equality (dark plotting symbols) is associated with low
+belief in natural and evolved differences, and vice versa. This 
+association is particularly strong for liberals.
+For conservatives, by contrast, 
+the cluster of people who do not believe that men and women evolved differently but
+think they are naturally different, 
+also show little belief in gender equality (light
+plotting symbols).  
+
+It is informative to compare liberals' responses across the two rows of panels. 
+Because
+the axes are identical between panels, this comparison can identify the relationship
+between people's belief in equality and evolution. Notably, the people in the bottom-left
+quadrant who reject gender differences irrespective of their origin, are strong
+believers in gender equality \textit{and }evolution generally. Conversely, the few
+liberals who do not endorse gender equality (lightly colored plotting symbols in bottom-left panel)
+tend to be most skeptical of evolution (dark plotting symbols in 
+top-left panel).
+The same comparison for conservatives identifies more people who disbelieve evolution
+and equality, and fewer who endorse evolution generally but reject any
+form of gender differences. 
+
+\section{Discussion}
+
+=== all of this needs to be checked against the new model(s). It may not change much, but it wouldn't surprise me if there are glitches in the Discussion.
+
+\subsection{Relationship to previous results}
+Our results coordinate well with multiple precedents in the literature,
+which we take up for each of the
+constructs examined. 
+Considering first religiosity, we replicate 
+the substantial association between stronger religious beliefs
+and conservatism \cite{Malka12,Schlenker12}. In our
+study this association generalized across a broadly-defined
+conservatism construct as well as a specific construct
+targeting endorsement of laissez-faire free-market economics.
+We also replicate the long-standing strong negative
+association between religiosity and acceptance of evolution \cite<e.g.,>{Tom18} and the
+modest negative association between religiosity and analytic thinking
+(i.e., CRT performance) reported previously \cite{Jack16,Shenhav12,Stagnaro19}.
+Likewise, the correlations between religiosity and the gender
+constructs (e.g., Table~\ref{tab:lvcor}) are consistent 
+with previous reports that religiosity predicts sexism \cite{VanAssche19},
+although our results extend that previous finding because our
+scales did not probe discriminatory sexism but the origin of presumed
+gender differences.
+The negative association between religiosity and CAM rejection 
+is also unsurprising 
+in light of previous research that has shown acceptance of CAM 
+to be driven by intuitive thinking, paranormal beliefs,
+and ontological confusions \cite{Lindeman11}.
+At least one of those variables (intuitive thinking)
+is also known to be a predictor of religiosity \cite<e.g.,>{Shenhav12}.
+
+By contrast, our findings concerning religiosity also deviate from aspects
+of other recent research
+\cite{Rutjens17}. Unlike \citeauthor{Rutjens17}, we 
+found no evidence of a link
+between religiosity and rejection of vaccinations. 
+Given that  \citeauthor{Rutjens17} observed this link
+only in some of their studies and only for some measures
+of religiosity (mainly measures of religious orthodoxy),
+we are not concerned about this apparent 
+departure from previous results. Indeed, in another
+recent as-yet unpublished study involving identical constructs, 
+we did observe
+a negative association between vaccination and religiosity, 
+suggesting that this relationship may well be real but is only
+observable in certain circumstances.
+
+Attitudes towards vaccinations were instead
+determined by the interplay of our two political constructs:
+In our predictive SEM model (Figure~\ref{fig:superSEM}), we found that 
+conservatism was a positive predictor of
+vaccination acceptance, whereas free-market
+endorsement was a negative predictor. This 
+nuanced interplay of the predictive role of two constructs that
+are highly correlated ($r \simeq .5$)
+replicates the pattern observed by \citeA{Lewandowsky13b}.
+The different polarity of the effects of conservatism and 
+free-market endorsement is 
+consonant with the notion that libertarians object to the
+government intrusion arising from mandatory vaccination programs
+\cite{Kahan10a}, whereas liberals (i.e., people low in conservatism)
+may oppose vaccinations 
+because they distrust pharmaceutical companies \cite<e.g.,>{Attwell18}.
+The strength of the latter relationship, however, was 
+less than overwhelming, given that the first-order correlation
+between conservatism and vaccination attitudes was non-significant
+whereas the first-order negative correlation with free-market persisted
+(Table~\ref{tab:lvcor}). 
+
+
+\subsection{Rejection of science on the political left?}
+Our findings provide 
+little evidence that people on the 
+political left reject vaccinations. Although
+we found a positive link from conservatism to vaccination
+attitudes in our predictive model (Figure~\ref{fig:superSEM}),
+the first-order correlation was non-significant (Table~\ref{tab:lvcor}).
+Moreover, free-market endorsement, which is typically considered
+a strand of conservatism \cite{Crowson09},
+was a consistently strong negative predictor of vaccination attitudes,
+whether as a first-order correlation or in the final predictive model.
+Our results thus converge with other recent findings
+that have found an association between right-wing politics and
+rejection of vaccinations \cite{Baumgaertner18,Kahan10a,Lewandowsky13b,Rabinowitz16}.
+In a recent cross-sectional analysis of voting behavior and vaccination rates across European countries, \citeA{Kennedy19} found a strong
+relationship between the vote share for populist parties 
+and vaccine hesitancy. 
+
+Similarly, contrary to 
+reports that CAM use 
+and vaguely left-wing ideas 
+have a natural affinity for each other \cite<see, e.g.,>{Keshet09},
+we found that
+CAM rejection was negatively, but modestly, associated with 
+all three of our worldview constructs; namely, religiosity, 
+free market endorsement, and conservatism (although
+the link from conservatism was non-significant in the
+predictive model; Figure~\ref{fig:superSEM}). 
+In our data, none of the gender
+constructs were associated with CAM attitudes. This
+runs counter to the idea that CAM use 
+is ``feminist'' \cite{Scott98a}.
+To our knowledge, our results constitute 
+the first empirical examination of the links
+between political
+views and CAM attitudes. 
+Our results that conservatives are more likely to embrace
+CAM is consonant with 
+historical analyses that have found strong links
+between right-wing organizations, such as the
+John Birch Society in the U.S., and endorsement
+of ``alternative'' cancer treatments \cite{Markle78}.
+The result also adds to the list of failed attempts
+to discover science denial on the political left
+\cite<e.g.,>{Hamilton11,Hamilton15a,Hamilton15b,Hamilton15c,Kahan10a,Lewandowsky13b,Tom18}. 
+
+\subsection{Attitudes towards gender differences}
+We now turn to the main focus of our study,
+relating to the interplay of attitudes towards general Darwinian evolution,
+gender differences, and how those gender differences
+might have arisen.
+The idea that men and women differ naturally was highly 
+correlated with the idea that they evolved differently. 
+Moreover, unsurprisingly, the  idea that men and women differ naturally 
+was negatively correlated with
+the construct that proclaimed their equality. 
+The equality construct was 
+also negatively
+correlated with the idea that men and women evolved differently,
+although that correlation was smaller than for 
+natural differences. 
+
+Intriguingly, overall acceptance of evolution was 
+positively associated with two seemingly conflicting constructs; 
+namely, that men and women evolved differently \textit{and} that they are
+the same. Moreover, evolution was negatively correlated with the idea
+that men and women are naturally different, even though evolution
+is one way in which such ``natural'' differences might have emerged.
+A similar divergent pattern obtained in the associations between
+the constructs relating to gender differences and political 
+attitudes. That is, whereas conservatism and free-market endorsement
+were negatively correlated with gender equality, 
+and strongly
+positively correlated with men and women being naturally different, those
+correlations were attenuated (for free market) or absent (for conservatism) 
+for the idea that men and women evolved differently.
+It thus appears that the involvement of evolution, either on its own or in explaining
+gender differences, served as a ``wedge issue'' that disrupted
+otherwise straightforward associations between right-wing politics
+and opposition to gender equality (and, vice versa, rejection of
+gender differences and left-wing politics) and---as foreshadowed
+in Figure~\ref{fig:dilemmas}---created 
+dilemmas for participants of all political persuasions.
+
+Figure~\ref{fig:conslibevogrid} illustrates
+how participants resolve those dilemmas. 
+Consider first conservatives (right-hand panels). 
+Those who reject evolution tend to endorse ``natural'' gender differences
+but reject evolved gender differences (top). These
+individuals thus sit outside
+the main cluster that captures the
+otherwise strong association between the two gender-differences constructs.
+Conservatives who are strongly committed to rejecting evolution
+are thus willing to forego endorsement of gender differences if 
+those are attributed to evolution. It is only when (nearly identical)
+items appeal to ``natural'' differences that they are endorsed by 
+those committed participants.
+Conversely, liberals who are strongly committed to gender equality
+tend to reject the idea of evolved gender differences, even
+when those participants are committed to accepting evolution (left-hand panels). 
+Thus, partisans of either stripe can agree in their rejection of the idea that men and
+women evolved differently, but they do so for entirely different
+reasons. Conservatives do so when they are committed to reject evolution, and liberal do so when they are committed to gender equality. Both groups therefore resolve the dilemmas
+posed by our gender constructs by ``sacrificing'' endorsement of evolved gender
+differences.
+
+\section{Conclusion}
+Our results contribute to two seemingly conflicting streams 
+of outcomes
+in the literature on 
+how worldviews moderate people's responses to scientific issues. 
+One the one hand, there is much evidence for pervasive attitudinal
+asymmetry, at least in the United States, with conservatives being more likely to reject
+well-established scientific propositions than liberals. To date,
+little or no evidence for left-wing science denial has been reported.
+We add to this stream by showing that, contrary to previous largely
+anecdotal reports, liberals are more likely to reject complementary
+and alternative medicines, in line with the scientific evidence, than
+conservatives. 
+
+On the other hand, there is considerable evidence that
+liberals and conservatives \textit{process} scientific data
+in a symmetrical fashion. That is, liberals and conservatives
+alike resort to the same cognitive shortcuts when data conform to their
+biases, giving rise to a symmetric set of errors \cite{Kahan17b,Washburn17}.
+We also add to this stream of research by showing that, when confronted
+by worldview-triggered dilemmas, both liberals and conservatives
+resolve those dilemmas in an equally ``rational'' fashion,
+by selectively ``sacrificing'' endorsement of a specific
+construct about gender differences. 
+Liberals who endorse evolution in general believe that for 
+some reason it did not affect differences between the sexes; 
+this could be rationalized perhaps by assuming that evolution causes 
+differences only between but not within species. 
+Conservatives who reject evolution believe that men and women differ 
+naturally without having evolved differently; this could be 
+rationalized by assuming, for instance, that those natural differences 
+were the result of divine intervention.
+
+
+
+\bibliography{mega,megaIPsub}
+
+
+\pagebreak
+\begin{longtable}{p{.2\linewidth} p{.8\linewidth}} %tab:items
+
+	\caption[]{Items with 7-point response scale 
+		used in the survey and their short names\label{tab:items}}\\
+	\hline
+	Item name & \multicolumn{1}{c}{Item (R = reverse scored)}  \\
+	\hline
+
+	\\
+\hline
+
+\multicolumn{2}{c}{1. Free market}\\
+\nopagebreak
+\hline
+\nopagebreak
+\emph{FMUnresBest}&An economic system based on free markets unrestrained by government interference automatically works best to meet human needs. \\
+\emph{FMLimitSocial} &The free market system may be efficient for resource allocation  but it is limited in its capacity to promote social justice. (R)  \\
+\emph{FMMoreImp}&The preservation of the free market system is more important than localized environmental concerns.  \\
+\emph{FMThreatEnv} &Free and unregulated markets pose important threats to sustainable development. (R)  \\
+\emph{FMUnsustain} &The free market system is likely to promote unsustainable consumption. (R) \\
+
+	\\
+	\hline
+	\multicolumn{2}{c}{2. Religiosity}\\
+	\nopagebreak
+	\hline
+	\nopagebreak
+\emph{RelComf} & Do you agree with the following statement? "Religion gives me a great amount of comfort and security in my life."\\
+\emph{RelGod} & I believe in God.\\
+\emph{RelAfterlife} & I believe in some kind of afterlife.\\
+\emph{RelNatWorld} & I do not think religion can or should make claims about the natural world. (R)\\
+\emph{RelRelig} & I do not consider myself a religious person. (R)\\
+	
+	\\
+\hline
+\multicolumn{2}{c}{3. Evolution}\\
+\nopagebreak
+\hline
+\nopagebreak
+\emph{EvoAnimals} & I believe that animals have changed over time by a process of evolution.\\
+\emph{EvoSupported} & I accept evolution by natural selection as a well-supported scientific theory.\\
+\emph{EvoSpecies} & I believe that all species, including humans, have a common evolutionary origin.\\
+\emph{EvoCreated} & I believe that species were created individually and do not change over time. (R)\\
+\nopagebreak
+\emph{EvoCrisis} & I believe that the theory of evolution by natural selection is in crisis and about to be overturned. (R)\\
+	\\
+	\hline
+	
+	\multicolumn{2}{c}{4. Vaccinations}\\
+	\nopagebreak
+	\hline
+	\nopagebreak
+	\emph{VaxSafe} & I believe that vaccines are a safe and reliable way to
+	help avert the spread of preventable diseases. \\
+	\emph{VaxNegSide} & I believe that vaccines have negative side effects that
+	outweigh the benefits of vaccination for children. (R) \\
+	\emph{VaxTested} & Vaccines are thoroughly tested in the laboratory and
+	wouldn't be made available to the public unless it was
+	known that they are safe. \\
+	\emph{VaxRisky} &The risk of vaccinations to maim and kill children
+	outweighs their health benefits. (R)  \\
+	\emph{VaxContrib} & Vaccinations are one of the most significant
+	contributions to public health. \\
+	\hline	
+	
+	\\
+\hline
+\multicolumn{2}{c}{5. Rejection of Complementary and alternative medicine (CAM)}\\
+\nopagebreak
+\hline
+\nopagebreak
+\emph{CAMDanger} & Complementary medicine can be dangerous in that it may prevent people getting proper treatment.\\
+\emph{CAMCure} & Complementary medicine builds up the body's own defenses, so leading to a permanent cure. (R)\\
+\emph{CAMIneffect} & Homeopathy has been shown again and again to be ineffective as a cure for anything.\\
+\emph{CAMSaves} & Complementary medicine has often saved the lives of patients who were already given up by conventional doctors. (R)\\
+\emph{CAMSuperior} & Complementary medicine is superior to conventional medicine in treating chronic ailments such as allergies, headaches, and back pains. (R)\\
+
+	\\
+\hline
+\multicolumn{2}{c}{6. Men and women evolved differently}\\
+\nopagebreak
+\hline
+\nopagebreak
+\emph{MWEvoDiff} & Men and women evolved to be different and these biological differences cannot be overcome by education.\\
+\emph{MWEvoViol} & Evolutionary history has predisposed men more strongly than women towards violence.\\
+\emph{MWEvoNurture} & Evolutionary history has predisposed women more strongly than men towards being helpful and nurturing.\\
+\emph{MWEvoTraits} & All human traits are the product of evolution and therefore resist change.\\
+\emph{MWEvoDiff2} & Thousands of years of evolution explain why differences between men and women are very difficult to overcome.\\
+
+	\\
+\hline
+\multicolumn{2}{c}{7. Men and women are naturally different}\\
+\nopagebreak
+\hline
+\nopagebreak
+\emph{MWNatStrong} & Men are naturally stronger than women and those differences cannot be overcome by education.\\
+\emph{MWNatAggress} & It is the in the nature of men to be physically aggressive more often than women.\\
+\emph{MWNatCaring} & Women are naturally more caring and socially supportive than men.\\
+\emph{MWNatTraits} & All human traits are part of our natural makeup and therefore very difficult to change.\\
+\emph{MWNatDiff} & Men and women are naturally different from each other and those differences are bound to stay, even if we try hard to overcome them.\\
+
+	\\
+\hline
+\multicolumn{2}{c}{8. Men and women are the same}\\
+\nopagebreak
+\hline
+\nopagebreak
+\emph{MWEqu} & Men and women are equally capable and powerful in all respects.\\
+\emph{MWEquDiff} & All differences between men and women are created by society and can be eliminated if we change society.\\
+\emph{MWEquCulture} & Without the pressures of culture and society women would be as much in control as men.\\
+\emph{MWEquNoBio} & There are no biological or physical reasons that prevent a girl today to achieve as much as a boy.\\
+\emph{MWEquInvent} & The categories ``male'' and ``female'' are primarily cultural inventions that have little basis in human nature.\\
+\hline
+	
+\end{longtable}
+
+
+\pagebreak
+%\setlength{\tabcolsep}{8pt}
+\begin{longtable}{p{.15\linewidth} rr rr rr rr rr rr rr} %tab:itemResponses
+	\caption[]{Number of responses (percentages) for each response option for all survey items using a 7-point scale\label{tab:itemResponses}}\\
+	\hline
+	Item name & \multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly disagree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Disagree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat disagree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Neither agree nor disagree} } &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat agree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Agree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly agree}}  \\
+	
+	\hline
+	\multicolumn{15}{c}{1. Free market}\\
+	\hline
+	\nopagebreak
+	\input{_t.freemarket.tex}
+
+	\hline
+\multicolumn{15}{c}{2. Religiosity}\\
+\nopagebreak
+\hline
+\nopagebreak
+\hline	
+\input{_t.relig.tex}		
+\hline
+
+	
+	\hline
+	\multicolumn{15}{c}{3. Evolution}\\
+	\nopagebreak
+	\hline
+	\nopagebreak
+	\input{_t.evo.tex}
+		
+	\pagebreak
+	\hline
+	Item name & \multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly disagree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Disagree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat disagree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Neither agree nor disagree} } &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat agree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Agree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly agree}}  \\
+
+	\hline
+\multicolumn{15}{c}{4. Vaccinations}\\
+\nopagebreak
+\hline
+\nopagebreak
+\hline	
+\input{_t.vax.tex}		
+\hline
+
+	\hline
+	\multicolumn{15}{c}{5. Complementary and alternative medicine (CAM) }\\
+	\hline
+	\nopagebreak
+	\input{_t.cam.tex}		
+
+	\hline
+	\multicolumn{15}{c}{6. Men and women evolved differently}\\
+	\nopagebreak
+	\hline
+	\nopagebreak
+   	\input{_t.mwevo.tex}		
+			
+	\hline
+	\multicolumn{15}{c}{7. Men and women naturally differ}\\
+	\nopagebreak
+	\hline
+	\nopagebreak
+	\input{_t.mwnat.tex}		
+
+	\pagebreak
+	\hline
+	Item name & \multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly disagree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Disagree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat disagree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Neither agree nor disagree} } &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat agree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Agree}} &
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly agree}}  \\
+	\hline
+	\multicolumn{15}{c}{8. Men and women are equal}\\
+	\hline
+	\nopagebreak
+	\input{_t.mwequ.tex}			
+			
+			
+
+		
+\end{longtable}
+
+\end{document}

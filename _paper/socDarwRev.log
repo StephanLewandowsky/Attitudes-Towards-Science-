@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  26 DEC 2019 21:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  27 DEC 2019 15:46
 entering extended mode
 **./socDarwRev.tex
 (socDarwRev.tex
@@ -787,25 +787,25 @@ tim
 (socDarwRev.aux)
 \openout1 = `socDarwRev.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 125.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 125.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 150.
 
  ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    ... okay on input line 150.
 
 (C:\Users\Lewan\AppData\Roaming\MiKTeX\2.9\tex/latex/apa\english.apa
 File: english.apa 2006/01/01
@@ -884,7 +884,7 @@ ABD: EveryShipout initializing macros [1{C:/Users/Lewan/AppData/Local/MiKTeX/2.
 \openout3 = `socDarwRev.ent'.
 
  [5] [6] [7] [8] [9] [10]
-LaTeX Font Info:    Try loading font information for T1+aett on input line 526.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 551.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/ae\t1aett.fd"
@@ -894,22 +894,22 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 (socDarwRev.bbl [29] [30
 
 ] [31] [32] [33] [34] [35] [36] [37]) [38]
-Overfull \hbox (23.99998pt too wide) in alignment at lines 1578--1619
+Overfull \hbox (23.99998pt too wide) in alignment at lines 1603--1644
  [] [] 
  []
 
 
-Overfull \hbox (23.99998pt too wide) in alignment at lines 1619--1662
+Overfull \hbox (23.99998pt too wide) in alignment at lines 1644--1687
  [] [] 
  []
 
-[39]
-Overfull \hbox (23.99998pt too wide) in alignment at lines 1662--1692
+
+Overfull \hbox (23.99998pt too wide) in alignment at lines 1687--1718
  [] [] 
  []
 
-[40] [41] [42] (../_outputTex/_t.freemarket.tex
-Overfull \hbox (1.05293pt too wide) in paragraph at lines 1712--1
+[39] [40] [41] [42] (../_outputTex/_t.freemarket.tex
+Overfull \hbox (1.05293pt too wide) in paragraph at lines 1737--1
 []|\T1/aer/m/n/10.95 FMUnresBest| 
  []
 
@@ -929,7 +929,7 @@ Overfull \hbox (2.9034pt too wide) in paragraph at lines 2--2
  []
 
 )
-Overfull \hbox (66.77336pt too wide) in alignment at lines 1697--1730
+Overfull \hbox (66.77336pt too wide) in alignment at lines 1723--1748
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
@@ -949,12 +949,12 @@ Overfull \hbox (2.98024pt too wide) in paragraph at lines 4--4
  []
 
 )
-Overfull \hbox (66.77336pt too wide) in alignment at lines 1730--1765
+Overfull \hbox (66.77336pt too wide) in alignment at lines 1748--1784
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 (../_outputTex/_t.mwnat.tex
-Overfull \hbox (5.80533pt too wide) in paragraph at lines 1768--1
+Overfull \hbox (5.80533pt too wide) in paragraph at lines 1787--1
 []|\T1/aer/m/n/10.95 MWNatStrong| 
  []
 
@@ -989,12 +989,12 @@ Overfull \hbox (5.63019pt too wide) in paragraph at lines 5--5
  []
 
 )
-Overfull \hbox (66.77336pt too wide) in alignment at lines 1765--1788
+Overfull \hbox (66.77336pt too wide) in alignment at lines 1784--1796
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[43] [44] [45] [46] [47] [48] (socDarwRev.ent)
-AED endfloat: Processing end Figures and Tables [49] (socDarwRev.ttt
+[43] [44] [45] [46] (socDarwRev.ent)
+AED endfloat: Processing end Figures and Tables [47] (socDarwRev.ttt
 Overfull \hbox (12.1732pt too wide) in paragraph at lines 9--123
 [][] 
  []
@@ -1009,7 +1009,7 @@ Overfull \hbox (27.53595pt too wide) in paragraph at lines 216--234
  [][] 
  []
 
-) [50] [51] [52] [53] (socDarwRev.lof [54
+) [48] [49] [50] [51] (socDarwRev.lof [52
 
 
 
@@ -1017,8 +1017,8 @@ Overfull \hbox (27.53595pt too wide) in paragraph at lines 216--234
 \tf@lof=\write8
 \openout8 = `socDarwRev.lof'.
 
- [55] (socDarwRev.fff
-<"../_figures/"dilemmas.pdf, id=211, 819.738pt x 432.11015pt>
+ [53] (socDarwRev.fff
+<"../_figures/"dilemmas.pdf, id=204, 819.738pt x 432.11015pt>
 File: "../_figures/"dilemmas.pdf Graphic file (type pdf)
 <use "../_figures/"dilemmas.pdf>
 Package pdftex.def Info: "../_figures/"dilemmas.pdf  used on input line 6.
@@ -1035,7 +1035,7 @@ Package pdftex.def Info: "../_figures/"dilemmas.pdf  used on input line 6.
 
 LaTeX Warning: Float too large for page by 0.0376pt on input line 15.
 
-<"../_figures/"slidersSocDarw.pdf, id=212, 469.755pt x 650.43pt>
+<"../_figures/"slidersSocDarw.pdf, id=205, 469.755pt x 650.43pt>
 File: "../_figures/"slidersSocDarw.pdf Graphic file (type pdf)
 <use "../_figures/"slidersSocDarw.pdf>
 Package pdftex.def Info: "../_figures/"slidersSocDarw.pdf  used on input line 1
@@ -1044,7 +1044,7 @@ Package pdftex.def Info: "../_figures/"slidersSocDarw.pdf  used on input line 1
 
 LaTeX Warning: Float too large for page by 9.90274pt on input line 26.
 
-<"../_figures/"histoSocDarw.pdf, id=213, 469.755pt x 650.43pt>
+<"../_figures/"histoSocDarw.pdf, id=206, 469.755pt x 650.43pt>
 File: "../_figures/"histoSocDarw.pdf Graphic file (type pdf)
 <use "../_figures/"histoSocDarw.pdf>
 Package pdftex.def Info: "../_figures/"histoSocDarw.pdf  used on input line 30.
@@ -1053,25 +1053,25 @@ Package pdftex.def Info: "../_figures/"histoSocDarw.pdf  used on input line 30.
 
 LaTeX Warning: Float too large for page by 9.90274pt on input line 44.
 
-<"../_figures/"finalpolSEM.pdf, id=214, 578.16pt x 578.16pt>
+<"../_figures/"finalpolSEM.pdf, id=207, 696.6025pt x 522.95375pt>
 File: "../_figures/"finalpolSEM.pdf Graphic file (type pdf)
 <use "../_figures/"finalpolSEM.pdf>
 Package pdftex.def Info: "../_figures/"finalpolSEM.pdf  used on input line 48.
-(pdftex.def)             Requested size: 433.62pt x 433.61893pt.
+(pdftex.def)             Requested size: 433.62pt x 325.52864pt.
 File: "../_figures/"finalpolSEM.pdf Graphic file (type pdf)
 <use "../_figures/"finalpolSEM.pdf>
 Package pdftex.def Info: "../_figures/"finalpolSEM.pdf  used on input line 48.
-(pdftex.def)             Requested size: 346.89731pt x 346.89867pt.
-<"../_figures/"superSEM.pdf, id=215, 439.07838pt x 430.07738pt>
+(pdftex.def)             Requested size: 346.89731pt x 260.42291pt.
+<"../_figures/"superSEM.pdf, id=208, 497.86pt x 373.395pt>
 File: "../_figures/"superSEM.pdf Graphic file (type pdf)
 <use "../_figures/"superSEM.pdf>
 Package pdftex.def Info: "../_figures/"superSEM.pdf  used on input line 64.
-(pdftex.def)             Requested size: 433.62pt x 424.74104pt.
+(pdftex.def)             Requested size: 433.62pt x 325.22136pt.
 File: "../_figures/"superSEM.pdf Graphic file (type pdf)
 <use "../_figures/"superSEM.pdf>
 Package pdftex.def Info: "../_figures/"superSEM.pdf  used on input line 64.
-(pdftex.def)             Requested size: 346.89731pt x 339.79678pt.
-<"../_figures/"conslibequalitygridAll.pdf, id=216, 867.24pt x 578.16pt>
+(pdftex.def)             Requested size: 346.89731pt x 260.17824pt.
+<"../_figures/"conslibequalitygridAll.pdf, id=209, 867.24pt x 578.16pt>
 File: "../_figures/"conslibequalitygridAll.pdf Graphic file (type pdf)
 <use "../_figures/"conslibequalitygridAll.pdf>
 Package pdftex.def Info: "../_figures/"conslibequalitygridAll.pdf  used on inpu
@@ -1090,29 +1090,29 @@ t line 79.
 
 LaTeX Warning: Float too large for page by 0.0376pt on input line 93.
 
-) [56 <../_figures/dilemmas.pdf, page is rotated 90 degrees>] [57 <../_figures/
-slidersSocDarw.pdf>] [58 <../_figures/histoSocDarw.pdf>] [59 <../_figures/final
-polSEM.pdf>] [60 <../_figures/superSEM.pdf, page is rotated 90 degrees>]
-[61 <../_figures/conslibequalitygridAll.pdf>] (socDarwRev.aux) ) 
+) [54 <../_figures/dilemmas.pdf, page is rotated 90 degrees>] [55 <../_figures/
+slidersSocDarw.pdf>] [56 <../_figures/histoSocDarw.pdf>] [57 <../_figures/final
+polSEM.pdf>] [58 <../_figures/superSEM.pdf>] [59 <../_figures/conslibequalitygr
+idAll.pdf>] (socDarwRev.aux) ) 
 Here is how much of TeX's memory you used:
- 15758 strings out of 492946
- 300775 string characters out of 3135527
- 391384 words of memory out of 3000000
- 19226 multiletter control sequences out of 15000+200000
+ 15760 strings out of 492946
+ 300803 string characters out of 3135527
+ 390466 words of memory out of 3000000
+ 19228 multiletter control sequences out of 15000+200000
  26873 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,13n,81p,766b,512s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on socDarwRev.pdf (61 pages, 424438 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on socDarwRev.pdf (59 pages, 386685 bytes).
 PDF statistics:
- 418 PDF objects out of 1000 (max. 8388607)
+ 408 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  139 words of extra memory for PDF output out of 10000 (max. 10000000)
 

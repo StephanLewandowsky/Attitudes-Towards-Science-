@@ -76,6 +76,31 @@
 \makeatother
 \graphicspath{{"../_figures/"}}
 
+
+\makeatletter
+\def\nobreakhline{%
+	\noalign{\ifnum0=`}\fi
+	\penalty\@M
+	\futurelet\@let@token\LT@@nobreakhline}
+\def\LT@@nobreakhline{%
+	\ifx\@let@token\hline
+	\global\let\@gtempa\@gobble
+	\gdef\LT@sep{\penalty\@M\vskip\doublerulesep}% <-- change here
+	\else
+	\global\let\@gtempa\@empty
+	\gdef\LT@sep{\penalty\@M\vskip-\arrayrulewidth}% <-- change here
+	\fi
+	\ifnum0=`{\fi}%
+	\multispan\LT@cols
+	\unskip\leaders\hrule\@height\arrayrulewidth\hfill\cr
+	\noalign{\LT@sep}%
+	\multispan\LT@cols
+	\unskip\leaders\hrule\@height\arrayrulewidth\hfill\cr
+	\noalign{\penalty\@M}%
+	\@gtempa}
+\makeatother
+
+
 \title{Genesis or Evolution of Gender Differences? Worldview-based Dilemmas in The Processing of Scientific Information}
 	
 \threeauthors{Stephan Lewandowsky}{Jan K. Woike}{Klaus Oberauer}
@@ -1578,115 +1603,116 @@ were the result of divine intervention.
 \begin{longtable}{p{.2\linewidth} p{.8\linewidth}} %tab:items
 
 	\caption[]{Items with 7-point response scale 
-		used in the survey and their short names\label{tab:items}}\\
+		used in the survey and their short names\label{tab:items}}\\*
 	\hline
-	Item name & \multicolumn{1}{c}{Item (R = reverse scored)}  \\
+	Item name & \multicolumn{1}{c}{Item (R = reverse scored)}  \\*
 	\hline
 
-	\\
+	\\*
 \hline
 
-\multicolumn{2}{c}{1. Free market}\\
+\multicolumn{2}{c}{1. Free market}\\*
 \nopagebreak
-\hline
+\nobreakhline
 \nopagebreak
-\emph{FMUnresBest}&An economic system based on free markets unrestrained by government interference automatically works best to meet human needs. \\
-\emph{FMLimitSocial} &The free market system may be efficient for resource allocation  but it is limited in its capacity to promote social justice. (R)  \\
-\emph{FMMoreImp}&The preservation of the free market system is more important than localized environmental concerns.  \\
-\emph{FMThreatEnv} &Free and unregulated markets pose important threats to sustainable development. (R)  \\
+\emph{FMUnresBest}&An economic system based on free markets unrestrained by government interference automatically works best to meet human needs. \\*
+\emph{FMLimitSocial} &The free market system may be efficient for resource allocation  but it is limited in its capacity to promote social justice. (R)  \\*
+\emph{FMMoreImp}&The preservation of the free market system is more important than localized environmental concerns.  \\*
+\emph{FMThreatEnv} &Free and unregulated markets pose important threats to sustainable development. (R)  \\*
 \emph{FMUnsustain} &The free market system is likely to promote unsustainable consumption. (R) \\
 
-	\\
-	\hline
-	\multicolumn{2}{c}{2. Religiosity}\\
+	\\*
+	\nobreakhline
+	\multicolumn{2}{c}{2. Religiosity}\\*
 	\nopagebreak
-	\hline
+	\nobreakhline
 	\nopagebreak
-\emph{RelComf} & Do you agree with the following statement? "Religion gives me a great amount of comfort and security in my life."\\
-\emph{RelGod} & I believe in God.\\
-\emph{RelAfterlife} & I believe in some kind of afterlife.\\
-\emph{RelNatWorld} & I do not think religion can or should make claims about the natural world. (R)\\
+\emph{RelComf} & Do you agree with the following statement? "Religion gives me a great amount of comfort and security in my life."\\*
+\emph{RelGod} & I believe in God.\\*
+\emph{RelAfterlife} & I believe in some kind of afterlife.\\*
+\emph{RelNatWorld} & I do not think religion can or should make claims about the natural world. (R)\\*
 \emph{RelRelig} & I do not consider myself a religious person. (R)\\
 	
-	\\
-\hline
-\multicolumn{2}{c}{3. Evolution}\\
+	\\*
+\nobreakhline
+\multicolumn{2}{c}{3. Evolution}\\*
 \nopagebreak
-\hline
+\nobreakhline
 \nopagebreak
-\emph{EvoAnimals} & I believe that animals have changed over time by a process of evolution.\\
-\emph{EvoSupported} & I accept evolution by natural selection as a well-supported scientific theory.\\
-\emph{EvoSpecies} & I believe that all species, including humans, have a common evolutionary origin.\\
-\emph{EvoCreated} & I believe that species were created individually and do not change over time. (R)\\
-\nopagebreak
+\emph{EvoAnimals} & I believe that animals have changed over time by a process of evolution.\\*
+\emph{EvoSupported} & I accept evolution by natural selection as a well-supported scientific theory.\\*
+\emph{EvoSpecies} & I believe that all species, including humans, have a common evolutionary origin.\\*
+\emph{EvoCreated} & I believe that species were created individually and do not change over time. (R)\\*
+%\nopagebreak
 \emph{EvoCrisis} & I believe that the theory of evolution by natural selection is in crisis and about to be overturned. (R)\\
-	\\
-	\hline
+	\\*
+	\nobreakhline
 	
-	\multicolumn{2}{c}{4. Vaccinations}\\
+	\multicolumn{2}{c}{4. Vaccinations}\\*
 	\nopagebreak
-	\hline
+	\nobreakhline
 	\nopagebreak
 	\emph{VaxSafe} & I believe that vaccines are a safe and reliable way to
-	help avert the spread of preventable diseases. \\
+	help avert the spread of preventable diseases. \\*
 	\emph{VaxNegSide} & I believe that vaccines have negative side effects that
-	outweigh the benefits of vaccination for children. (R) \\
+	outweigh the benefits of vaccination for children. (R) \\*
 	\emph{VaxTested} & Vaccines are thoroughly tested in the laboratory and
 	wouldn't be made available to the public unless it was
-	known that they are safe. \\
+	known that they are safe. \\*
 	\emph{VaxRisky} &The risk of vaccinations to maim and kill children
-	outweighs their health benefits. (R)  \\
+	outweighs their health benefits. (R)  \\*
 	\emph{VaxContrib} & Vaccinations are one of the most significant
 	contributions to public health. \\
-	\hline	
-	
-	\\
-\hline
-\multicolumn{2}{c}{5. Rejection of Complementary and alternative medicine (CAM)}\\
+		
+	\\*
+\nobreakhline
+%\pagebreak
+\multicolumn{2}{c}{5. Rejection of Complementary and alternative medicine (CAM)}\\*
 \nopagebreak
-\hline
+\nobreakhline
 \nopagebreak
-\emph{CAMDanger} & Complementary medicine can be dangerous in that it may prevent people getting proper treatment.\\
-\emph{CAMCure} & Complementary medicine builds up the body's own defenses, so leading to a permanent cure. (R)\\
-\emph{CAMIneffect} & Homeopathy has been shown again and again to be ineffective as a cure for anything.\\
-\emph{CAMSaves} & Complementary medicine has often saved the lives of patients who were already given up by conventional doctors. (R)\\
+\emph{CAMDanger} & Complementary medicine can be dangerous in that it may prevent people getting proper treatment.\\*
+\emph{CAMCure} & Complementary medicine builds up the body's own defenses, so leading to a permanent cure. (R)\\*
+\emph{CAMIneffect} & Homeopathy has been shown again and again to be ineffective as a cure for anything.\\*
+\emph{CAMSaves} & Complementary medicine has often saved the lives of patients who were already given up by conventional doctors. (R)\\*
 \emph{CAMSuperior} & Complementary medicine is superior to conventional medicine in treating chronic ailments such as allergies, headaches, and back pains. (R)\\
 
-	\\
-\hline
-\multicolumn{2}{c}{6. Men and women evolved differently}\\
+	\\*
+\nobreakhline
+\multicolumn{2}{c}{6. Men and women evolved differently}\\*
 \nopagebreak
-\hline
+\nobreakhline
 \nopagebreak
-\emph{MWEvoDiff} & Men and women evolved to be different and these biological differences cannot be overcome by education.\\
-\emph{MWEvoViol} & Evolutionary history has predisposed men more strongly than women towards violence.\\
-\emph{MWEvoNurture} & Evolutionary history has predisposed women more strongly than men towards being helpful and nurturing.\\
-\emph{MWEvoTraits} & All human traits are the product of evolution and therefore resist change.\\
+\emph{MWEvoDiff} & Men and women evolved to be different and these biological differences cannot be overcome by education.\\*
+\emph{MWEvoViol} & Evolutionary history has predisposed men more strongly than women towards violence.\\*
+\emph{MWEvoNurture} & Evolutionary history has predisposed women more strongly than men towards being helpful and nurturing.\\*
+\emph{MWEvoTraits} & All human traits are the product of evolution and therefore resist change.\\*
 \emph{MWEvoDiff2} & Thousands of years of evolution explain why differences between men and women are very difficult to overcome.\\
 
-	\\
-\hline
-\multicolumn{2}{c}{7. Men and women are naturally different}\\
+	\\*
+%\pagebreak
+\nobreakhline
+\multicolumn{2}{c}{7. Men and women are naturally different}\\*
 \nopagebreak
-\hline
+\nobreakhline
 \nopagebreak
-\emph{MWNatStrong} & Men are naturally stronger than women and those differences cannot be overcome by education.\\
-\emph{MWNatAggress} & It is the in the nature of men to be physically aggressive more often than women.\\
-\emph{MWNatCaring} & Women are naturally more caring and socially supportive than men.\\
-\emph{MWNatTraits} & All human traits are part of our natural makeup and therefore very difficult to change.\\
+\emph{MWNatStrong} & Men are naturally stronger than women and those differences cannot be overcome by education.\\*
+\emph{MWNatAggress} & It is the in the nature of men to be physically aggressive more often than women.\\*
+\emph{MWNatCaring} & Women are naturally more caring and socially supportive than men.\\*
+\emph{MWNatTraits} & All human traits are part of our natural makeup and therefore very difficult to change.\\*
 \emph{MWNatDiff} & Men and women are naturally different from each other and those differences are bound to stay, even if we try hard to overcome them.\\
 
-	\\
-\hline
-\multicolumn{2}{c}{8. Men and women are the same}\\
+	\\*
+\nobreakhline
+\multicolumn{2}{c}{8. Men and women are the same}\\*
 \nopagebreak
-\hline
+\nobreakhline
 \nopagebreak
-\emph{MWEqu} & Men and women are equally capable and powerful in all respects.\\
-\emph{MWEquDiff} & All differences between men and women are created by society and can be eliminated if we change society.\\
-\emph{MWEquCulture} & Without the pressures of culture and society women would be as much in control as men.\\
-\emph{MWEquNoBio} & There are no biological or physical reasons that prevent a girl today to achieve as much as a boy.\\
-\emph{MWEquInvent} & The categories ``male'' and ``female'' are primarily cultural inventions that have little basis in human nature.\\
+\emph{MWEqu} & Men and women are equally capable and powerful in all respects.\\*
+\emph{MWEquDiff} & All differences between men and women are created by society and can be eliminated if we change society.\\*
+\emph{MWEquCulture} & Without the pressures of culture and society women would be as much in control as men.\\*
+\emph{MWEquNoBio} & There are no biological or physical reasons that prevent a girl today to achieve as much as a boy.\\*
+\emph{MWEquInvent} & The categories ``male'' and ``female'' are primarily cultural inventions that have little basis in human nature.\\*
 \hline
 	
 \end{longtable}
@@ -1696,7 +1722,7 @@ were the result of divine intervention.
 %\setlength{\tabcolsep}{8pt}
 \begin{longtable}{p{.15\linewidth} rr rr rr rr rr rr rr} %tab:itemResponses
 	\caption[]{Number of responses (percentages) for each response option for all survey items using a 7-point scale\label{tab:itemResponses}}\\
-	\hline
+	\nobreakhline
 	Item name & \multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly disagree}} &
 	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Disagree}} &
 	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat disagree}} &
@@ -1705,84 +1731,66 @@ were the result of divine intervention.
 	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Agree}} &
 	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly agree}}  \\
 	
-	\hline
-	\multicolumn{15}{c}{1. Free market}\\
-	\hline
-	\nopagebreak
+	\nobreakhline
+	\multicolumn{15}{c}{1. Free market}\\*
+	\nobreakhline
 	\input{_t.freemarket.tex}
 
-	\hline
-\multicolumn{15}{c}{2. Religiosity}\\
-\nopagebreak
-\hline
-\nopagebreak
-\hline	
-\input{_t.relig.tex}		
-\hline
-
+	\nobreakhline
+	\multicolumn{15}{c}{2. Religiosity}\\*
+	\nobreakhline	
+	\input{_t.relig.tex}		
 	
-	\hline
-	\multicolumn{15}{c}{3. Evolution}\\
-	\nopagebreak
-	\hline
-	\nopagebreak
+	\nobreakhline
+	\multicolumn{15}{c}{3. Evolution}\\*
+	\nobreakhline
 	\input{_t.evo.tex}
 		
 	\pagebreak
-	\hline
+	\nobreakhline
 	Item name & \multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly disagree}} &
 	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Disagree}} &
 	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat disagree}} &
 	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Neither agree nor disagree} } &
 	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat agree}} &
 	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Agree}} &
-	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly agree}}  \\
+	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly agree}}  \\*
 
-	\hline
-\multicolumn{15}{c}{4. Vaccinations}\\
-\nopagebreak
-\hline
-\nopagebreak
-\hline	
-\input{_t.vax.tex}		
-\hline
+	\nobreakhline
+	\multicolumn{15}{c}{4. Vaccinations}\\*
+	\nobreakhline	
+	\input{_t.vax.tex}		
 
-	\hline
-	\multicolumn{15}{c}{5. Complementary and alternative medicine (CAM) }\\
-	\hline
-	\nopagebreak
+	\nobreakhline
+	\multicolumn{15}{c}{5. Complementary and alternative medicine (CAM) }\\*
+	\nobreakhline
 	\input{_t.cam.tex}		
 
-	\hline
-	\multicolumn{15}{c}{6. Men and women evolved differently}\\
-	\nopagebreak
-	\hline
-	\nopagebreak
+	\nobreakhline
+	\multicolumn{15}{c}{6. Men and women evolved differently}\\*
+	\nobreakhline
    	\input{_t.mwevo.tex}		
-			
-	\hline
-	\multicolumn{15}{c}{7. Men and women naturally differ}\\
-	\nopagebreak
-	\hline
-	\nopagebreak
+	\nobreakhline
+	
+	\pagebreak
+\nobreakhline
+Item name & \multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly disagree}} &
+\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Disagree}} &
+\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat disagree}} &
+\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Neither agree nor disagree} } &
+\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat agree}} &
+\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Agree}} &
+\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly agree}}  \\*			
+	\nobreakhline
+	\multicolumn{15}{c}{7. Men and women naturally differ}\\*
+	\nobreakhline
 	\input{_t.mwnat.tex}		
 
-	\pagebreak
-	\hline
-	Item name & \multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly disagree}} &
-	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Disagree}} &
-	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat disagree}} &
-	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Neither agree nor disagree} } &
-	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Somewhat agree}} &
-	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Agree}} &
-	\multicolumn{2}{c}{\rotatebox[origin=c]{70}{Strongly agree}}  \\
-	\hline
-	\multicolumn{15}{c}{8. Men and women are equal}\\
-	\hline
-	\nopagebreak
+	\nobreakhline
+	\multicolumn{15}{c}{8. Men and women are equal}\\*
+	\nobreakhline
 	\input{_t.mwequ.tex}			
-			
-			
+	\hline			
 
 		
 \end{longtable}

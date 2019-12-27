@@ -19,6 +19,9 @@ library(reshape2)
 library(psych)
 library(scales)
 library(summarytools) #contains descr()
+library(DiagrammeR)
+library(webshot)
+library(htmltools)
 
 ##--- correct affirmation bias or not?
 correctaffirmbias <- 1
@@ -40,22 +43,22 @@ darwin <- read.csv(paste(inputdir,"full1200downloadedAnonymized.csv",sep="/"),he
 vn <- read.csv(paste(inputdir,"variableNames.csv",sep="/"),header=TRUE,row.names=NULL,stringsAsFactors = FALSE) 
 
 darwin1.5 <- darwin %>% filter(QB_15 == 20) %>%       #must choose 20 from the AFQ slider (this eliminates NA softlaunch subject)
-                    filter(QAC == 4) %>%              #table is not an animal
-                    #filter(Q_TotalDuration<1801) %>%    #30 minutes should be ample
-                    select(contains("Q"),contains("CRT")) %>% 
-                    select(-contains("Q_Tot"),-contains("QZ"),-contains("QX"),-contains("QY"),
-                           -contains("Click"),-contains("Submit")) %>%        #drop the Qs that ain't qs.
-                    select(-QB_15)                    #drop AFQ
+  filter(QAC == 4) %>%              #table is not an animal
+  #filter(Q_TotalDuration<1801) %>%    #30 minutes should be ample
+  select(contains("Q"),contains("CRT")) %>% 
+  select(-contains("Q_Tot"),-contains("QZ"),-contains("QX"),-contains("QY"),
+         -contains("Click"),-contains("Submit")) %>%        #drop the Qs that ain't qs.
+  select(-QB_15)                    #drop AFQ
 
 # first fix the Qualtrics-induced scale problems, so SD=1 and SA=7
 darwin1.5 <- darwin1.5 %>%  mutate_at(c(paste("QC.",c(1:5),sep=""),
-                                   paste("QE.",c(1:5),sep=""),
-                                   paste("QF.",c(1:5),sep=""),
-                                   paste("QH.",c(1:5),sep=""),
-                                   paste("QI.",c(1:5),sep=""),
-                                   paste("QJ.",c(1:5),sep=""),
-                                   paste("QG.",c(1:5),sep="")),fixscore,mm=14) %>%
-                            mutate_at(paste("QD.",c(1:5),sep=""), fixscore,mm=28) 
+                                        paste("QE.",c(1:5),sep=""),
+                                        paste("QF.",c(1:5),sep=""),
+                                        paste("QH.",c(1:5),sep=""),
+                                        paste("QI.",c(1:5),sep=""),
+                                        paste("QJ.",c(1:5),sep=""),
+                                        paste("QG.",c(1:5),sep="")),fixscore,mm=14) %>%
+  mutate_at(paste("QD.",c(1:5),sep=""), fixscore,mm=28) 
 
 ##--- identify keyhitters before reverse-scoring ----------------------------------------------------------------------
 neutral <- 0 #if set to zero, any sequence of identical keys is eliminated. If set to 4, only non-neutral responses are dropped
@@ -63,9 +66,9 @@ keyhitters <- NULL
 for (cluster in c("C","E","F","D","G")) { #eliminate "H","I","J", which have no reverse scoring
   keyhitters <- cbind(keyhitters,
                       darwin1.5 %>% select(num_range(paste("Q",cluster,".",sep=""),1:5)) %>% 
-                                    apply(.,1,FUN=function(x) ifelse((var(x)==0 & mean(x)!=neutral),1,0)) 
-                      )
-  }
+                        apply(.,1,FUN=function(x) ifelse((var(x)==0 & mean(x)!=neutral),1,0)) 
+  )
+}
 table(rowSums(keyhitters))
 #include "50" for sliders in identifying keyhitters
 keyhitters <- cbind(keyhitters, darwin1.5 %>% select(contains("QB")) %>% 
@@ -90,9 +93,9 @@ label4plot <- vn$shortname[str_detect(vn$qvarname,fixed("QB_"))][1:14]
 s4p<-gather(slider.raw,factor_key = TRUE)
 s4p$key <- factor(s4p$key,labels=label4plot)
 slidp <- ggplot(s4p, aes(value)) + 
-                geom_histogram(bins = 10) + 
-                xlab("Slider value") + ylab("Frequency") +
-                facet_wrap(~key, scales = 'free_x',labeller=label_value)
+  geom_histogram(bins = 10) + 
+  xlab("Slider value") + ylab("Frequency") +
+  facet_wrap(~key, scales = 'free_x',labeller=label_value)
 ggsave(paste(figdir,"slidersSocDarw.pdf",sep="/"), plot=slidp, width=6.5, height=9)
 
 #add table of all responses
@@ -143,8 +146,8 @@ if (correctaffirmbias) {
 # QD religion                 "QD.4","QD.5"
 # QG vaccinations             "QG.2","QG.4"
 darwin2 <- darwin1.5 %>% mutate_at(vn$qvarname[vn$reverse=="R"],  revscore,mm=7)  %>% 
-                         mutate_at(c("QB_1","QB_2","QB_3","QB_4"),revscore,mm=99) %>% #now reverse score the sliders 
-                         mutate_at(vars(contains("QF")),revscore,mm=7) #flip CAM to point to rejection
+  mutate_at(c("QB_1","QB_2","QB_3","QB_4"),revscore,mm=99) %>% #now reverse score the sliders 
+  mutate_at(vars(contains("QF")),revscore,mm=7) #flip CAM to point to rejection
 
 
 #explore structure of sliders after reverse scoring
@@ -171,8 +174,8 @@ clusterlabels <- c("Free market", "Evolution", "Rejection of CAM", "Men/women ev
                    "Men/women are the same", "Religiosity", "Vaccinations")
 names(clusterlabels) <- c("C","E","F","H","I","J","D","G")
 for (cluster in names(clusterlabels)) {
-    darwin2 %>% select(num_range(paste("Q",cluster,".",sep=""),1:5)) %>% rowMeans %>% 
-                hist(las=1,xlim=c(1,7),xlab="Average score",main=clusterlabels[cluster],col="light gray")
+  darwin2 %>% select(num_range(paste("Q",cluster,".",sep=""),1:5)) %>% rowMeans %>% 
+    hist(las=1,xlim=c(1,7),xlab="Average score",main=clusterlabels[cluster],col="light gray")
 }
 dev.off()
 #construct histogram based on political quartiles at the end (after necessary intermediate variables have been computed)
@@ -245,18 +248,18 @@ vaxSI     <- singleindmodel(vaxvars, list(c("QG.2","QG.4")),darwin2)
 consSI    <- singleindmodel(slidervars, list(c("QB_9","QB_10"), c("QB_6","QB_14")),darwin2)
 
 compositedarwin <- data.frame ( #compute composite scores for the SI models
-                      fm =   apply(darwin2[,freemarketvars], 1,mean),
-                      evo =  apply(darwin2[,evovars], 1,mean),
-                      cam =  apply(darwin2[,camvars], 1,mean),
-                      mwevo =   apply(darwin2[,mwevovars], 1,mean),
-                      mwnat =   apply(darwin2[,mwnaturevars], 1,mean),
-                      mwequ = apply(darwin2[,mwequalvars], 1,mean),
-                      relig = apply(darwin2[,religvars], 1,mean),
-                      vax = apply(darwin2[,vaxvars], 1,mean),
-                      cons = apply(darwin2[,slidervars], 1,mean),
-                      gender = darwin2$Qgender,
-                      age = darwin2$Qage
-                    )
+  fm =   apply(darwin2[,freemarketvars], 1,mean),
+  evo =  apply(darwin2[,evovars], 1,mean),
+  cam =  apply(darwin2[,camvars], 1,mean),
+  mwevo =   apply(darwin2[,mwevovars], 1,mean),
+  mwnat =   apply(darwin2[,mwnaturevars], 1,mean),
+  mwequ = apply(darwin2[,mwequalvars], 1,mean),
+  relig = apply(darwin2[,religvars], 1,mean),
+  vax = apply(darwin2[,vaxvars], 1,mean),
+  cons = apply(darwin2[,slidervars], 1,mean),
+  gender = darwin2$Qgender,
+  age = darwin2$Qage
+)
 cor(compositedarwin)
 histogram(~cam|gender,data=compositedarwin)
 aggregate(cam~gender,data=compositedarwin,FUN=mean)
@@ -288,29 +291,6 @@ crtmodgof <- fitMeasures(crtmodfit)
 
 
 #*------------- correlation structure among latent constructs -----------------------------------------------------
-smallCorrel <- c("
-                 evoFac   =~ evo
-                 mwevoFac =~ mwevo
-                 mwnatFac =~ mwnat        
-                 mwequFac =~ mwequ
-                 religFac =~ relig
-                 consFac  =~ cons
-
-                  evo ~~ ",  evoSI$eSImod,   "*evo",
-                 "mwevo ~~", mwevoSI$eSImod, "*mwevo",
-                 "mwnat ~~", mwnatSI$eSImod, "*mwnat",
-                 "mwequ ~~", mwequSI$eSImod, "*mwequ",
-                 "relig ~~", religSI$eSImod, "*relig",
-                 "cons ~~",  consSI$eSImod, "*cons"
-)
-fitsmallCorrel <- sem(smallCorrel, compositedarwin, std.lv=TRUE, estimator="ML")
-summary(fitsmallCorrel,standardized=TRUE, fit.measures=TRUE)
-lavInspect(fitsmallCorrel, what = "cor.lv")
-#fitsmallCorrelFM <- measEq.syntax(smallCorrel, compositedarwin, std.lv=TRUE, estimator="ML",group="gender") # http://lavaan.ugent.be/tutorial/groups.html
-x11()
-semPaths(fitsmallCorrel, what="std", title =FALSE, curvePivot = TRUE,residuals=FALSE, structural=TRUE, layout="circle")
-
-# and now the full model ...  
 modelCorrel <- c("
                   fmFac    =~ fm
                  evoFac   =~ evo
@@ -334,55 +314,56 @@ modelCorrel <- c("
                  "cons ~~",  consSI$eSImod,  "*cons",
                  "vax ~~",   vaxSI$eSImod,   "*vax"
 )
- fitCorrel <- sem(modelCorrel, compositedarwin, std.lv=TRUE, estimator="ML") # http://lavaan.ugent.be/tutorial/groups.html
- summary(fitCorrel,standardized=TRUE, fit.measures=TRUE)
- x11()
- semPaths(fitCorrel, what="std", title =FALSE, curvePivot = TRUE,residuals=FALSE, structural=TRUE, layout="circle")
- lavInspect(fitCorrel, what = "cor.lv")
- eigen( inspect(fitCorrel, "cov.lv") )$values 
- 
- #now compute p-values
- pvals2tailed <- pnorm(abs(inspect(fitCorrel,what="est")$psi/inspect(fitCorrel,what="se")$psi),lower.tail = FALSE)*2
- colnames(pvals2tailed) <- rownames(pvals2tailed) <- c(clusterlabels,"Conservatism","CRT")
- pvals2tailed[upper.tri(pvals2tailed)] <- 0
- 
-  #get matrix printed
- lvcormat <- lavInspect(fitCorrel, what = "cor.lv")
- lvcormat[upper.tri(lvcormat,diag=TRUE)] <- NA
- colnames(lvcormat) <- rownames(lvcormat) <- c(clusterlabels,"Conservatism","CRT")
- cormat <- stargazer(lvcormat, title="Correlations among all latent variables") 
- for (i in 1:10) {
-   lvcp<-i+11
-   cormat[lvcp] <- str_replace_all(cormat[lvcp],fixed("$-$"),"-")
-   sigs<-unique(as.numeric(round(lvcormat[i,which(pvals2tailed[i,]>.05)],3)))
-   if (length(sigs)>0) {
-     for (j in 1:length(sigs)){
-       subss<-substr(paste("$",as.character(sigs[j]),"0000",sep=""),1,ifelse(sigs[j]<0,7,6))
-       w2r <- (str_locate_all(cormat[lvcp],fixed(subss)))[[1]]
-       if (dim(w2r)[1]>0) {
-         for (k in 1:dim(w2r)[1]) {
-           str_sub(cormat[lvcp],w2r[k,1],w2r[k,2])<-paste(subss,"ns",sep="") #"^{*}"
-         }#print(c(substr(cormat[lvcp],x[1],x[2]),subss)))
-       }
-     }
-   }
- }
- write.table(cormat[13:21],file=paste(texdir,"_t.lvcor.tex",sep="/"),quote=FALSE,col.names=FALSE,row.names=FALSE) 
- 
- #now look at effects of gender: unconstrained first
- fitCorrelFM <- sem(modelCorrel, compositedarwin, 
-                                      std.lv=TRUE, estimator="ML",
-                                      group="gender")
- summary(fitCorrelFM,standardized=TRUE, fit.measures=TRUE)
- #now constrain all
- fitCorrelFM2 <- sem(modelCorrel, compositedarwin, 
-                                      std.lv=TRUE, estimator="ML",
-                                      group="gender",
-                                      group.equal = c("lv.covariances"))
- summary(fitCorrelFM2,standardized=TRUE, fit.measures=TRUE)
- 
- #and finally partial constraints embodied in model
- modelCorrelcons <- c("
+fitCorrel <- sem(modelCorrel, compositedarwin, std.lv=TRUE, estimator="ML") # http://lavaan.ugent.be/tutorial/groups.html
+summary(fitCorrel,standardized=TRUE, fit.measures=TRUE)
+x11()
+semPaths(fitCorrel, what="std", title =FALSE, curvePivot = TRUE,residuals=FALSE, structural=TRUE, layout="circle")
+lavInspect(fitCorrel, what = "cor.lv")
+eigen( inspect(fitCorrel, "cov.lv") )$values 
+
+#now compute p-values
+pvals2tailed <- pnorm(abs(inspect(fitCorrel,what="est")$psi/inspect(fitCorrel,what="se")$psi),lower.tail = FALSE)*2
+colnames(pvals2tailed) <- rownames(pvals2tailed) <- c(clusterlabels,"Conservatism","CRT")
+pvals2tailed[upper.tri(pvals2tailed)] <- 0
+
+#get matrix printed
+lvcormat <- lavInspect(fitCorrel, what = "cor.lv")
+lvcormat[upper.tri(lvcormat,diag=TRUE)] <- NA
+colnames(lvcormat) <- rownames(lvcormat) <- c(clusterlabels,"Conservatism","CRT")
+cormat <- stargazer(lvcormat, title="Correlations among all latent variables") 
+for (i in 1:10) {
+  lvcp<-i+11
+  cormat[lvcp] <- str_replace_all(cormat[lvcp],fixed("$-$"),"-")
+  sigs<-unique(as.numeric(round(lvcormat[i,which(pvals2tailed[i,]>.05)],3)))
+  if (length(sigs)>0) {
+    for (j in 1:length(sigs)){
+      subss<-substr(paste("$",as.character(sigs[j]),"0000",sep=""),1,ifelse(sigs[j]<0,7,6))
+      w2r <- (str_locate_all(cormat[lvcp],fixed(subss)))[[1]]
+      if (dim(w2r)[1]>0) {
+        for (k in 1:dim(w2r)[1]) {
+          str_sub(cormat[lvcp],w2r[k,1],w2r[k,2])<-paste(subss,"ns",sep="") #"^{*}"
+        }#print(c(substr(cormat[lvcp],x[1],x[2]),subss)))
+      }
+    }
+  }
+}
+write.table(cormat[13:21],file=paste(texdir,"_t.lvcor.tex",sep="/"),quote=FALSE,col.names=FALSE,row.names=FALSE) 
+
+
+#*----------------------------- now look at effects of gender: unconstrained first -------------------------
+fitCorrelFM <- sem(modelCorrel, compositedarwin, 
+                   std.lv=TRUE, estimator="ML",
+                   group="gender")
+summary(fitCorrelFM,standardized=TRUE, fit.measures=TRUE)
+#now constrain all
+fitCorrelFM2 <- sem(modelCorrel, compositedarwin, 
+                    std.lv=TRUE, estimator="ML",
+                    group="gender",
+                    group.equal = c("lv.covariances"))
+summary(fitCorrelFM2,standardized=TRUE, fit.measures=TRUE)
+
+#and finally partial constraints embodied in model
+modelCorrelcons <- c("
                   fmFac    =~ fm
                  evoFac   =~ evo
                  camFac   =~ cam
@@ -400,246 +381,28 @@ modelCorrel <- c("
                  mwnatFac ~~ c(v3,v3)*mwequFac
                  
                  fm ~~",     fmSI$eSImod,    "*fm",
-                  "evo ~~ ",  evoSI$eSImod,   "*evo",
-                  "cam ~~",   camSI$eSImod,   "*cam",
-                  "mwevo ~~", mwevoSI$eSImod, "*mwevo",
-                  "mwnat ~~", mwnatSI$eSImod, "*mwnat",
-                  "mwequ ~~", mwequSI$eSImod, "*mwequ",
-                  "relig ~~", religSI$eSImod, "*relig",
-                  "cons ~~",  consSI$eSImod,  "*cons",
-                  "vax ~~",   vaxSI$eSImod,   "*vax"
- )
- fitCorrelFM3 <- sem(modelCorrelcons, compositedarwin, 
-                     std.lv=TRUE, estimator="ML",
-                     group="gender")
- summary(fitCorrelFM3,standardized=TRUE, fit.measures=TRUE)
- 
- aovresult <- anova(fitCorrelFM,fitCorrelFM3,fitCorrelFM2)
- equcovgof <- fitMeasures(fitCorrelFM2)
- equpartcovgof <- fitMeasures(fitCorrelFM3)
+                     "evo ~~ ",  evoSI$eSImod,   "*evo",
+                     "cam ~~",   camSI$eSImod,   "*cam",
+                     "mwevo ~~", mwevoSI$eSImod, "*mwevo",
+                     "mwnat ~~", mwnatSI$eSImod, "*mwnat",
+                     "mwequ ~~", mwequSI$eSImod, "*mwequ",
+                     "relig ~~", religSI$eSImod, "*relig",
+                     "cons ~~",  consSI$eSImod,  "*cons",
+                     "vax ~~",   vaxSI$eSImod,   "*vax"
+)
+fitCorrelFM3 <- sem(modelCorrelcons, compositedarwin, 
+                    std.lv=TRUE, estimator="ML",
+                    group="gender")
+summary(fitCorrelFM3,standardized=TRUE, fit.measures=TRUE)
 
- 
- 
-#* ------------- Now model various scientific propositions, each on its own first -------------
- # Rejection of CAM : with mwnatFac as well as mwevoFac as predictor, cov matrix not positive definite.
- # cov matrix not PD even without mw constructs as predictors
- modelCAM <- c("  camFac   ~ fmFac +  religFac 
-                  mwevoFac ~~ 0*consFac
-                  mwevoFac ~~ 0*vaxFac
-                  consFac  ~~ 0*vaxFac
-                  mwnatFac =~ mwnat
-                  fmFac    =~ fm
-                  evoFac   =~ evo
-                  camFac   =~ cam
-                  mwevoFac =~ mwevo
+aovresult <- anova(fitCorrelFM,fitCorrelFM3,fitCorrelFM2)
+equcovgof <- fitMeasures(fitCorrelFM2)
+equpartcovgof <- fitMeasures(fitCorrelFM3)
 
-                  consFac  =~ cons
-                  mwequFac =~ mwequ
-                  religFac =~ relig
-                  vaxFac   =~ vax
 
-                  fm ~~",     fmSI$eSImod,    "*fm",
-               "evo ~~ ",  evoSI$eSImod,   "*evo",
-               "cam ~~",   camSI$eSImod,   "*cam",
-               "mwevo ~~", mwevoSI$eSImod, "*mwevo",
-               "mwnat ~~", mwnatSI$eSImod, "*mwnat",
-               "cons ~~",  consSI$eSImod, "*cons",
-               "mwequ ~~", mwequSI$eSImod, "*mwequ",
-               "relig ~~", religSI$eSImod, "*relig",
-               "vax ~~",   vaxSI$eSImod,    "*vax"
- )
- fitCAM <- sem(modelCAM, compositedarwin, std.lv=TRUE, estimator="ML")
- summary(fitCAM,standardized=TRUE, fit.measures=TRUE)
- lavInspect(fitCAM, "cov.lv")
- fitCAMgof <- fitMeasures(fitCAM)
- modificationIndices(fitCAM, sort. = TRUE, maximum.number = 4) 
- 
-# Evolution : with mwnatFac as well as mwevoFac as predictor, cov matrix not positive definite.
- modelEvo <- c("  evoFac   ~ fmFac +  religFac + mwequFac + mwevoFac + camFac + consFac 
-                  mwevoFac ~~ 0*religFac
-                  mwevoFac ~~ 0*vaxFac
-                  mwevoFac ~~ 0*fmFac
-                  consFac  ~~ 0*vaxFac
-                  mwnatFac =~ mwnat
-                  fmFac    =~ fm
-                  evoFac   =~ evo
-                  camFac   =~ cam
-                  mwevoFac =~ mwevo
 
-                  consFac  =~ bc * cons
-                  mwequFac =~ mwequ
-                  religFac =~ relig
-                  vaxFac   =~ vax
-                  bc > 0  
-
-                  fm ~~",     fmSI$eSImod,    "*fm",
-                  "evo ~~ ",  evoSI$eSImod,   "*evo",
-                  "cam ~~",   camSI$eSImod,   "*cam",
-                  "mwevo ~~", mwevoSI$eSImod, "*mwevo",
-                  "mwnat ~~", mwnatSI$eSImod, "*mwnat",
-                  "cons ~~",  consSI$eSImod, "*cons",
-                  "mwequ ~~", mwequSI$eSImod, "*mwequ",
-                  "relig ~~", religSI$eSImod, "*relig",
-                  "vax ~~",   vaxSI$eSImod,    "*vax"
- )
- fitEvo <- sem(modelEvo, compositedarwin, std.lv=TRUE, estimator="ML")
- summary(fitEvo,standardized=TRUE, fit.measures=TRUE)
- lavInspect(fitEvo, "cov.lv")
- fitEvogof <- fitMeasures(fitEvo)
- modificationIndices(fitEvo, sort. = TRUE, maximum.number = 4)
-
- 
- # Vaccination : with mwnatFac as well as mwevoFac as predictor, cov matrix not positive definite.
- modelVax <- c("  vaxFac   ~ fmFac +  mwequFac + consFac 
-                  mwevoFac ~~ 0*religFac
-                  mwevoFac ~~ 0*vaxFac
-                  mwevoFac ~~ 0*fmFac
-                  consFac  ~~ 0*vaxFac
-                  mwnatFac =~ mwnat
-                  fmFac    =~ fm
-                  evoFac   =~ evo
-                  camFac   =~ cam
-                  mwevoFac =~ mwevo
-                  consFac  =~ bc * cons
-                  mwequFac =~ mwequ
-                  religFac =~ relig
-                  vaxFac   =~ vax
-                  bc > 0
-
-                  fm ~~",     fmSI$eSImod,    "*fm",
-                  "evo ~~ ",  evoSI$eSImod,   "*evo",
-                  "cam ~~",   camSI$eSImod,   "*cam",
-                  "mwevo ~~", mwevoSI$eSImod, "*mwevo",
-                  "mwnat ~~", mwnatSI$eSImod, "*mwnat",
-                  "cons ~~",  consSI$eSImod, "*cons",
-                  "mwequ ~~", mwequSI$eSImod, "*mwequ",
-                  "relig ~~", religSI$eSImod, "*relig",
-                  "vax ~~",   vaxSI$eSImod,    "*vax"
- )
- fitVax <- sem(modelVax, compositedarwin, std.lv=TRUE, estimator="ML")
- summary(fitVax,standardized=TRUE, fit.measures=TRUE)
- fitVaxgof <- fitMeasures(fitVax)
- modificationIndices(fitVax, sort. = TRUE, maximum.number = 4)
- #Owing to warning "covariance matrix of latent variables is not positive definite", the mwnat LV had to be removed
- lavInspect(fitVax, what = "cor.lv")
- eigen( inspect(fitVax, "cov.lv") )$values 
- x11()
- semPaths(fitVax, what="std", title =FALSE, curvePivot = TRUE,residuals=FALSE,
-          structural=TRUE, layout="tree2",rotation=2)
- 
- 
- #2nd order factor vax as function of all of politics combined
- modelVax2O <- c("vaxFac  ~ allPolFac + fmFac
-                  allPolFac =~ fmFac + consFac + religFac
-                  
-                  fmFac    =~ bc*fm
-                  consFac  =~ bc*cons
-                  bc > 0
-                  religFac =~ relig
-                  vaxFac   =~ vax
-
-                  fm ~~",     fmSI$eSImod,    "*fm",
-                 "cons ~~",  consSI$eSImod, "*cons",
-                 "relig ~~", religSI$eSImod, "*relig",
-                 
-                 "vax ~~",   vaxSI$eSImod,    "*vax"
- )
- fitVax2O <- sem(modelVax2O, compositedarwin, std.lv=TRUE, estimator="ML")
- summary(fitVax2O,standardized=TRUE, fit.measures=TRUE)
- fitVax2Ogof <- fitMeasures(fitVax2O)
-#modificationIndices(fitVax2O, sort. = TRUE, maximum.number = 4)
- 
-#reliability(fitVax2O) # Should provide a warning for the endogenous variables
- reliabilityL2(fitVax2O, "allPolFac")
- 
- 
- 
- 
- #*-----------------------------------------------------------------------------------
- # Vax & evolution & CAM rejection: first full then slightly reduced (i.e., some covariances reduced to 0)  
- modelVaxEvoCAMfull <- c("  vaxFac   ~ fmFac +  mwequFac + consFac
-                            evoFac   ~ fmFac +  religFac + mwequFac + mwevoFac  + consFac 
-                            camFac   ~ fmFac +  religFac
-                            
-                      mwnatFac =~ mwnat
-                      fmFac    =~ fm
-                      evoFac   =~ evo
-                      camFac   =~ cam
-                      mwevoFac =~ mwevo
-                      mwequFac =~ mwequ
-                      religFac =~ relig
-                      vaxFac   =~ vax
-                      consFac  =~ cons
-                      
-                      fm ~~",     fmSI$eSImod,    "*fm",
-                      "evo ~~ ",  evoSI$eSImod,   "*evo",
-                      "cam ~~",   camSI$eSImod,   "*cam",
-                      "mwevo ~~", mwevoSI$eSImod, "*mwevo",
-                      "mwnat ~~", mwnatSI$eSImod, "*mwnat",
-                      "mwequ ~~", mwequSI$eSImod, "*mwequ",
-                      "cons ~~",  consSI$eSImod, "*cons",
-                      "relig ~~", religSI$eSImod, "*relig",
-                      "vax ~~",   vaxSI$eSImod,    "*vax"
- )
- fitVaxEvoCamfull <- sem(modelVaxEvoCAMfull, compositedarwin, std.lv=TRUE, estimator="ML")
- summary(fitVaxEvoCamfull,standardized=TRUE, fit.measures=TRUE)
- 
-
- modelVaxEvoCAM <- c("vaxFac   ~ fmFac +  mwequFac + consFac
-                      evoFac   ~ fmFac +  religFac + mwequFac + mwevoFac  + consFac 
-                      camFac   ~ fmFac +  religFac
-                      
-                      evoFac ~~ 0*camFac
-                 
-                         mwnatFac =~ mwnat
-                         fmFac    =~ fm
-                         evoFac   =~ evo
-                         camFac   =~ cam
-                         mwevoFac =~ mwevo
-                         mwequFac =~ mwequ
-                         religFac =~ relig
-                         vaxFac   =~ vax
-                         consFac  =~ bc*cons
-                         bc > 0
-                         
-                         fm ~~",     fmSI$eSImod,    "*fm",
-                         "evo ~~ ",  evoSI$eSImod,   "*evo",
-                         "cam ~~",   camSI$eSImod,   "*cam",
-                         "mwevo ~~", mwevoSI$eSImod, "*mwevo",
-                         "mwnat ~~", mwnatSI$eSImod, "*mwnat",
-                         "mwequ ~~", mwequSI$eSImod, "*mwequ",
-                         "cons ~~",  consSI$eSImod, "*cons",
-                         "relig ~~", religSI$eSImod, "*relig",
-                         "vax ~~",   vaxSI$eSImod,    "*vax"
- )
- 
- fitVaxEvoCam <- sem(modelVaxEvoCAM, compositedarwin, std.lv=TRUE, estimator="ML")
- summary(fitVaxEvoCam,standardized=TRUE, fit.measures=TRUE)
- modificationIndices(fitVaxEvoCam, sort. = TRUE, maximum.number = 6)
- 
- aovfullvfin <- anova(fitVaxEvoCamfull,fitVaxEvoCam)
- aovfullvfindf<- aovfullvfin[["Df"]][2]- aovfullvfin[["Df"]][1]
- 
- finalmodelgof <- fitMeasures(fitVaxEvoCam)
- modificationIndices(fitVaxEvoCam, sort. = TRUE, maximum.number = 4)
- lavInspect(fitVaxEvoCam, what = "cor.lv")
- eigen( inspect(fitVaxEvoCam, "cov.lv") )$values 
- 
- pdf(file=paste(figdir,"finalSEM.pdf",sep="/"),height=8,width=8) 
- semPaths(fitVaxEvoCam, what="std", title =FALSE, curvePivot = TRUE,residuals=FALSE, intercepts=FALSE,
-          sizeLat=12,sizeLat2=12,
-          curvature=5, nCharNodes=0, edge.label.cex=1.2,mar=c(3,10,3,3),
-          structural=TRUE, layout="tree",rotation=2, 
-          label.scale.equal=TRUE,label.prop=0.95,
-          nodeLabels=c("M&W\nnaturally \n different","Free Market","Evolution","Reject\nCAM",
-                       "M&W\nevolved \ndifferently","M&W\nthe same","Religiosity","Vaccinations","Conservatism"))
- dev.off()
- 
- 
-
- 
- #------ Use a different route: first zero in on politics alone, then add other components.
- polmodelVaxEvoCAM <- c("vaxFac   ~ fmFac + 0*allPolFac
+#------Beast route to modeling: first zero in on politics alone, then add other components.
+polmodelVaxEvoCAM <- c("vaxFac   ~ fmFac + 0*allPolFac
                          evoFac   ~ religFac + 0*allPolFac 
                          camFac   ~ allPolFac 
                         
@@ -655,37 +418,94 @@ modelCorrel <- c("
                          consFac  =~ cons
                          
                          fm ~~",     fmSI$eSImod,    "*fm",
-                     "evo ~~ ",  evoSI$eSImod,   "*evo",
-                     "cam ~~",   camSI$eSImod,   "*cam",
-                     
-                     "cons ~~",  consSI$eSImod, "*cons",
-                     "relig ~~", religSI$eSImod, "*relig",
-                     "vax ~~",   vaxSI$eSImod,    "*vax"
- )
- fitPolVaxEvoCam <- sem(polmodelVaxEvoCAM, compositedarwin, std.lv=TRUE, estimator="ML")
- summary(fitPolVaxEvoCam,standardized=TRUE, fit.measures=TRUE) 
- finalpolmodelgof <- fitMeasures(fitPolVaxEvoCam)
- 
- fitPolVaxEvoCamfree <- sem(str_replace_all(polmodelVaxEvoCAM,"0\\*a","a"), compositedarwin, std.lv=TRUE, estimator="ML")
- summary(fitPolVaxEvoCamfree,standardized=TRUE, fit.measures=TRUE) 
- 
- aovpol <- anova(fitPolVaxEvoCamfree,fitPolVaxEvoCam)
- aovpolfindf<- aovpol[["Df"]][2]- aovpol[["Df"]][1]
- 
- lmx <- matrix(c(4,4, 1,1, 7,7, 4,7, 7,1, 1,7, 4,1)/7,nrow=7,byrow=TRUE)
- pdf(file=paste(figdir,"finalpolSEM.pdf",sep="/"),height=8,width=8) 
- semPaths(fitPolVaxEvoCam, "std", title =FALSE, residuals=FALSE, intercepts=FALSE,
-          sizeLat=12,sizeLat2=12,curveAdjacent="cov",arrows=TRUE,
-          curvature=5, nCharNodes=0, edge.label.cex=1.2,mar=c(3,3,3,3),
-          structural=TRUE, layout=lmx,rotation=1, thresholds = 0.01,
-          label.scale.equal=TRUE,label.prop=0.95,
-          nodeLabels=c("All politics","Free Market","Evolution","Reject\nCAM",
-                       "Religiosity","Vaccinations","Conservatism"))
- dev.off()
- 
- 
- #---- now add CRT to get super model
- supermodel <- c("   vaxFac   ~ fmFac +  mwequFac + crtFac 
+                       "evo ~~ ",  evoSI$eSImod,   "*evo",
+                       "cam ~~",   camSI$eSImod,   "*cam",
+                       
+                       "cons ~~",  consSI$eSImod, "*cons",
+                       "relig ~~", religSI$eSImod, "*relig",
+                       "vax ~~",   vaxSI$eSImod,    "*vax"
+)
+fitPolVaxEvoCam <- sem(polmodelVaxEvoCAM, compositedarwin, std.lv=TRUE, estimator="ML")
+summary(fitPolVaxEvoCam,standardized=TRUE, fit.measures=TRUE) 
+finalpolmodelgof <- fitMeasures(fitPolVaxEvoCam)
+
+fitPolVaxEvoCamfree <- sem(str_replace_all(polmodelVaxEvoCAM,"0\\*a","a"), compositedarwin, std.lv=TRUE, estimator="ML")
+summary(fitPolVaxEvoCamfree,standardized=TRUE, fit.measures=TRUE) 
+
+aovpol <- anova(fitPolVaxEvoCamfree,fitPolVaxEvoCam)
+aovpolfindf<- aovpol[["Df"]][2]- aovpol[["Df"]][1]
+
+
+# Extract to-be-graphed elements from lavaan object: based on https://rpubs.com/tjmahr/sem_diagrammer
+t4modP <- "
+ digraph {
+
+graph [layout = neato,
+       overlap = scale, splines=true]
+
+node [shape = circle ]
+
+allPolFac  [pos = '0,0!', label = ' All \\n politics ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+fmFac  [pos = '-4,1.2!', label = ' Free \\n market ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+evoFac  [pos = '4,-1.2!', label = ' Evolution ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+camFac  [pos = '4,0!', label = ' Reject \\n CAM ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+
+C [pos='5.2,0!' label = 'C', style = invis width=.01 fixedsize=true]
+D [pos='5.2,0.8!' label = 'D', style = invis width=.01 fixedsize=true]
+
+religFac  [pos = '-4,-1.2!', label = ' Religiosity ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+vaxFac  [pos = '4,1.2!', label = ' Vax ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+consFac  [pos = '-4,0!', label = ' Conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+"
+pathsP <- fitPolVaxEvoCam %>%
+  parameterestimates(.,standardized=TRUE) %>%
+  select(lhs, op, rhs, std.all)
+
+# Latent variables are left-hand side of "=~" lines
+latentP <- pathsP %>%
+  filter(op == "=~") %>%
+  select(nodes = lhs) %>%
+  distinct 
+# Edges will be labeled by the parameter estimates
+all_pathsP <- pathsP %>%
+  filter(op != "~1") %>%
+  mutate(label = round(std.all, 2)) %>%
+  select(-std.all)
+
+# Factor loadings are the paths in the "=~" lines, drop all but second-order factor
+loadingsP <- all_pathsP %>%
+  filter(op == "=~") %>% filter(lhs == "allPolFac") %>%
+  rename(to = rhs, from = lhs) %>%
+  select(from, to, label)
+t4modP <- c(t4modP,apply(loadingsP,1,FUN=function(x) (paste(x["from"]," -> ",x["to"], " [label = '", x["label"], "'  fontsize=18]"))))
+
+regressionsP <- all_pathsP %>%
+  filter(op == "~") %>%
+  rename(to = lhs, from = rhs) %>% filter(label!=0) %>%
+  select(from, to, label)
+t4modP<-c(t4modP,apply(regressionsP,1,FUN=function(x) (paste(x["from"]," -> ",x["to"], " [label = '", x["label"], "'  fontsize=18]"))))
+
+#extract covariances 
+covarsP <- all_pathsP %>%
+  filter(op == "~~") %>%
+  rename(to = rhs, from = lhs) %>%
+  select(from, to, label) %>% filter(from != to) %>% filter(label!=0)
+t4modP<-c(t4modP, paste("C:se -> ", covarsP[1,"from"],":e [splines=curved  style = 'dashed' label = '", covarsP[1,"label"], "'  fontsize=18] "))
+t4modP<-c(t4modP, paste("C:ne -> ", covarsP[1,"to"],":e [splines=curved  style = 'dashed'] "))
+
+t4modP<-c(t4modP, paste("D:se -> ", covarsP[2,"from"],":e [splines=curved  style = 'dashed'] "))
+t4modP<-c(t4modP, paste("D:ne -> ", covarsP[2,"to"],":e [splines=curved  style = 'dashed' label = '", covarsP[2,"label"], "'  fontsize=18] "))
+t4modP <- c(t4modP, "}")
+
+writeLines(t4modP,con="finalpolSEM.txt") 
+polhtml <- grViz("finalpolSEM.txt")
+html_print(add_mathjax(polhtml)) %>% webshot(file = paste(figdir,"/finalpolSEM.pdf",sep="/"),cliprect = "viewport",zoom=.7)
+
+
+
+
+#---- now add CRT to get super model -----------------------------------------------------
+supermodel <- c("   vaxFac   ~ fmFac +  mwequFac + crtFac 
                      evoFac   ~ religFac + mwevoFac  + mwnatFac + crtFac
                      camFac   ~ allPolFac + crtFac
                             
@@ -708,45 +528,192 @@ modelCorrel <- c("
                       consFac  =~ cons
                       
                       fm ~~",     fmSI$eSImod,    "*fm",
-                 "evo ~~ ",  evoSI$eSImod,   "*evo",
-                 "cam ~~",   camSI$eSImod,   "*cam",
-                 "mwevo ~~", mwevoSI$eSImod, "*mwevo",
-                 "mwnat ~~", mwnatSI$eSImod, "*mwnat",
-                 "mwequ ~~", mwequSI$eSImod, "*mwequ",
-                 "cons ~~",  consSI$eSImod, "*cons",
-                 "relig ~~", religSI$eSImod, "*relig",
-                 "vax ~~",   vaxSI$eSImod,    "*vax"
- )
- supermodelfit <- sem(supermodel, data=compositedarwin, missing="pairwise", ordered = c("crt1", "crt2", "crt3"), std.lv=TRUE) 
- summary(supermodelfit, standardized=TRUE, fit.measures=TRUE)
- supermodelgof <- fitMeasures(supermodelfit)
- modificationIndices(supermodelfit, sort. = TRUE, maximum.number = 6)
- 
- #for extraction of covariances
- covars <-  supermodelfit@ParTable$op=="~~" & supermodelfit@ParTable$est != 0 & supermodelfit@ParTable$est != 1 & (supermodelfit@ParTable$lhs != supermodelfit@ParTable$rhs)
- supermodelfit@ParTable$lhs[covars]
- supermodelfit@ParTable$rhs[covars]
- supermodelfit@ParTable$est[covars]
- 
- 
- # pdf(file=paste(figdir,"superSEM.pdf",sep="/"),height=8,width=8) 
- # semPaths(supermodelfit, what="std", title =FALSE, curvePivot = TRUE,residuals=FALSE, intercepts=FALSE,
- #          sizeLat=12,sizeLat2=12,
- #          curvature=5, nCharNodes=0, edge.label.cex=1.2,mar=c(3,10,3,3),
- #          structural=TRUE, layout="tree",rotation=2, 
- #          label.scale.equal=TRUE,label.prop=0.95,
- #          #edge.label.position=c(rep(0.4,21),rep(0.5,20),rep(0.6,20)),
- #          nodeLabels=c("CRT","M&W\nnaturally \n different","Free Market","Evolution","Reject\nCAM",
- #                       "M&W\nevolved \ndifferently","M&W\nthe same","Religiosity","Vaccinations","Conservatism"))
- 
+                "evo ~~ ",  evoSI$eSImod,   "*evo",
+                "cam ~~",   camSI$eSImod,   "*cam",
+                "mwevo ~~", mwevoSI$eSImod, "*mwevo",
+                "mwnat ~~", mwnatSI$eSImod, "*mwnat",
+                "mwequ ~~", mwequSI$eSImod, "*mwequ",
+                "cons ~~",  consSI$eSImod, "*cons",
+                "relig ~~", religSI$eSImod, "*relig",
+                "vax ~~",   vaxSI$eSImod,    "*vax"
+)
+supermodelfit <- sem(supermodel, data=compositedarwin, missing="pairwise", ordered = c("crt1", "crt2", "crt3"), std.lv=TRUE) 
+summary(supermodelfit, standardized=TRUE, fit.measures=TRUE)
+supermodelgof <- fitMeasures(supermodelfit)
+modificationIndices(supermodelfit, sort. = TRUE, maximum.number = 6)
 
- 
+
+# Extract to-be-graphed elements from lavaan object: based on https://rpubs.com/tjmahr/sem_diagrammer
+t4mod <- "
+ digraph {
+
+graph [layout = neato,
+       overlap = true,
+       outputorder = edgesfirst]
+
+node [shape = circle ]
+
+crtFac     [pos = '0,3!', label = ' CRT ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+allPolFac  [pos = '0,0!', label = ' All \\n politics ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+mwnatFac  [pos = '-0.5,-2.5!', label = ' M&W \\n NatDiff ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+fmFac  [pos = '-4,1.2!', label = ' Free \\n market ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+evoFac  [pos = '4,-1.2!', label = ' Evolution ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+camFac  [pos = '4,0!', label = ' Reject \\n CAM ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+mwevoFac  [pos = '1,-3!', label = ' M&W \\n Evo ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+mwequFac  [pos = '-2,-2!', label = ' M&W \\n Equal ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+religFac  [pos = '-4,-1.2!', label = ' Religiosity ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+vaxFac  [pos = '4,1.2!', label = ' Vax ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+consFac  [pos = '-4,0!', label = ' Conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+"
+paths <- supermodelfit %>%
+  parameterestimates(.,standardized=TRUE) %>%
+  select(lhs, op, rhs, std.all)
+
+# Latent variables are left-hand side of "=~" lines
+latent <- paths %>%
+  filter(op == "=~") %>%
+  select(nodes = lhs) %>%
+  distinct 
+# Edges will be labeled by the parameter estimates
+all_paths <- paths %>%
+  filter(op != "~1") %>%
+  mutate(label = round(std.all, 2)) %>%
+  select(-std.all)
+
+# Factor loadings are the paths in the "=~" lines, drop all but second-order factor
+loadings <- all_paths %>%
+  filter(op == "=~") %>% filter(lhs == "allPolFac") %>%
+  rename(to = rhs, from = lhs) %>%
+  select(from, to, label)
+t4mod <- c(t4mod,apply(loadings,1,FUN=function(x) (paste(x["from"]," -> ",x["to"], " [label = '", x["label"], "'  fontsize=18]"))))
+
+regressions <- all_paths %>%
+  filter(op == "~") %>%
+  rename(to = lhs, from = rhs) %>%
+  select(from, to, label)
+
+t4mod<-c(t4mod,apply(regressions,1,FUN=function(x) (paste(x["from"]," -> ",x["to"], " [label = '", x["label"], "'  fontsize=18]"))))
+t4mod <- c(t4mod, "}")
+writeLines(t4mod,con="supermodelViz.txt") 
+superhtml <- grViz("supermodelViz.txt")
+html_print(add_mathjax(superhtml)) %>% webshot(file = paste(figdir,"/superSEM.pdf",sep="/"),cliprect = "viewport",zoom=0.5)
+
+
+#extract covariances for separate table
+covars <- all_paths %>%
+  filter(op == "~~") %>%
+  rename(to = rhs, from = lhs) %>%
+  select(from, to, label) %>% filter(from != to) %>% filter(label!=0)
+
+
+
+##------ use politics to predict gender attitudes ------------------------------
+polmodelgender <- c("mwnatFac   ~  allPolFac 
+                         mwevoFac   ~ allPolFac + religFac
+                         mwequFac   ~ allPolFac 
+                         
+                         allPolFac =~ fmFac + consFac + religFac
+                         
+                      mwnatFac =~ mwnat
+                      mwevoFac =~ mwevo
+                      mwequFac =~ mwequ  
+                         
+                         fmFac    =~ fm
+                         religFac =~ relig
+                         consFac  =~ cons
+                         
+                         fm ~~",     fmSI$eSImod,    "*fm",
+                       "cons ~~",  consSI$eSImod, "*cons",
+                       "relig ~~", religSI$eSImod, "*relig",
+                       
+                       "mwevo ~~", mwevoSI$eSImod, "*mwevo",
+                       "mwnat ~~", mwnatSI$eSImod, "*mwnat",
+                       "mwequ ~~", mwequSI$eSImod, "*mwequ"
+                       )
+fitpolmodelgender <- sem(polmodelgender, compositedarwin, std.lv=TRUE, estimator="ML")
+summary(fitpolmodelgender,standardized=TRUE, fit.measures=TRUE) 
+gofpolmodelgender <- fitMeasures(fitpolmodelgender)
+modificationIndices(fitpolmodelgender, sort. = TRUE, maximum.number = 6)
+
+# Extract to-be-graphed elements from lavaan object: based on https://rpubs.com/tjmahr/sem_diagrammer
+t4modG <- "
+ digraph {
+
+graph [layout = neato,
+       overlap = scale, splines=true]
+
+node [shape = circle ]
+
+allPolFac  [pos = '0,0!', label = ' All \\n politics ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+fmFac  [pos = '-4,1.2!', label = ' Free \\n market ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+mwevoFac  [pos = '4,-1.2!', label = ' M&W \n Evo ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+mwnatFac  [pos = '4,0!', label = ' M&W \\n NatDiff ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+
+C [pos='4.8,-0.8!' label = 'C', style = invis width=.01 fixedsize=true]
+D [pos='4.8,0.8!' label = 'D', style = invis width=.01 fixedsize=true]
+E [pos='5.8,0.!' label = 'D', style = invis width=.01 fixedsize=true]
+
+religFac  [pos = '-4,-1.2!', label = ' Religiosity ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+mwequFac  [pos = '4,1.2!', label = ' M&W \n Equal ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+consFac  [pos = '-4,0!', label = ' Conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+"
+pathsG <- fitpolmodelgender %>%
+  parameterestimates(.,standardized=TRUE) %>%
+  select(lhs, op, rhs, std.all)
+
+# Latent variables are left-hand side of "=~" lines
+latentG <- pathsG %>%
+  filter(op == "=~") %>%
+  select(nodes = lhs) %>%
+  distinct 
+# Edges will be labeled by the parameter estimates
+all_pathsG <- pathsG %>%
+  filter(op != "~1") %>%
+  mutate(label = round(std.all, 2)) %>%
+  select(-std.all)
+
+# Factor loadings are the paths in the "=~" lines, drop all but second-order factor
+loadingsG <- all_pathsG %>%
+  filter(op == "=~") %>% filter(lhs == "allPolFac") %>%
+  rename(to = rhs, from = lhs) %>%
+  select(from, to, label)
+t4modG <- c(t4modG,apply(loadingsG,1,FUN=function(x) (paste(x["from"]," -> ",x["to"], " [label = '", x["label"], "'  fontsize=18]"))))
+
+regressionsG <- all_pathsG %>%
+  filter(op == "~") %>%
+  rename(to = lhs, from = rhs) %>% filter(label!=0) %>%
+  select(from, to, label)
+t4modG<-c(t4modG,apply(regressionsG,1,FUN=function(x) (paste(x["from"]," -> ",x["to"], " [label = '", x["label"], "'  fontsize=18]"))))
+
+#extract covariances 
+covarsG <- all_pathsG %>%
+  filter(op == "~~") %>%
+  rename(to = rhs, from = lhs) %>%
+  select(from, to, label) %>% filter(from != to) %>% filter(label!=0)
+
+t4modG<-c(t4modG, paste("C:se -> ", covarsG[1,"from"],":se [splines=curved  style = 'dashed' label = '", covarsG[1,"label"], "'  fontsize=18] "))
+t4modG<-c(t4modG, paste("C:ne -> ", covarsG[1,"to"],":e [splines=curved  style = 'dashed'] "))
+
+t4modG<-c(t4modG, paste("D:se -> ", covarsG[2,"from"],":ne [splines=curved  style = 'dashed'  label = '", covarsG[2,"label"], "'  fontsize=18] "))
+t4modG<-c(t4modG, paste("D:ne -> ", covarsG[2,"to"],":e [splines=curved  style = 'dashed'] "))
+
+t4modG<-c(t4modG, paste("E:se -> ", covarsG[3,"from"],":e [splines=curved  style = 'dashed'  label = '", covarsG[3,"label"], "'  fontsize=18] "))
+t4modG<-c(t4modG, paste("E:ne -> ", covarsG[3,"to"],":e [splines=curved  style = 'dashed'] "))
+
+t4modG <- c(t4modG, "}")
+
+writeLines(t4modG,con="finalgenderSEM.txt") 
+polgenderhtml <- grViz("finalgenderSEM.txt")
+html_print(add_mathjax(polgenderhtml)) %>% webshot(file = paste(figdir,"/finalgenderSEM.pdf",sep="/"),cliprect = "viewport",zoom=.7)
+
+
+
 ## ---- Create mean-indicators for all clusters for correlation with CRT -------
 meanIndicators <- NULL
 for (cluster in c("C","E","F","H","I","J","D","G")) {
   meanIndicators <- cbind(meanIndicators,
-                      darwin2 %>% select(num_range(paste("Q",cluster,".",sep=""),1:5)) %>% 
-                        apply(.,1,mean) 
+                          darwin2 %>% select(num_range(paste("Q",cluster,".",sep=""),1:5)) %>% 
+                            apply(.,1,mean) 
   )
 }
 
@@ -805,10 +772,10 @@ for (qqs in c(.25,.5)) {
     filter(consmean < quantile(consmean,qqs)) 
   k<-k+1
   ggpanels[[k]] <- plotexploration(toplibs, toplibs$MWevomean, toplibs$MWnatmean, toplibs$Evomean,
-                  "Men and women evolved differently",
-                  "Men and women are naturally different",
-                  "Evolution","YlOrBr",-1,
-                  paste("Liberals (top ",qqs*100,"%)",sep=""))
+                                   "Men and women evolved differently",
+                                   "Men and women are naturally different",
+                                   "Evolution","YlOrBr",-1,
+                                   paste("Liberals (top ",qqs*100,"%)",sep=""))
   k<-k+1
   ggpanels[[k]] <- plotexploration(topcons, topcons$MWevomean, topcons$MWnatmean, topcons$Evomean,
                                    "Men and women evolved differently",
@@ -834,28 +801,28 @@ upperab <- 1.
 k <- 0
 for (qqs in c(.25,.5)) {
   topcons <- meanIndicators %>% filter(affirmbias >= quantile(affirmbias,lowerab) & affirmbias <= quantile(affirmbias,upperab))  %>% 
-                                filter(consmean > quantile(consmean,1-qqs))  
+    filter(consmean > quantile(consmean,1-qqs))  
   toplibs <- meanIndicators %>% filter(affirmbias >= quantile(affirmbias,lowerab) & affirmbias <= quantile(affirmbias,upperab))  %>% 
-                                filter(consmean < quantile(consmean,qqs)) 
+    filter(consmean < quantile(consmean,qqs)) 
   k<-k+1
   ggpanels2[[k]] <- plotexploration(toplibs, toplibs$MWevomean,toplibs$MWnatmean,  toplibs$MWequmean,
                                     "Men and women evolved differently",  
-                                   "Men and women naturally different",
-                                   "MW Same","YlGnBu",1,
-                                   paste("Liberals (top ",qqs*100,"%)",sep=""))
+                                    "Men and women naturally different",
+                                    "MW Same","YlGnBu",1,
+                                    paste("Liberals (top ",qqs*100,"%)",sep=""))
   k<-k+1
   ggpanels2[[k]] <- plotexploration(topcons, topcons$MWevomean,topcons$MWnatmean,  topcons$MWequmean, 
                                     "Men and women evolved differently",
-                                   "Men and women naturally different",
-                                   "MW Same","YlGnBu",1,
-                                   paste("Conservatives (top ",qqs*100,"%)",sep=""))
+                                    "Men and women naturally different",
+                                    "MW Same","YlGnBu",1,
+                                    paste("Conservatives (top ",qqs*100,"%)",sep=""))
 }
 x11(width=12,height=8)
 gridplt2 <- do.call("grid.arrange", c(ggpanels2, nrow=2))
 if (lowerab==0 & upperab==1) {
-    ggfn <- paste(figdir,"conslibequalitygrid.pdf",sep="/") 
+  ggfn <- paste(figdir,"conslibequalitygrid.pdf",sep="/") 
 } else {
-    ggfn <- paste(figdir,paste("conslibequalitygrid",lowerab,upperab,".pdf",sep=""),sep="/") 
+  ggfn <- paste(figdir,paste("conslibequalitygrid",lowerab,upperab,".pdf",sep=""),sep="/") 
 }
 ggsave(ggfn, plot=gridplt2, width=12, height=8)
 

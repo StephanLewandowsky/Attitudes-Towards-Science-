@@ -1,0 +1,37 @@
+
+ digraph {
+
+graph [layout = neato,
+       overlap = scale, splines=true]
+
+node [shape = circle ]
+
+allPolFac  [pos = '0,0!', label = ' All \n politics ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+fmFac  [pos = '-4,1.2!', label = ' Free \n market ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+mwevoFac  [pos = '4,-1.2!', label = ' M&W 
+ Evo ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+mwnatFac  [pos = '4,0!', label = ' M&W \n NatDiff ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+
+C [pos='4.8,-0.8!' label = 'C', style = invis width=.01 fixedsize=true]
+D [pos='4.8,0.8!' label = 'D', style = invis width=.01 fixedsize=true]
+E [pos='5.8,0.!' label = 'D', style = invis width=.01 fixedsize=true]
+
+religFac  [pos = '-4,-1.2!', label = ' Religiosity ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+mwequFac  [pos = '4,1.2!', label = ' M&W 
+ Equal ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+consFac  [pos = '-4,0!', label = ' Conser- \n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+
+allPolFac  ->  fmFac  [label = ' 0.54 '  fontsize=18]
+allPolFac  ->  consFac  [label = ' 0.91 '  fontsize=18]
+allPolFac  ->  religFac  [label = ' 0.61 '  fontsize=18]
+allPolFac  ->  mwnatFac  [label = '  0.44 '  fontsize=18]
+allPolFac  ->  mwevoFac  [label = '  0.24 '  fontsize=18]
+religFac  ->  mwevoFac  [label = ' -0.26 '  fontsize=18]
+allPolFac  ->  mwequFac  [label = ' -0.40 '  fontsize=18]
+C:se ->  mwnatFac :se [splines=curved  style = 'dashed' label = ' 0.92 '  fontsize=18] 
+C:ne ->  mwevoFac :e [splines=curved  style = 'dashed'] 
+D:se ->  mwnatFac :ne [splines=curved  style = 'dashed'  label = ' -0.58 '  fontsize=18] 
+D:ne ->  mwequFac :e [splines=curved  style = 'dashed'] 
+E:se ->  mwevoFac :e [splines=curved  style = 'dashed'  label = ' -0.35 '  fontsize=18] 
+E:ne ->  mwequFac :e [splines=curved  style = 'dashed'] 
+}

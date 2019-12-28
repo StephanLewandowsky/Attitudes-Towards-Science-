@@ -379,31 +379,6 @@ Coffman, D\BPBI L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Crowson%
-}{%
-Crowson%
-}{%
-{\protect \APACyear {2009}}%
-}]{%
-Crowson09}
-\APACinsertmetastar {%
-Crowson09}%
-\begin{APACrefauthors}%
-Crowson, H\BPBI M.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2009}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Are all conservatives alike? {A} study of the
-  psychological correlates of cultural and economic conservatism} {Are all
-  conservatives alike? {A} study of the psychological correlates of cultural
-  and economic conservatism}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{The Journal of Psychology}{143}{}{449--463}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Eagly%
 }{%
 Eagly%
@@ -1005,6 +980,38 @@ Hornsey, M\BPBI J.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Hornsey%
+, Harris%
+, Bain%
+\BCBL {}\ \BBA {} Fielding%
+}{%
+Hornsey%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Hornsey16}
+\APACinsertmetastar {%
+Hornsey16}%
+\begin{APACrefauthors}%
+Hornsey, M\BPBI J.%
+, Harris, E\BPBI A.%
+, Bain, P\BPBI G.%
+\BCBL {}\ \BBA {} Fielding, K\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Meta-analyses of the determinants and outcomes of belief
+  in climate change} {Meta-analyses of the determinants and outcomes of belief
+  in climate change}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature Climate Change}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/nclimate2943} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Horowitz%
 , Yaworsky%
 \BCBL {}\ \BBA {} Kickham%
@@ -1178,6 +1185,31 @@ Jost, J\BPBI T.%
 \APACjournalVolNumPages{Political Psychology}{38}{}{167--208}.
 \newblock
 \begin{APACrefDOI} \doi{10.1111/pops.12407} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kahan%
+}{%
+Kahan%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+Kahan15}
+\APACinsertmetastar {%
+Kahan15}%
+\begin{APACrefauthors}%
+Kahan, D\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Climate-Science Communication and the Measurement
+  Problem} {Climate-science communication and the measurement problem}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Political Psychology}{36}{}{1--43}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/pops.12244} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1357,12 +1389,46 @@ Komaroff, E.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Legare%
+, Opfer%
+, Busch%
+\BCBL {}\ \BBA {} Shtulman%
+}{%
+Legare%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Legare18}
+\APACinsertmetastar {%
+Legare18}%
+\begin{APACrefauthors}%
+Legare, C\BPBI H.%
+, Opfer, J\BPBI E.%
+, Busch, J\BPBI T\BPBI A.%
+\BCBL {}\ \BBA {} Shtulman, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A field guide for teaching evolution in the social
+  sciences} {A field guide for teaching evolution in the social
+  sciences}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Evolution and Human Behavior}{39}{}{257--268}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.evolhumbehav.2018.01.002} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Lewandowsky%
 , Gignac%
 \BCBL {}\ \BBA {} Oberauer%
 }{%
 Lewandowsky%
-\ \protect \BOthers {.}}{%
+, Gignac%
+\BCBL {}\ \BBA {} Oberauer%
+}{%
 {\protect \APACyear {2013}}%
 }]{%
 Lewandowsky13b}
@@ -1384,6 +1450,38 @@ Lewandowsky, S.%
 \APACjournalVolNumPages{PLoS ONE}{8}{}{e75637}.
 \newblock
 \begin{APACrefDOI} \doi{10.1371/journal.pone.0075637} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lewandowsky%
+, Gignac%
+\BCBL {}\ \BBA {} Vaughan%
+}{%
+Lewandowsky%
+, Gignac%
+\BCBL {}\ \BBA {} Vaughan%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+Lewandowsky12a}
+\APACinsertmetastar {%
+Lewandowsky12a}%
+\begin{APACrefauthors}%
+Lewandowsky, S.%
+, Gignac, G\BPBI E.%
+\BCBL {}\ \BBA {} Vaughan, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Pivotal Role of Perceived Scientific Consensus in
+  Acceptance of Science} {The pivotal role of perceived scientific consensus in
+  acceptance of science}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature Climate Change}{3}{}{399--404}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/nclimate1720} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

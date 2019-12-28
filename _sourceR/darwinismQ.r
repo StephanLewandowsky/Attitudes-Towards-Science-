@@ -323,13 +323,13 @@ eigen( inspect(fitCorrel, "cov.lv") )$values
 
 #now compute p-values
 pvals2tailed <- pnorm(abs(inspect(fitCorrel,what="est")$psi/inspect(fitCorrel,what="se")$psi),lower.tail = FALSE)*2
-colnames(pvals2tailed) <- rownames(pvals2tailed) <- c(clusterlabels,"Conservatism","CRT")
+colnames(pvals2tailed) <- rownames(pvals2tailed) <- c(clusterlabels,"Socio-pol conservatism","CRT")
 pvals2tailed[upper.tri(pvals2tailed)] <- 0
 
 #get matrix printed
 lvcormat <- lavInspect(fitCorrel, what = "cor.lv")
 lvcormat[upper.tri(lvcormat,diag=TRUE)] <- NA
-colnames(lvcormat) <- rownames(lvcormat) <- c(clusterlabels,"Conservatism","CRT")
+colnames(lvcormat) <- rownames(lvcormat) <- c(clusterlabels,"Socio-pol conservatism","CRT")
 cormat <- stargazer(lvcormat, title="Correlations among all latent variables") 
 for (i in 1:10) {
   lvcp<-i+11
@@ -445,7 +445,7 @@ graph [layout = neato,
 
 node [shape = circle ]
 
-allPolFac  [pos = '0,0!', label = ' All \\n politics ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+allPolFac  [pos = '0,0!', label = ' All \\n conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 fmFac  [pos = '-4,1.2!', label = ' Free \\n market ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 evoFac  [pos = '4,-1.2!', label = ' Evolution ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 camFac  [pos = '4,0!', label = ' Reject \\n CAM ', shape = circle, fontsize=14 width=1.,fixedsize=true]
@@ -455,11 +455,11 @@ D [pos='5.2,0.8!' label = 'D', style = invis width=.01 fixedsize=true]
 
 religFac  [pos = '-4,-1.2!', label = ' Religiosity ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 vaxFac  [pos = '4,1.2!', label = ' Vax ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-consFac  [pos = '-4,0!', label = ' Conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+consFac  [pos = '-4,0!', label = ' SP conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 "
 pathsP <- fitPolVaxEvoCam %>%
   parameterestimates(.,standardized=TRUE) %>%
-  select(lhs, op, rhs, std.all)
+  select(lhs, op, rhs, std.all, est)
 
 # Latent variables are left-hand side of "=~" lines
 latentP <- pathsP %>%
@@ -469,7 +469,7 @@ latentP <- pathsP %>%
 # Edges will be labeled by the parameter estimates
 all_pathsP <- pathsP %>%
   filter(op != "~1") %>%
-  mutate(label = round(std.all, 2)) %>%
+  mutate(label = round(std.all, 2),est = round(est,4)) %>%
   select(-std.all)
 
 # Factor loadings are the paths in the "=~" lines, drop all but second-order factor
@@ -482,7 +482,7 @@ t4modP <- c(t4modP,apply(loadingsP,1,FUN=function(x) (paste(x["from"]," -> ",x["
 regressionsP <- all_pathsP %>%
   filter(op == "~") %>%
   rename(to = lhs, from = rhs) %>% filter(label!=0) %>%
-  select(from, to, label)
+  select(from, to, label, est)
 t4modP<-c(t4modP,apply(regressionsP,1,FUN=function(x) (paste(x["from"]," -> ",x["to"], " [label = '", x["label"], "'  fontsize=18]"))))
 
 #extract covariances 
@@ -499,40 +499,31 @@ t4modP <- c(t4modP, "}")
 
 writeLines(t4modP,con="finalpolSEM.txt") 
 polhtml <- grViz("finalpolSEM.txt")
-html_print(add_mathjax(polhtml)) %>% webshot(file = paste(figdir,"/finalpolSEM.pdf",sep="/"),cliprect = "viewport",zoom=.7)
+html_print(polhtml,viewer=NULL) %>% webshot(file = paste(figdir,"/finalpolSEM.pdf",sep="/"),cliprect = "viewport",zoom=.7)
 
 
 
 
 #---- now add CRT to get super model -----------------------------------------------------
-supermodel <- c("   vaxFac   ~ fmFac +  mwequFac + crtFac 
-                     evoFac   ~ religFac + mwevoFac  + mwnatFac + crtFac
-                     camFac   ~ allPolFac + crtFac
-                            
-                     
-                       evoFac ~~ 0* camFac
-                        mwevoFac ~~ 0* allPolFac
-                        crtFac ~~ 0*mwnatFac
-                        crtFac ~~ 0*mwevoFac
-               
+supermodel <- c("    vaxFac   ~ ", regressionsP[regressionsP$to=="vaxFac","est"], "*fmFac +  crtFac 
+                     evoFac   ~ ", regressionsP[regressionsP$to=="evoFac","est"], "*religFac  + crtFac
+                     camFac   ~ ", regressionsP[regressionsP$to=="camFac","est"], "*allPolFac + crtFac
+
                       crtFac =~ a*crt1 + a*crt2 + a*crt3
                       allPolFac =~ fmFac + consFac + religFac
-                      mwnatFac =~ mwnat
-                      fmFac    =~ fm
+                      
+                      evoFac ~~ 0*camFac",
+                      
+                      "fmFac    =~ fm
                       evoFac   =~ evo
                       camFac   =~ cam
-                      mwevoFac =~ mwevo
-                      mwequFac =~ mwequ
                       religFac =~ relig
                       vaxFac   =~ vax
                       consFac  =~ cons
                       
-                      fm ~~",     fmSI$eSImod,    "*fm",
+                 fm ~~",     fmSI$eSImod,    "*fm",
                 "evo ~~ ",  evoSI$eSImod,   "*evo",
                 "cam ~~",   camSI$eSImod,   "*cam",
-                "mwevo ~~", mwevoSI$eSImod, "*mwevo",
-                "mwnat ~~", mwnatSI$eSImod, "*mwnat",
-                "mwequ ~~", mwequSI$eSImod, "*mwequ",
                 "cons ~~",  consSI$eSImod, "*cons",
                 "relig ~~", religSI$eSImod, "*relig",
                 "vax ~~",   vaxSI$eSImod,    "*vax"
@@ -554,16 +545,20 @@ graph [layout = neato,
 node [shape = circle ]
 
 crtFac     [pos = '0,3!', label = ' CRT ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-allPolFac  [pos = '0,0!', label = ' All \\n politics ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-mwnatFac  [pos = '-0.5,-2.5!', label = ' M&W \\n NatDiff ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-fmFac  [pos = '-4,1.2!', label = ' Free \\n market ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-evoFac  [pos = '4,-1.2!', label = ' Evolution ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-camFac  [pos = '4,0!', label = ' Reject \\n CAM ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-mwevoFac  [pos = '1,-3!', label = ' M&W \\n Evo ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-mwequFac  [pos = '-2,-2!', label = ' M&W \\n Equal ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-religFac  [pos = '-4,-1.2!', label = ' Religiosity ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+allPolFac  [pos = '0,0!', label = ' All \\n conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+
+E [pos='-1.5,1.5!' label = 'E', style = invis width=.01 fixedsize=true]
+
 vaxFac  [pos = '4,1.2!', label = ' Vax ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-consFac  [pos = '-4,0!', label = ' Conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+camFac  [pos = '4,0!', label = ' Reject \\n CAM ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+evoFac  [pos = '4,-1.2!', label = ' Evolution ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+
+C [pos='5.2,0!' label = 'C', style = invis width=.01 fixedsize=true]
+D [pos='5.2,0.8!' label = 'D', style = invis width=.01 fixedsize=true]
+
+fmFac  [pos = '-4,1.2!', label = ' Free \\n market ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+consFac  [pos = '-4,0!', label = ' SP conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+religFac  [pos = '-4,-1.2!', label = ' Religiosity ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 "
 paths <- supermodelfit %>%
   parameterestimates(.,standardized=TRUE) %>%
@@ -591,19 +586,26 @@ regressions <- all_paths %>%
   filter(op == "~") %>%
   rename(to = lhs, from = rhs) %>%
   select(from, to, label)
+t4mod<-c(t4mod,apply(regressions,1,FUN=function(x) (paste(x["from"]," -> ",x["to"], " [label = '", x["label"], "' fontsize=18]"))))
 
-t4mod<-c(t4mod,apply(regressions,1,FUN=function(x) (paste(x["from"]," -> ",x["to"], " [label = '", x["label"], "'  fontsize=18]"))))
-t4mod <- c(t4mod, "}")
-writeLines(t4mod,con="supermodelViz.txt") 
-superhtml <- grViz("supermodelViz.txt")
-html_print(add_mathjax(superhtml)) %>% webshot(file = paste(figdir,"/superSEM.pdf",sep="/"),cliprect = "viewport",zoom=0.5)
-
-
-#extract covariances for separate table
+#extract covariances 
 covars <- all_paths %>%
   filter(op == "~~") %>%
   rename(to = rhs, from = lhs) %>%
   select(from, to, label) %>% filter(from != to) %>% filter(label!=0)
+t4mod<-c(t4mod, paste("E:ne -> ", covars[1,"from"],":sw [splines=curved  style = 'dashed' label = '", covars[1,"label"], "'  fontsize=18] "))
+t4mod<-c(t4mod, paste("E:se -> ", covars[1,"to"],":nw [splines=curved  style = 'dashed'] "))
+
+t4mod<-c(t4mod, paste("C:se -> ", covars[2,"from"],":e [splines=curved  style = 'dashed' label = '", covars[2,"label"], "'  fontsize=18] "))
+t4mod<-c(t4mod, paste("C:ne -> ", covars[2,"to"],":e [splines=curved  style = 'dashed'] "))
+
+t4mod<-c(t4mod, paste("D:se -> ", covars[3,"from"],":e [splines=curved  style = 'dashed'] "))
+t4mod<-c(t4mod, paste("D:ne -> ", covars[3,"to"],":e [splines=curved  style = 'dashed' label = '", covars[3,"label"], "'  fontsize=18] "))
+t4mod <- c(t4mod, "}")
+writeLines(t4mod,con="supermodelViz.txt") 
+superhtml <- grViz("supermodelViz.txt")
+html_print(superhtml,viewer=NULL) %>% webshot(file = paste(figdir,"/superSEM.pdf",sep="/"),cliprect = "viewport",zoom=0.6)
+
 
 
 
@@ -644,7 +646,7 @@ graph [layout = neato,
 
 node [shape = circle ]
 
-allPolFac  [pos = '0,0!', label = ' All \\n politics ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+allPolFac  [pos = '0,0!', label = 'All \\n conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 fmFac  [pos = '-4,1.2!', label = ' Free \\n market ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 mwevoFac  [pos = '4,-1.2!', label = ' M&W \n Evo ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 mwnatFac  [pos = '4,0!', label = ' M&W \\n NatDiff ', shape = circle, fontsize=14 width=1.,fixedsize=true]
@@ -655,7 +657,7 @@ E [pos='5.8,0.!' label = 'D', style = invis width=.01 fixedsize=true]
 
 religFac  [pos = '-4,-1.2!', label = ' Religiosity ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 mwequFac  [pos = '4,1.2!', label = ' M&W \n Equal ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-consFac  [pos = '-4,0!', label = ' Conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+consFac  [pos = '-4,0!', label = ' SP conser- \\n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 "
 pathsG <- fitpolmodelgender %>%
   parameterestimates(.,standardized=TRUE) %>%
@@ -704,9 +706,7 @@ t4modG <- c(t4modG, "}")
 
 writeLines(t4modG,con="finalgenderSEM.txt") 
 polgenderhtml <- grViz("finalgenderSEM.txt")
-html_print(add_mathjax(polgenderhtml)) %>% webshot(file = paste(figdir,"/finalgenderSEM.pdf",sep="/"),cliprect = "viewport",zoom=.7)
-
-
+html_print(polgenderhtml,viewer=NULL) %>% webshot(file = paste(figdir,"finalgenderSEM.pdf",sep="/"),zoom=.7)
 
 ## ---- Create mean-indicators for all clusters for correlation with CRT -------
 meanIndicators <- NULL
@@ -727,7 +727,7 @@ pcomposite <- rcorr(as.matrix(meanIndicators), type="pearson")$P
 pcomposite[upper.tri(pcomposite,diag=TRUE)] <- NA
 
 #get matrix printed
-colnames(compcormat) <- rownames(compcormat) <- c(clusterlabels,"Conservatism","CRT")
+colnames(compcormat) <- rownames(compcormat) <- c(clusterlabels,"Socio-pol conservatism","CRT")
 cormat4p <- stargazer(compcormat, title="Correlations among composite indicators") 
 for (i in 1:10) {
   lvcp<-i+11
@@ -805,15 +805,15 @@ for (qqs in c(.25,.5)) {
   toplibs <- meanIndicators %>% filter(affirmbias >= quantile(affirmbias,lowerab) & affirmbias <= quantile(affirmbias,upperab))  %>% 
     filter(consmean < quantile(consmean,qqs)) 
   k<-k+1
-  ggpanels2[[k]] <- plotexploration(toplibs, toplibs$MWevomean,toplibs$MWnatmean,  toplibs$MWequmean,
+  ggpanels2[[k]] <- plotexploration(toplibs, toplibs$MWevomean,toplibs$Evomean,  toplibs$MWequmean,
                                     "Men and women evolved differently",  
-                                    "Men and women naturally different",
+                                    "Evolution",
                                     "MW Same","YlGnBu",1,
                                     paste("Liberals (top ",qqs*100,"%)",sep=""))
   k<-k+1
-  ggpanels2[[k]] <- plotexploration(topcons, topcons$MWevomean,topcons$MWnatmean,  topcons$MWequmean, 
+  ggpanels2[[k]] <- plotexploration(topcons, topcons$MWevomean,topcons$Evomean,  topcons$MWequmean, 
                                     "Men and women evolved differently",
-                                    "Men and women naturally different",
+                                    "Evolution",
                                     "MW Same","YlGnBu",1,
                                     paste("Conservatives (top ",qqs*100,"%)",sep=""))
 }

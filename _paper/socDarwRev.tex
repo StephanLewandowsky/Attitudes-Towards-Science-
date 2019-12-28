@@ -110,13 +110,13 @@
 \abstract{Some issues that have been settled by the scientific community, such as evolution, the effectiveness of vaccinations, and the role of CO$_2$ emissions in climate change, continue to be rejected by segments of the public. This rejection is typically driven by people's worldviews,
 and to date most research has found that conservatives are uniformly more likely to reject scientific
 findings than liberals across a number of domains.
-We report a large (N$>$1,000) preregistered study that (a) examined people's attitudes
-towards complementary and alternative medicines (CAM),
-which has been anecdotally cited as being more consonant with liberals
-than conservatives, 
-and (b) examined how liberals and conservatives resolve dilemmas in which an issue triggers two opposing facets of their worldviews. We probed attitudes on gender equality and the evolution of sex differences---two constructs that may create conflicts for liberals (who endorse evolution but also equality) and conservatives (who endorse gender differences but are sceptical of evolution). We find that many conservatives reject both gender equality and evolution of sex differences, and instead embrace ``naturally occurring'' gender differences. Many liberals, by contrast, reject evolved gender differences, as well as naturally occurring gender differences, while nonetheless 
-strongly endorsing evolution. We find more support for CAM among conservatives than
-liberals.
+We report a large (N$>$1,000) preregistered study that 
+addresses two questions: First, can we find science denial on the left? 
+Endorsement of pseudoscientific complementary and alternative medicines (CAM) has been anecdotally cited as 
+being more consonant with liberals than conservatives. 
+Against this claim, we found more support for CAM among conservatives than liberals. 
+Second, we asked how liberals and conservatives resolve dilemmas in which an issue triggers two opposing facets of their worldviews. We probed attitudes on gender equality and the evolution of sex differences---two constructs that may create conflicts for liberals (who endorse evolution but also equality) and conservatives (who endorse gender differences but are sceptical of evolution). We find that many conservatives reject both gender equality and evolution of sex differences, and instead embrace ``naturally occurring'' gender differences. Many liberals, by contrast, reject evolved gender differences, as well as naturally occurring gender differences, while nonetheless 
+strongly endorsing evolution. 
 }
 
 \acknowledgements{Address correspondence to the first author at the 
@@ -149,6 +149,7 @@ URL: http://www.cogsciwa.com \\
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 \maketitle
+%if cache=TRUE in knitr, then it keeps around the results without re-running it (https://tex.stackexchange.com/questions/93820/sweave-documents-saving-output-for-later-use)
 
 
 %print big warning if the analysis is uncorreceted for affirmation bias
@@ -298,12 +299,13 @@ conservatives \cite{Miller99}.
 One long-standing and strong implication of liberal meliorism is 
 belief in gender equality. 
 Assuming that no important difference between the sexes is given by nature makes it easier to argue that all existing differences can be remedied by societal reform. 
-Conservatives, by contrast, reject this possibility. 
+Conservatives, by contrast, reject this possibility and may
+therefore be more likely to find genders to be ineluctably unequal. 
 A large body of literature
 has found strong associations between conservatism and
 sexism \cite<e.g.,>{Hodson17}, and between other indicators 
-of rightwing politics such as Rightwing Authoritarianism (RWA) or 
-social dominance orientation (SDO) and sexism \cite<e.g.,>{Hellmer18,VanAssche19}.
+of rightwing politics such as Rightwing Authoritarianism or 
+social dominance orientation and sexism \cite<e.g.,>{Hellmer18,VanAssche19}.
 
 The scientific debate whether nature (i.e., biology, evolution, and
 genetics) or nurture (i.e., social variables such as parenting and 
@@ -371,7 +373,7 @@ to examining how people resolve dilemmas arising from
 conflicting imperatives of their worldview. 
 It turns out that liberals' 
 belief in gender equality gives 
-rise to conflicting imperatives that are not necessarily easy to resolve.
+rise to conflicting imperatives that are not easy to resolve.
 Conservatives are similarly confronted with gender-related dilemmas,
 albeit of a different nature. 
  
@@ -428,13 +430,15 @@ differences in female and male brains''. A further 22\% were undecided and only 
 Moreover, \citeauthor{Horowitz14} found that
 self-identified feminist theoreticians were less likely to endorse
 biological-evolutionary factors as underpinning social behavior
-than sociologists with a different theoretical orientation.
+than sociologists with a different theoretical orientation. (See 
+\citeNP{Legare18}, for a detailed exploration of the
+fit between evolution and the social sciences.)
 
-These data suggest that although scientists generally accept
+Overall, the available data suggest that although scientists generally accept
 the importance of nature in explaining gender differences, they are
 more skeptical of claims linking evolved differences
 in brain structure to gender differences in behavior.
-This skepticism appears amply justified by 
+This skepticism can draw justification from
 recent work in neuroscience
 that has emphasized the plasticity of human brains 
 as well as the fluidity of 
@@ -462,13 +466,12 @@ people's beliefs about men and women being the same in all
 respects, men and women having evolved differently,
 and men and women being ``naturally different.'' 
 The latter two constructs both allowed for an endorsement
-of gender differences, but in one case those differences
-were presumed to exist ``naturally'' without appealing
-to evolution (or any other underlying causal process) 
-whereas in the other case those differences 
-were presented as the result of evolution. 
+of gender differences, 
+but in one case those differences were presented as the result of evolution, 
+whereas in the other case those differences were presumed to exist ``naturally'' 
+without specifying any particular cause (e.g., evolution, divine intervention).
 By remaining ambiguous about the mechanism underlying
-gender differences, the ``naturally-different'' construct 
+gender differences, the latter construct 
 avoids triggering worldview-based opposition to any
 particular means by which gender differences may have arisen 
 (e.g., evolution or divine intervention).
@@ -532,7 +535,7 @@ we coded this construct to represent \textit{rejection }of CAM
 CAM is ineffective).
 (3) We measured people's worldviews via three
 related but distinct constructs; namely,
-religiosity, conservatism, and endorsement of free markets.
+religiosity, socio-political conservatism, and endorsement of free markets.
 (4) The three constructs related to gender differences (Figure~\ref{fig:dilemmas}).
 (5) The final construct comprised the
 three questions from the cognitive reflection test 
@@ -554,7 +557,7 @@ copy of the survey can be found on \textit{GitHub} at
 \subsection{Materials}
 The survey comprised 60 items, broken
 down into 2 demographic queries presented at the outset (age and gender); 
-14 items involving a ``slider'' scale (0-100) for the conservatism
+14 items involving a ``slider'' scale (0-100) for the socio-political conservatism
 construct; 
 40 items on a 7-point scale (from ``Strongly Disagree'' to ``Strongly Agree'') 
 to measure 
@@ -564,7 +567,8 @@ and one item that served as attention filter.
 The attention filter asked people to identify which of a list of 5 items
 was not an animal.
 
-The conservatism items were taken from \citeA{Everett13} and asked participants to indicate ``the extent 
+The socio-political conservatism items were taken from \citeA{Everett13} 
+and asked participants to indicate ``the extent 
 to which you feel positive or negative towards an issue'', with 50 taken
 to be the neutral point and 0 representing great negativity and 
 100 great positivity, respectively.
@@ -638,7 +642,7 @@ responded identically (before reverse-coding)
 to all items for one or more constructs. 
 To deal with this indicator
 of inattention, a further attention filter question was
-inserted as part of the conservatism slider scale that asked
+inserted as part of the socio-political conservatism slider scale that asked
 participants to select the value ``20''. Upon relaunch, 
 an inspection of a further preliminary sample ($N=50$) suggested
 that the additional attention filter
@@ -666,7 +670,7 @@ Mean age differed between men (52.0) and women (41.4).
 
 \subsection{Data summary and adjustment}
 Figure~\ref{fig:slidersSocDarw} shows the distribution
-of slider responses to the 14 items of the conservatism scale.
+of slider responses to the 14 items of the socio-political conservatism scale.
 Table~\ref{tab:itemResponses}
 shows the number and percentages of responses to the 40 core
 items before
@@ -722,7 +726,7 @@ of the average scores for the 8 constructs.
 \begin{figure}[tp] %fig:slidersSocDarw
 	\fitfigure{slidersSocDarw.pdf}
 	\caption{Frequency distributions of responses for the
-		14 items of the conservatism scale.
+		14 items of the socio-political conservatism scale.
 		Each histogram shows the distribution
 		across subjects of the slider response which
 		ranged from 0 (strong negativity) to 100 (high positivity). }
@@ -732,7 +736,7 @@ of the average scores for the 8 constructs.
 \begin{figure}[tp] %fig:histoSocDarw
 	\fitfigure{histoSocDarw.pdf}
 	\caption{Frequency distributions of the composite scores for all constructs
-		excluding conservatism,
+		excluding socio-political conservatism,
 		formed by averaging responses across items within each construct 
 		after
 		reverse scoring. Each histogram shows the distribution
@@ -903,7 +907,7 @@ Men \& women are the same &
 0.099  & 
 \textit{MWEquDiff   }$\leftrightarrow$ \textit{MWEquInvent }
 \\
-Conservatism &
+Socio-political conservatism &
 281.49 & 
 33 & 
 0.045 & 
@@ -929,7 +933,7 @@ CRT &
 \end{sidewaystable}
 
 Unlike for the other constructs, it proved impossible to create a unidimensional 
-model for the 14 items of the conservatism scale. Inspection of the correlations among
+model for the 14 items of the socio-political conservatism scale. Inspection of the correlations among
 items revealed that items of different polarity correlated little with each
 other: that is, responses to the issues abortion, welfare, tax, and immigration
 correlated little with the remaining issues, even after reverse scoring. 
@@ -962,9 +966,9 @@ unidimensional structure
 of our contructs. This conclusion is supported by the
 fact that the model fit ranged from good to excellent \cite{Hooper08}
 for most constructs. However, the conclusion 
- comes with the qualification that for the Evolution
+ comes with the qualification that for the evolution
 construct the fit was acceptable but not spectacular, and that two pairwise
-correlations were required for the Conservatism construct (although this construct
+correlations were required for the socio-political conservatism construct (although this construct
 also comprised many more items, which justifies inclusion of a further pairwise correlation). 
 
 We proceeded with the construction of
@@ -1043,7 +1047,7 @@ three binary indicators as described above.
 		0.63 &
 		0.4 \\		
 		
-		Conservatism &
+		Socio-political conservatism &
 		1.2 &
 		0.87 &
 		0.19 \\		
@@ -1083,37 +1087,6 @@ that the latent-variable model is
 adequately identified notwithstanding the ill-conditioned covariance
 matrix.
 
-The results generally replicate relevant previous research. The modest
-negative correlation between free-market endorsement and acceptance of
-vaccinations parallels a similar association observed by \citeA{Hornsey18},
-albeit using a different instrument to measure Libertarian
-attidudes (hierarchical-individualism as opposed to free-market endorsement).
-The positive correlation between free-market endorsement and conservatism
-has been observed previously \cite{Lewandowsky13b}, as has been the 
-strong association between religiosity and conservatism \cite{Malka12}.
-Likewise, the strong
-negative correlation between religiosity and 
-acceptance of evolution replicates existing research \cite<e.g.,>{Ecklund17},
-as does the positive correlation between CAM rejection and
-acceptance of vaccinations \cite<e.g.,>{Attwell18,Browne15,Bryden18,Ernst02}.
-
-Turning to the associations involving CRT performance, the observed 
-modest but significant negative correlation with
-religiosity replicates previous results \cite{Gervais12a,Shenhav12,Stagnaro19}. 
-\citeA{Jost17} reported a 
-meta analysis of 13 studies that related CRT performance to political views.
-The vast majority of those studies showed
-that liberals exhibited more cognitive reflection than conservatives.
-In the present data, this is echoed by the modest negative
-correlation with free market, although it was not reflected in the
-conservatism measure. 
-The positive associations of the CRT with endorsement of all three
-scientific constructs, vaccination, CAM rejection, and evolution
-replicate similar previous findings \cite{Shtulman14,WagnerEgger18}.
-The association also meshes well with recent findings that analytical thinking
-is associated with better differentiation between ``fake news'' and
-valid information \cite{Pennycook18}. 
-
 \begin{sidewaystable}[!htbp] \centering 
 \caption{Correlations among latent variables} 
 \label{tab:lvcor} 
@@ -1125,7 +1098,7 @@ valid information \cite{Pennycook18}.
 		 \rotatebox[origin=c]{80}{Men/women are the same} & 
 		 	\rotatebox[origin=c]{80}{Religiosity} & 
 		 	 	 \rotatebox[origin=c]{80}{Vaccinations} & 
-		 	 	 \rotatebox[origin=c]{80}{Conservatism} \\ 
+		 	 	 \rotatebox[origin=c]{80}{Socio-political conservatism} \\ 
 \hline \\[-2ex]
 
 \input{_t.lvcor.tex}
@@ -1150,7 +1123,7 @@ valid information \cite{Pennycook18}.
 \rotatebox[origin=c]{80}{Men/women are the same} & 
 \rotatebox[origin=c]{80}{Religiosity} & 
 \rotatebox[origin=c]{80}{Vaccinations} &
-\rotatebox[origin=c]{80}{Conservatism} \\ 
+\rotatebox[origin=c]{80}{Socio-political conservatism} \\ 
 \hline 
 \input{_t.compcor.tex}
 %\hline \\[-2ex] 
@@ -1171,7 +1144,7 @@ men and women.
 We compared this full model to two constrained
 models: in the first, partially constrained model
 we forced the covariances between the three gender-related
-constructs to be equal, and in the second fully constrained model 
+constructs to be equal, and in the second, fully constrained model 
 all covariances
 among latent variables were forced to be equal between groups.
 The partially constrained model fit as well as the 
@@ -1197,25 +1170,26 @@ description of the data. We therefore
 do not consider the
 effects of participants' gender further.  
 
-\subsubsection{Predictive models}
+\subsubsection{Predicting scientific attitudes}
 
 We next explored the relationship among the political worldview constructs,
-(conservatism, religiosity, and free-market endorsement), and how those constructs
+(socio-political conservatism, religiosity, and free-market endorsement), and how those constructs
 in turn would predict attitudes to the scientific themes (vaccinations, CAM rejection, and
-evolution). This exploration appeared necessary for at least two reasons. First, the observed first-order
-correlations were not homogeneous across constructs (e.g., conservatism was uncorrelated with
-vaccination attitudes but free-market endorsement was negatively associated with vaccinations).
-Second, this divergence between otherwise highly related worldview components 
-has been observed previously. For example, \citeA{Lewandowsky13b} found that conservatism
-predicted endorsement of vaccinations whereas free-market endorsement predicted anti-vaccination
-attitudes. Development of the following models was thus guided by prior theorizing and results, but they 
-must nonetheless 
-be considered to be exploratory.
- 
+evolution). 
+
+Theoretical considerations and previous findings suggest that the 
+three aspects of political worldview are differentially related to the three science themes: 
+Rejection of evolution is mostly motivated religiously; 
+concerning vaccinations, \citeA{Lewandowsky13b} found opposite-signed regression weights for free market (negative) 
+and another measure of socio-political conservatism (positive). 
+Therefore, we aimed to tease apart the contributions of general political orientation as well as more specific aspects of political orientation to science rejection in the three domains. 
+Development of the following models was thus guided by prior theorizing and results, 
+but also informed by the present data, and therefore they must be considered exploratory
+
 We first created a hierarchical-factor model in which the three worldview constructs 
-were used as indicators for an over-arching second-order factor (called ``All politics''). 
+were used as indicators for an over-arching second-order factor (called ``All conservatism''). 
 The polarity of this factor was pointing towards increasingly conservative worldviews (i.e., greater
-endorsement of free markets, conservatism, and religiosity). 
+endorsement of free markets, greater socio-political conservatism, and stronger religiosity). 
 We used this second-order factor, in turn, to predict scientific 
 attitudes, adding direct links from the first-order constructs where necessary,
 and constraining non-significant links to zero when possible without
@@ -1227,80 +1201,85 @@ CFI=0.953; RMSEA=
 0.073, CI:
 0.053 -- 
 0.094,
- and is shown in Figure~\ref{fig:finalpolSEM}.
+ and is shown in Figure~\ref{fig:finalpolSEM} (panel a).
 \begin{figure}[tp] %fig:finalpolSEM
-	\fitfigure{finalpolSEM.pdf}
-	\caption{Predictive structural equation model relating all political
-		worldview constructs to all scientific constructs. 
+\begin{center}
+\begin{tabular}{rcrc}
+\raisebox{2.8in}{\bf \helv{a}} & \includegraphics[width=6in]{finalpolSEM.pdf} \\
+\raisebox{2.8in}{\bf \helv{b}} & \includegraphics[width=6in]{superSEM.pdf}
+\end{tabular}
+\end{center}
+	\caption{Structural equation model to predict scientific attitudes. 
+		Panel a shows the model with the three worldview constructs as predictors.
+		Panel b shows the same model after inclusion of a factor representing CRT performance.
 		All links and correlations shown are 
-		standardized and significant; all $p \leq .05$.
+		standardized and significant; all $p \leq .05$. Dashed lines indicate correlations between latent variables.
 		Indicator variables and their loadings, and disturbances on endogenous factors are not
 		shown. Links between latent variables that are not shown are 
-		constrained to zero.
+		constrained to zero. 
 		Loadings and variances of single-indicator latent 
 		variables are reported in Tables~\ref{tab:indicatormodels}
 		and~\ref{tab:descriptives}.}
 	\label{fig:finalpolSEM}
 \end{figure}
 
-=== The figure is missing one covariance and a parameter from another covariance. 
-
-The figure shows that the All politics factor is negatively associated with rejection of CAM, suggesting that people with conservative worldviews
-are more likely to accept CAM. The All politics factor is not associated with the remaining two scientific themes. Instead, it is sub-components
-of conservatism that predict rejection of those other issues. Rejection of vaccinations is predicted exclusively by free-market endorsement and rejection of evolution 
+The model captures the correlations between the three scientific constructs (although 
+unlike for the first-order correlations in Table~\ref{tab:lvcor}, 
+CAM rejection
+was not significantly correlated with evolution). 
+This replicates other findings that people's attitudes towards scientific issues often covary \cite<e.g.>{Lewandowsky12a}. 
+Accordingly, one or more aspects of conservatism uniformly predicted reduced acceptance of scientific issues.
+The All conservatism factor was found to be negatively associated with rejection of CAM, suggesting that people with 
+conservative worldviews
+are more likely to accept CAM. The All conservatism factor was not associated with the remaining two scientific themes. Instead, it was the sub-components
+of overall conservatism that predicted rejection of those other issues. Rejection of vaccinations is predicted exclusively by free-market endorsement and rejection of evolution 
 by religiosity. 
-The model goes beyond a simplistic left-right political-orientation view of the world. 
-Instead, we show that a more differentiated assessment of political orientation 
-pays off by identifying relevant sub-dimensions of the overall cluster of worldviews, and
-how they determine people's acceptance or rejection of scientific propositions.
+This model shows that rejection of science is not simply driven by a general left-right dimension of political orientation. 
+Our more differentiated assessment of worldview helped us 
+identify relevant sub-dimensions of the overall cluster of worldviews, 
+which differentially influence people's acceptance or rejection of scientific propositions.
+Crucially, however, the polarity of the effects was uniform across issues, with no evidence that people on the political
+left were less inclined to accept scientific issues.
 
-We next sought to expand this model by adding the remaining potential predictors,
-namely the three gender-related constructs and CRT performance. 
-To build this final model we retained the predictive structure in Figure~\ref{fig:finalpolSEM}
-and added the other constructs as needed until a parsimonious 
-description of the data was achieved with a satisfactory fit.
-This final model is shown in Figure~\ref{fig:superSEM} and
-fit acceptably well, 
-$\chi^2(44)=191.42$; 
-SRMR=0.058; CFI=0.949; 
-RMSEA=0.057 (90\% CI:
-0.049--
-0.066).
-\begin{figure}[tp] %fig:superSEM
-\fitfigure{superSEM.pdf}
-\caption{Final predictive structural equation model. 
+We next expanded this model by adding CRT performance as a further predictor but clamping 
+the regression estimates to their values from the original model. 
+This expanded model is shown in panel b of Figure~\ref{fig:finalpolSEM} and, notwithstanding the imposition
+of strong constraints,
+it fit acceptably well, 
+$\chi^2(26)=113.86$; 
+SRMR=0.064; CFI=0.951; 
+RMSEA=0.058 (90\% CI:
+0.047--
+0.069).
+The uniformly positive weights between CRT performance and endorsement of science again
+replicate earlier results \cite{Shtulman14,WagnerEgger18} and confirm that the
+first-order correlations in Table~\ref{tab:lvcor} stand up to the inclusion of all worldview-related constructs.
+
+\subsubsection{Predicting attitudes towards gender equality}
+We developed a parallel hierarchical model to predict attitudes towards the gender-related constructs from the same set of worldview constructs.
+The model is shown in Figure~\ref{fig:genderSEM} and fit very well,
+$\chi^2(5)=20.45$; 
+SRMR=0.032; CFI=0.985; 
+RMSEA=0.055 (90\% CI:
+0.032--
+0.081).
+The model shows that the All conservatism factor predicted all aspects of gender attitudes in the expected direction: greater
+conservatism predicted less endorsement of the idea that men and women are equal, and it predicted greater acceptance of
+evolved or natural differences between men and women. In addition, religiosity uniquely predicted rejection of the idea that men and
+women evolved differently, thus again dissociating between different aspects of overall conservatism.
+\begin{figure}[tp] %fig:genderSEM
+\fitfigure{finalgenderSEM.pdf}
+\caption{Structural equation model to predict gender attitudes from worldviews. 
 	All links and correlations shown are 
-	standardized and significant; all $p \leq .05$.
+	standardized and significant; all $p \leq .05$. Dashed lines indicate correlations between latent variables.
 	Indicator variables and their loadings, and disturbances on endogenous factors are not
-	shown. Regression weights between latent variables that are not shown are 
-	constrained to zero. Covariances between latent variables are not shown to avoid clutter.
+	shown. Links between latent variables that are not shown are 
+	constrained to zero. 
 	Loadings and variances of single-indicator latent 
 	variables are reported in Tables~\ref{tab:indicatormodels}
 	and~\ref{tab:descriptives}.}
-\label{fig:superSEM}
+\label{fig:genderSEM}
 \end{figure}
-
-
-==== Matrix of covariances still needed (if we choose to omit them from the figure, which would make life a little easier and less cluttered).
-
-==== Discussion of the model still awaiting completion.
-
-%The model captures the strong correlations (of varying polarity) among the gender-related constructs.
-%It also captures the correlations between the three scientific constructs (although 
-%unlike for the first-order correlations (Table~\ref{tab:lvcor}), 
-%CAM rejection
-%was not significantly correlated with evolution). 
-%This replicates other findings that people's attitudes towards scientific issues often covary \cite<e.g.>{Lewandowsky12a}. Accordingly, each of the two worldview constructs, conservatism
-%and free market, affected scientific issues in a uniform manner. Increasing free-market
-%endorsement predicted reduced acceptance of vaccination and evolution and reduced
-%rejection (i.e., greater endorsement) of CAM. Conversely, increasing conservatism
-%predicted an \textit{increase }in the acceptance of evolution and vaccination, although the 
-%effect on CAM rejection failed to reach significance. The role of conservatism in this model
-%differed from its first-order correlations with the scientific constructs. In particular, the negative first-order correlation between conservatism and evolution (Table~\ref{tab:lvcor}) here turned into
-%a positive regression coefficient. 
-%In light of the strong negative weight for religiosity, we interpret this to mean
-%that it is religiosity---not conservatism \textit{per se}---that is driving rejection
-%of evolution, with free-market endorsement being a second, weaker predictor. 
 
 \subsection{Nurture vs. nature vs. evolution}
 The final analysis considered the relationship between people's
@@ -1309,105 +1288,96 @@ constructs that probed the origins and extent of gender differences.
 This analysis therefore explored the dilemmas postulated in 
 Figure~\ref{fig:dilemmas}.
 We divided participants according to their political views,
-conducting a median split of the composite conservatism scale.
-
+conducting a median split of the composite scores on the 
+socio-political conservatism scale.
 Figure~\ref{fig:conslibevogrid} illustrates the results,
-using composite scores for all constructs. 
-Each panel 
-plots
+using composite scores for all constructs, with liberals shown
+on the left and conservatives on the right. 
+
+The top row of panels 
+illustrates the putative dilemma confronting conservatives. 
+The panels plot
 the two constructs concerning the origin of gender differences (men and women evolved
-differently vs. men and women are naturally different), with liberals shown
-on the left and convervatives on the right.
-Color of plotting symbols shows acceptance of evolution (top panels) and
-belief in gender equality (bottom panels).
+differently [abscissa] vs. men and women are naturally different [ordinate]).
+The color of plotting symbols shows attitudes towards evolution, with dark
+dots indicating rejection and light dots acceptance.
 Several observations can be made:
 First, the two constructs for the origins of gender differences are highly
 correlated irrespective of political views.
 Second, conservatives are more likely overall to think that
 men and women differ naturally than liberals. 
-
-Third, focusing on the top panels, 
-the clusters of dark points are of particular interest. These points
-represent people
-who reject evolution. As expected from the pattern of correlations in 
-Table~\ref{tab:compcor}, it is 
-clear that there are more conservatives
-than liberals who reject Darwinian evolution (more dark points on the right). 
-Irrespective
-of political orientation, people
+Third, as expected from the pattern of correlations in 
+Table~\ref{tab:compcor}, more conservatives
+than liberals reject Darwinian evolution (more dark points on the right). 
+Crucially, conservatives
 who reject evolution also tend to endorse gender differences---however,
-notably that endorsement mainly involves the idea that men and women are
+as revealed by the cluster of dark points in the top left, that endorsement mainly involves the idea that men and women are
 somehow ``naturally'' different, rather than the idea that they
-``evolved differently.'' This is particularly pronounced for conservatives:
-the top-left cluster of dark points represents participants who reject
-evolution generally as well as its role in producing gender differences, but instead
-endorse the notion that men and women are naturally different.
+``evolved differently.'' Conservatives thus
+resolved their dilemma by ascribing gender differences to unspecified
+natural factors while rejecting evolution both generally and specifically with respect to gender differences.
 
 \begin{figure}[tp] %fig:conslibevogrid
 \fitfigure{conslibequalitygridAll.pdf}
-\caption{Relationship between the three gender constructs and acceptance of evolution.
-	Participants with liberal political
-	views are shown on the left and conservatives on the right (median split).
+\caption{Relationship between the three gender-related
+	constructs and acceptance of evolution.
+	Liberals are shown on the left and conservatives on the right (median split of socio-political conservatism construct).
 	The top panels show
 	acceptance of evolution (represented by color
 of plotting symbols) and people's responses to the constructs probing the
 origin of gender differences. 
 	The bottom panels show belief in gender equality (represented by
-color of plotting symbols) and people's responses to the constructs probing the
-origin of gender differences. 
+color of plotting symbols) and people's responses to the two constructs probing evolution generally (ordinate) and that men and women evolved differently (abscissa).
 Composite scores are used for all constructs.
-Points are jittered to reduce over-printing.}
+Dashed horizontal and vertical lines represent marginal
+means. Points are randomly jittered to reduce over-printing.}
 \label{fig:conslibevogrid}
 \end{figure}
 
-Finally, turning to the bottom panels, all three constructs are highly associated with
-each other:
-higher belief in equality (dark plotting symbols) is associated with low
-belief in natural and evolved differences, and vice versa. This 
-association is particularly strong for liberals.
-For conservatives, by contrast, 
-the cluster of people who do not believe that men and women evolved differently but
-think they are naturally different, 
-also show little belief in gender equality (light
-plotting symbols).  
-
-It is informative to compare liberals' responses across the two rows of panels. 
-Because
-the axes are identical between panels, this comparison can identify the relationship
-between people's belief in equality and evolution. Notably, the people in the bottom-left
-quadrant who reject gender differences irrespective of their origin, are strong
-believers in gender equality \textit{and }evolution generally. Conversely, the few
-liberals who do not endorse gender equality (lightly colored plotting symbols in bottom-left panel)
-tend to be most skeptical of evolution (dark plotting symbols in 
-top-left panel).
-The same comparison for conservatives identifies more people who disbelieve evolution
-and equality, and fewer who endorse evolution generally but reject any
-form of gender differences. 
+The bottom row of panels illustrates the putative dilemma facing 
+liberals. 
+The panels plot
+the two constructs probing evolution, with gender differences (men and women evolved
+differently) on the abscissa, and general evolution acceptance on the ordinate. The color of plotting symbols shows attitudes towards 
+gender equality, with darker points representing greater endorsement
+of equality.
+It is clear that more liberals than conservatives endorse evolution
+and that liberals are more inclined to endorse gender equality (dots are generally darker in the left panel).
+Crucially, a large number of liberals accept evolution 
+and gender equality---however,
+as revealed by the cluster of dark points in the top left, 
+that endorsement is accompanied by a reduced belief 
+in the evolution of gender differences.
+Liberals thus
+resolved their dilemma by rejecting the evolution of
+gender differences while embracing evolution generally together with
+equality.
 
 \section{Discussion}
-
-=== all of this needs to be checked against the new model(s). It may not change much, but it wouldn't surprise me if there are glitches in the Discussion.
-
 \subsection{Relationship to previous results}
 Our results coordinate well with multiple precedents in the literature,
 which we take up for each of the
 constructs examined. 
-Considering first religiosity, we replicate 
+Considering first religiosity, we replicated 
 the substantial association between stronger religious beliefs
-and conservatism \cite{Malka12,Schlenker12}. In our
-study this association generalized across a broadly-defined
+and conservatism in the American population \cite{Malka12,Schlenker12}. 
+In our
+study this association generalized across a broadly-defined socio-political 
 conservatism construct as well as a specific construct
 targeting endorsement of laissez-faire free-market economics.
-We also replicate the long-standing strong negative
-association between religiosity and acceptance of evolution \cite<e.g.,>{Tom18} and the
+We also replicated the long-standing strong negative
+association between religiosity and acceptance of evolution \cite<e.g.,>{Ecklund17,Tom18} 
+and the
 modest negative association between religiosity and analytic thinking
 (i.e., CRT performance) reported previously \cite{Jack16,Shenhav12,Stagnaro19}.
 Likewise, the correlations between religiosity and the gender
 constructs (e.g., Table~\ref{tab:lvcor}) are consistent 
-with previous reports that religiosity predicts sexism \cite{VanAssche19},
-although our results extend that previous finding because our
+with previous reports that religiosity predicts sexism \cite{VanAssche19}.
+Our results go beyond previous findings because our
 scales did not probe discriminatory sexism but the origin of presumed
-gender differences.
+gender differences. We find that religiosity makes it less likely that
+people believe that gender differences have evolved.
+
 The negative association between religiosity and CAM rejection 
 is also unsurprising 
 in light of previous research that has shown acceptance of CAM 
@@ -1415,10 +1385,14 @@ to be driven by intuitive thinking, paranormal beliefs,
 and ontological confusions \cite{Lindeman11}.
 At least one of those variables (intuitive thinking)
 is also known to be a predictor of religiosity \cite<e.g.,>{Shenhav12}.
+The positive correlation between CAM rejection and
+acceptance of vaccinations 
+replicates much previous research \cite<e.g.,>{Attwell18,Browne15,Bryden18,Ernst02}.
 
-By contrast, our findings concerning religiosity also deviate from aspects
+However, our findings concerning religiosity also deviate from aspects
 of other recent research
-\cite{Rutjens17}. Unlike \citeauthor{Rutjens17}, we 
+\cite{Rutjens17}. 
+Unlike \citeauthor{Rutjens17}, we 
 found no evidence of a link
 between religiosity and rejection of vaccinations. 
 Given that  \citeauthor{Rutjens17} observed this link
@@ -1432,58 +1406,59 @@ a negative association between vaccination and religiosity,
 suggesting that this relationship may well be real but is only
 observable in certain circumstances.
 
-Attitudes towards vaccinations were instead
-determined by the interplay of our two political constructs:
-In our predictive SEM model (Figure~\ref{fig:superSEM}), we found that 
-conservatism was a positive predictor of
-vaccination acceptance, whereas free-market
-endorsement was a negative predictor. This 
-nuanced interplay of the predictive role of two constructs that
-are highly correlated ($r \simeq .5$)
-replicates the pattern observed by \citeA{Lewandowsky13b}.
-The different polarity of the effects of conservatism and 
-free-market endorsement is 
-consonant with the notion that libertarians object to the
-government intrusion arising from mandatory vaccination programs
-\cite{Kahan10a}, whereas liberals (i.e., people low in conservatism)
-may oppose vaccinations 
-because they distrust pharmaceutical companies \cite<e.g.,>{Attwell18}.
-The strength of the latter relationship, however, was 
-less than overwhelming, given that the first-order correlation
-between conservatism and vaccination attitudes was non-significant
-whereas the first-order negative correlation with free-market persisted
-(Table~\ref{tab:lvcor}). 
-
+Turning to the associations involving CRT performance, the observed 
+modest but significant negative correlation with
+religiosity replicates previous results \cite{Gervais12a,Shenhav12,Stagnaro19}. 
+\citeA{Jost17} reported a 
+meta analysis of 13 studies that related CRT performance to political views.
+The vast majority of those studies showed
+that liberals exhibited more cognitive reflection than conservatives.
+In the present data, this is echoed by the modest negative
+correlation with free market, although it was not reflected in the
+socio-political conservatism measure. 
+The positive associations of the CRT with endorsement of all three
+scientific constructs, vaccination, CAM rejection, and evolution
+replicate similar previous findings \cite{Shtulman14,WagnerEgger18}.
+The association also coordinates well with recent findings that analytical thinking
+is associated with better differentiation between ``fake news'' and
+valid information \cite{Pennycook18}. 
 
 \subsection{Rejection of science on the political left?}
 Our findings provide 
-little evidence that people on the 
-political left reject vaccinations. Although
-we found a positive link from conservatism to vaccination
-attitudes in our predictive model (Figure~\ref{fig:superSEM}),
-the first-order correlation was non-significant (Table~\ref{tab:lvcor}).
-Moreover, free-market endorsement, which is typically considered
-a strand of conservatism \cite{Crowson09},
-was a consistently strong negative predictor of vaccination attitudes,
-whether as a first-order correlation or in the final predictive model.
-Our results thus converge with other recent findings
+little or no evidence that people on the 
+political left reject vaccinations. 
+On the contrary, to the extent that 
+worldviews determined vaccination attitudes, it was free-market endorsement that
+predicted rejection. 
+This result 
+parallels a similar association observed by \citeA{Hornsey18},
+albeit using a different instrument to measure Libertarian
+attidudes (hierarchical-individualism as opposed to free-market endorsement).
+The result 
+is also consonant with the notion that libertarians object to the
+government intrusion arising from mandatory vaccination programs
+\cite{Kahan10a}. It also meshes well with the pattern 
+observed by \citeA{Lewandowsky13b}, who showed that when
+socio-political conservatism was removed from a model, 
+free-market endorsement on its own predicted rejection
+of vaccinations (whereas the converse was not true).
+Overall, our results thus converge with other recent findings
 that have found an association between right-wing politics and
-rejection of vaccinations \cite{Baumgaertner18,Kahan10a,Lewandowsky13b,Rabinowitz16}.
-In a recent cross-sectional analysis of voting behavior and vaccination rates across European countries, \citeA{Kennedy19} found a strong
+rejection of vaccinations \cite{Baumgaertner18,Kahan10a,Rabinowitz16}.
+In a recent cross-sectional analysis of voting behavior and 
+vaccination rates across 
+European countries, \citeA{Kennedy19} found a strong
 relationship between the vote share for populist parties 
 and vaccine hesitancy. 
 
-Similarly, contrary to 
-reports that CAM use 
-and vaguely left-wing ideas 
+Similarly, contrary to reports that CAM use and left-wing ideas 
 have a natural affinity for each other \cite<see, e.g.,>{Keshet09},
 we found that
 CAM rejection was negatively, but modestly, associated with 
+the All conservatism factor that subsumed
 all three of our worldview constructs; namely, religiosity, 
-free market endorsement, and conservatism (although
-the link from conservatism was non-significant in the
-predictive model; Figure~\ref{fig:superSEM}). 
-In our data, none of the gender
+free market endorsement, and socio-political conservatism. 
+Moreover, in our data, none of the gender
 constructs were associated with CAM attitudes. This
 runs counter to the idea that CAM use 
 is ``feminist'' \cite{Scott98a}.
@@ -1497,77 +1472,83 @@ historical analyses that have found strong links
 between right-wing organizations, such as the
 John Birch Society in the U.S., and endorsement
 of ``alternative'' cancer treatments \cite{Markle78}.
-The result also adds to the list of failed attempts
+The present result adds to the list of failed attempts
 to discover science denial on the political left
 \cite<e.g.,>{Hamilton11,Hamilton15a,Hamilton15b,Hamilton15c,Kahan10a,Lewandowsky13b,Tom18}. 
 
 \subsection{Attitudes towards gender differences}
-We now turn to the main focus of our study,
-relating to the interplay of attitudes towards general Darwinian evolution,
+We observed an intriguing 
+interplay of the attitudes towards general Darwinian evolution,
 gender differences, and how those gender differences
 might have arisen.
-The idea that men and women differ naturally was highly 
-correlated with the idea that they evolved differently. 
-Moreover, unsurprisingly, the  idea that men and women differ naturally 
+At a coarse level of analysis, we
+observed three unsurprising associations: The idea that 
+men and women differ naturally was highly 
+correlated with the idea that they evolved differently, but
 was negatively correlated with
-the construct that proclaimed their equality. 
+the construct that proclaimed gender equality. 
 The equality construct was 
 also negatively
 correlated with the idea that men and women evolved differently,
 although that correlation was smaller than for 
 natural differences. 
 
-Intriguingly, overall acceptance of evolution was 
+At a more detailed level of analysis, several
+intriguing associations emerged.
+First, acceptance of general Darwinian evolution was 
 positively associated with two seemingly conflicting constructs; 
 namely, that men and women evolved differently \textit{and} that they are
 the same. Moreover, evolution was negatively correlated with the idea
 that men and women are naturally different, even though evolution
 is one way in which such ``natural'' differences might have emerged.
-A similar divergent pattern obtained in the associations between
-the constructs relating to gender differences and political 
-attitudes. That is, whereas conservatism and free-market endorsement
-were negatively correlated with gender equality, 
-and strongly
-positively correlated with men and women being naturally different, those
-correlations were attenuated (for free market) or absent (for conservatism) 
-for the idea that men and women evolved differently.
-It thus appears that the involvement of evolution, either on its own or in explaining
+A similarly nuanced  pattern obtained when the 
+worldview constructs were used to predict 
+gender attitudes. Although the over-arching All conservatism
+factor functioned as expected, with negative weights for gender equality 
+and positive weights for the two constructs insisting on
+gender differences, 
+there was an additional selective effect of religiosity on 
+the rejection of evolved gender differences.
+
+Further analysis revealed that the involvement of evolution, 
+either on its own or in explaining
 gender differences, served as a ``wedge issue'' that disrupted
 otherwise straightforward associations between right-wing politics
 and opposition to gender equality (and, vice versa, rejection of
 gender differences and left-wing politics) and---as foreshadowed
 in Figure~\ref{fig:dilemmas}---created 
 dilemmas for participants of all political persuasions.
-
-Figure~\ref{fig:conslibevogrid} illustrates
-how participants resolve those dilemmas. 
-Consider first conservatives (right-hand panels). 
-Those who reject evolution tend to endorse ``natural'' gender differences
-but reject evolved gender differences (top). These
-individuals thus sit outside
-the main cluster that captures the
-otherwise strong association between the two gender-differences constructs.
-Conservatives who are strongly committed to rejecting evolution
-are thus willing to forego endorsement of gender differences if 
-those are attributed to evolution. It is only when (nearly identical)
-items appeal to ``natural'' differences that they are endorsed by 
-those committed participants.
+As noted in connection with
+Figure~\ref{fig:conslibevogrid},
+conservatives who strongly
+rejected Darwinian evolution resolved their dilemma by 
+endorsing 
+``natural'' gender differences while rejecting
+evolved gender differences. Those participants were
+thus willing to forego endorsement gender differences to maintain
+consistency with their opposition to evolution. 
 Conversely, liberals who are strongly committed to gender equality
-tend to reject the idea of evolved gender differences, even
-when those participants are committed to accepting evolution (left-hand panels). 
+tend to reject the idea of evolved gender differences, even though
+those participants are demonstrably committed to accepting evolution.
+Those 
+participants were
+thus willing to forego endorsement of a specific manifestation of evolution
+to maintain
+consistency with their commitment to equality.
 Thus, partisans of either stripe can agree in their rejection of the idea that men and
 women evolved differently, but they do so for entirely different
-reasons. Conservatives do so when they are committed to reject evolution, and liberal do so when they are committed to gender equality. Both groups therefore resolve the dilemmas
+reasons. Conservatives do so when they are committed to reject evolution, and liberal do 
+so when they are committed to gender equality. Both groups therefore resolve the dilemmas
 posed by our gender constructs by ``sacrificing'' endorsement of evolved gender
 differences.
 
 \section{Conclusion}
 Our results contribute to two seemingly conflicting streams 
-of outcomes
-in the literature on 
+of outcomes in the literature on 
 how worldviews moderate people's responses to scientific issues. 
 One the one hand, there is much evidence for pervasive attitudinal
-asymmetry, at least in the United States, with conservatives being more likely to reject
+asymmetry, at least in the United States, with conservatives 
+being more likely to reject
 well-established scientific propositions than liberals. To date,
 little or no evidence for left-wing science denial has been reported.
 We add to this stream by showing that, contrary to previous largely
@@ -1594,7 +1575,16 @@ naturally without having evolved differently; this could be
 rationalized by assuming, for instance, that those natural differences 
 were the result of divine intervention.
 
-
+A final contribution of our study is that it points to the advantages
+of a more nuanced analysis of political worldviews, beyond a convenient
+but simplistic classification of people into left and right, or liberals
+and conservatives. While this classification is sufficient
+to explain some scientific attitudes---for example, it matters
+little how one measures political worldviews to explain
+rejection of climate science \cite<e.g.,>{Hornsey16,Kahan15}---there
+are other circumstances in which a more nuanced differentiation
+between different aspects of worldviews provides considerably 
+greater explanatory power.
 
 \bibliography{mega,megaIPsub}
 

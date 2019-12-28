@@ -18,7 +18,7 @@ support, or neutrality. }
 [tp] %fig:slidersSocDarw
 \fitfigure{slidersSocDarw.pdf}
 \caption{Frequency distributions of responses for the
-14 items of the conservatism scale.
+14 items of the socio-political conservatism scale.
 Each histogram shows the distribution
 across subjects of the slider response which
 ranged from 0 (strong negativity) to 100 (high positivity). }
@@ -29,7 +29,7 @@ ranged from 0 (strong negativity) to 100 (high positivity). }
 [tp] %fig:histoSocDarw
 \fitfigure{histoSocDarw.pdf}
 \caption{Frequency distributions of the composite scores for all constructs
-excluding conservatism,
+excluding socio-political conservatism,
 formed by averaging responses across items within each construct
 after
 reverse scoring. Each histogram shows the distribution
@@ -45,11 +45,17 @@ at the midpoint. }
 \begin{figure*}[ht]
 \ifnextchar[{\eatarg}{}
 [tp] %fig:finalpolSEM
-\fitfigure{finalpolSEM.pdf}
-\caption{Predictive structural equation model relating all political
-worldview constructs to all scientific constructs.
+\begin{center}
+\begin{tabular}{rcrc}
+\raisebox{2.8in}{\bf \helv{a}} & \includegraphics[width=6in]{finalpolSEM.pdf} \\
+\raisebox{2.8in}{\bf \helv{b}} & \includegraphics[width=6in]{superSEM.pdf}
+\end{tabular}
+\end{center}
+\caption{Structural equation model to predict scientific attitudes.
+Panel a shows the model with the three worldview constructs as predictors.
+Panel b shows the same model after inclusion of a factor representing CRT performance.
 All links and correlations shown are
-standardized and significant; all $p \leq .05$.
+standardized and significant; all $p \leq .05$. Dashed lines indicate correlations between latent variables.
 Indicator variables and their loadings, and disturbances on endogenous factors are not
 shown. Links between latent variables that are not shown are
 constrained to zero.
@@ -60,34 +66,34 @@ and~\ref{tab:descriptives}.}
 \end{figure*}
 \begin{figure*}[ht]
 \ifnextchar[{\eatarg}{}
-[tp] %fig:superSEM
-\fitfigure{superSEM.pdf}
-\caption{Final predictive structural equation model.
+[tp] %fig:genderSEM
+\fitfigure{finalgenderSEM.pdf}
+\caption{Structural equation model to predict gender attitudes from worldviews.
 All links and correlations shown are
-standardized and significant; all $p \leq .05$.
+standardized and significant; all $p \leq .05$. Dashed lines indicate correlations between latent variables.
 Indicator variables and their loadings, and disturbances on endogenous factors are not
-shown. Regression weights between latent variables that are not shown are
-constrained to zero. Covariances between latent variables are not shown to avoid clutter.
+shown. Links between latent variables that are not shown are
+constrained to zero.
 Loadings and variances of single-indicator latent
 variables are reported in Tables~\ref{tab:indicatormodels}
 and~\ref{tab:descriptives}.}
-\label{fig:superSEM}
+\label{fig:genderSEM}
 \end{figure*}
 \begin{figure*}[ht]
 \ifnextchar[{\eatarg}{}
 [tp] %fig:conslibevogrid
 \fitfigure{conslibequalitygridAll.pdf}
-\caption{Relationship between the three gender constructs and acceptance of evolution.
-Participants with liberal political
-views are shown on the left and conservatives on the right (median split).
+\caption{Relationship between the three gender-related
+constructs and acceptance of evolution.
+Liberals are shown on the left and conservatives on the right (median split of socio-political conservatism construct).
 The top panels show
 acceptance of evolution (represented by color
 of plotting symbols) and people's responses to the constructs probing the
 origin of gender differences.
 The bottom panels show belief in gender equality (represented by
-color of plotting symbols) and people's responses to the constructs probing the
-origin of gender differences.
+color of plotting symbols) and people's responses to the two constructs probing evolution generally (ordinate) and that men and women evolved differently (abscissa).
 Composite scores are used for all constructs.
-Points are jittered to reduce over-printing.}
+Dashed horizontal and vertical lines represent marginal
+means. Points are randomly jittered to reduce over-printing.}
 \label{fig:conslibevogrid}
 \end{figure*}

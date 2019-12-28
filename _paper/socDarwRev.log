@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  27 DEC 2019 15:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  28 DEC 2019 11:13
 entering extended mode
 **./socDarwRev.tex
 (socDarwRev.tex
@@ -884,7 +884,7 @@ ABD: EveryShipout initializing macros [1{C:/Users/Lewan/AppData/Local/MiKTeX/2.
 \openout3 = `socDarwRev.ent'.
 
  [5] [6] [7] [8] [9] [10]
-LaTeX Font Info:    Try loading font information for T1+aett on input line 551.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 554.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/ae\t1aett.fd"
@@ -894,22 +894,22 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 (socDarwRev.bbl [29] [30
 
 ] [31] [32] [33] [34] [35] [36] [37]) [38]
-Overfull \hbox (23.99998pt too wide) in alignment at lines 1603--1644
+Overfull \hbox (23.99998pt too wide) in alignment at lines 1593--1634
  [] [] 
  []
 
 
-Overfull \hbox (23.99998pt too wide) in alignment at lines 1644--1687
+Overfull \hbox (23.99998pt too wide) in alignment at lines 1634--1677
  [] [] 
  []
 
 
-Overfull \hbox (23.99998pt too wide) in alignment at lines 1687--1718
+Overfull \hbox (23.99998pt too wide) in alignment at lines 1677--1708
  [] [] 
  []
 
 [39] [40] [41] [42] (../_outputTex/_t.freemarket.tex
-Overfull \hbox (1.05293pt too wide) in paragraph at lines 1737--1
+Overfull \hbox (1.05293pt too wide) in paragraph at lines 1727--1
 []|\T1/aer/m/n/10.95 FMUnresBest| 
  []
 
@@ -929,7 +929,7 @@ Overfull \hbox (2.9034pt too wide) in paragraph at lines 2--2
  []
 
 )
-Overfull \hbox (66.77336pt too wide) in alignment at lines 1723--1748
+Overfull \hbox (66.77336pt too wide) in alignment at lines 1713--1738
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
@@ -949,12 +949,12 @@ Overfull \hbox (2.98024pt too wide) in paragraph at lines 4--4
  []
 
 )
-Overfull \hbox (66.77336pt too wide) in alignment at lines 1748--1784
+Overfull \hbox (66.77336pt too wide) in alignment at lines 1738--1774
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 (../_outputTex/_t.mwnat.tex
-Overfull \hbox (5.80533pt too wide) in paragraph at lines 1787--1
+Overfull \hbox (5.80533pt too wide) in paragraph at lines 1777--1
 []|\T1/aer/m/n/10.95 MWNatStrong| 
  []
 
@@ -989,7 +989,7 @@ Overfull \hbox (5.63019pt too wide) in paragraph at lines 5--5
  []
 
 )
-Overfull \hbox (66.77336pt too wide) in alignment at lines 1784--1796
+Overfull \hbox (66.77336pt too wide) in alignment at lines 1774--1786
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
@@ -1053,66 +1053,102 @@ Package pdftex.def Info: "../_figures/"histoSocDarw.pdf  used on input line 30.
 
 LaTeX Warning: Float too large for page by 9.90274pt on input line 44.
 
-<"../_figures/"finalpolSEM.pdf, id=207, 696.6025pt x 522.95375pt>
+LaTeX Font Info:    Try loading font information for T1+phv on input line 50.
+("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\t1phv.fd"
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 50.
+
+
+pdfTeX warning: pdflatex (file ../_figures/finalpolSEM.pdf): PDF inclusion: fou
+nd PDF version <1.6>, but at most version <1.5> allowed
+<"../_figures/"finalpolSEM.pdf, id=207, 586.23938pt x 237.93694pt>
 File: "../_figures/"finalpolSEM.pdf Graphic file (type pdf)
 <use "../_figures/"finalpolSEM.pdf>
-Package pdftex.def Info: "../_figures/"finalpolSEM.pdf  used on input line 48.
-(pdftex.def)             Requested size: 433.62pt x 325.52864pt.
-File: "../_figures/"finalpolSEM.pdf Graphic file (type pdf)
-<use "../_figures/"finalpolSEM.pdf>
-Package pdftex.def Info: "../_figures/"finalpolSEM.pdf  used on input line 48.
-(pdftex.def)             Requested size: 346.89731pt x 260.42291pt.
-<"../_figures/"superSEM.pdf, id=208, 497.86pt x 373.395pt>
+Package pdftex.def Info: "../_figures/"finalpolSEM.pdf  used on input line 50.
+(pdftex.def)             Requested size: 433.62pt x 175.99796pt.
+
+
+pdfTeX warning: pdflatex (file ../_figures/superSEM.pdf): PDF inclusion: found 
+PDF version <1.6>, but at most version <1.5> allowed
+<"../_figures/"superSEM.pdf, id=208, 582.48665pt x 315.16846pt>
 File: "../_figures/"superSEM.pdf Graphic file (type pdf)
 <use "../_figures/"superSEM.pdf>
-Package pdftex.def Info: "../_figures/"superSEM.pdf  used on input line 64.
-(pdftex.def)             Requested size: 433.62pt x 325.22136pt.
-File: "../_figures/"superSEM.pdf Graphic file (type pdf)
-<use "../_figures/"superSEM.pdf>
-Package pdftex.def Info: "../_figures/"superSEM.pdf  used on input line 64.
-(pdftex.def)             Requested size: 346.89731pt x 260.17824pt.
-<"../_figures/"conslibequalitygridAll.pdf, id=209, 867.24pt x 578.16pt>
+Package pdftex.def Info: "../_figures/"superSEM.pdf  used on input line 51.
+(pdftex.def)             Requested size: 433.62pt x 234.62524pt.
+
+Overfull \hbox (39.20168pt too wide) in paragraph at lines 49--53
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ../_figures/finalgenderSEM.pdf): PDF inclusion: 
+found PDF version <1.6>, but at most version <1.5> allowed
+<"../_figures/"finalgenderSEM.pdf, id=209, 582.46239pt x 229.96414pt>
+File: "../_figures/"finalgenderSEM.pdf Graphic file (type pdf)
+<use "../_figures/"finalgenderSEM.pdf>
+Package pdftex.def Info: "../_figures/"finalgenderSEM.pdf  used on input line 7
+0.
+(pdftex.def)             Requested size: 433.62pt x 171.20593pt.
+File: "../_figures/"finalgenderSEM.pdf Graphic file (type pdf)
+<use "../_figures/"finalgenderSEM.pdf>
+Package pdftex.def Info: "../_figures/"finalgenderSEM.pdf  used on input line 7
+0.
+(pdftex.def)             Requested size: 346.89731pt x 136.96193pt.
+File: "../_figures/"finalgenderSEM.pdf Graphic file (type pdf)
+<use "../_figures/"finalgenderSEM.pdf>
+Package pdftex.def Info: "../_figures/"finalgenderSEM.pdf  used on input line 7
+0.
+(pdftex.def)             Requested size: 346.89731pt x 136.96193pt.
+
+LaTeX Warning: Float too large for page by 0.0376pt on input line 81.
+
+<"../_figures/"conslibequalitygridAll.pdf, id=210, 867.24pt x 578.16pt>
 File: "../_figures/"conslibequalitygridAll.pdf Graphic file (type pdf)
 <use "../_figures/"conslibequalitygridAll.pdf>
 Package pdftex.def Info: "../_figures/"conslibequalitygridAll.pdf  used on inpu
-t line 79.
+t line 85.
 (pdftex.def)             Requested size: 433.62pt x 289.07928pt.
 File: "../_figures/"conslibequalitygridAll.pdf Graphic file (type pdf)
 <use "../_figures/"conslibequalitygridAll.pdf>
 Package pdftex.def Info: "../_figures/"conslibequalitygridAll.pdf  used on inpu
-t line 79.
+t line 85.
 (pdftex.def)             Requested size: 346.89731pt x 231.26872pt.
 File: "../_figures/"conslibequalitygridAll.pdf Graphic file (type pdf)
 <use "../_figures/"conslibequalitygridAll.pdf>
 Package pdftex.def Info: "../_figures/"conslibequalitygridAll.pdf  used on inpu
-t line 79.
+t line 85.
 (pdftex.def)             Requested size: 346.89731pt x 231.26872pt.
 
-LaTeX Warning: Float too large for page by 0.0376pt on input line 93.
+LaTeX Warning: Float too large for page by 0.0376pt on input line 99.
 
 ) [54 <../_figures/dilemmas.pdf, page is rotated 90 degrees>] [55 <../_figures/
 slidersSocDarw.pdf>] [56 <../_figures/histoSocDarw.pdf>] [57 <../_figures/final
-polSEM.pdf>] [58 <../_figures/superSEM.pdf>] [59 <../_figures/conslibequalitygr
-idAll.pdf>] (socDarwRev.aux) ) 
+polSEM.pdf> <../_figures/superSEM.pdf>] [58 <../_figures/finalgenderSEM.pdf>]
+[59 <../_figures/conslibequalitygridAll.pdf>] (socDarwRev.aux) ) 
 Here is how much of TeX's memory you used:
- 15760 strings out of 492946
- 300803 string characters out of 3135527
- 390466 words of memory out of 3000000
- 19228 multiletter control sequences out of 15000+200000
- 26873 words of font info for 59 fonts, out of 3000000 for 9000
+ 15827 strings out of 492946
+ 301830 string characters out of 3135527
+ 391013 words of memory out of 3000000
+ 19287 multiletter control sequences out of 15000+200000
+ 31112 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,13n,81p,766b,512s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on socDarwRev.pdf (59 pages, 386685 bytes).
+ 62i,13n,81p,911b,515s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Fil
+es/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on socDarwRev.pdf (59 pages, 404379 bytes).
 PDF statistics:
- 408 PDF objects out of 1000 (max. 8388607)
+ 420 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 144 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -14,7 +14,9 @@ plotexploration <- function(topcons, x, y, z, xlabarg, ylabarg, zlabarg, colpal,
     theme(plot.title = element_text(size = 18),
           panel.background = element_rect(fill = "white", colour = "grey50"),
           text = element_text(size=14)) +
-    xlim(1,8) + ylim(1,8) +
+    geom_hline(yintercept=mean(y), linetype="dashed", color = "darkgray") +
+    geom_vline(xintercept=mean(x), linetype="dashed", color = "darkgray") +
+    xlim(0.8,7.2) + ylim(0.8,7.2) +
     labs(colour=paste(zlabarg,"\n",sep=""), x=xlabarg, y=ylabarg, title=t4plot)
   invisible(print(tcp))
   return(tcp)

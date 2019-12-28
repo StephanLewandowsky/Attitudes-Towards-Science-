@@ -6,7 +6,7 @@ graph [layout = neato,
 
 node [shape = circle ]
 
-allPolFac  [pos = '0,0!', label = ' All \n politics ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+allPolFac  [pos = '0,0!', label = 'All \n conser- \n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 fmFac  [pos = '-4,1.2!', label = ' Free \n market ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 mwevoFac  [pos = '4,-1.2!', label = ' M&W 
  Evo ', shape = circle, fontsize=14 width=1.,fixedsize=true]
@@ -19,7 +19,7 @@ E [pos='5.8,0.!' label = 'D', style = invis width=.01 fixedsize=true]
 religFac  [pos = '-4,-1.2!', label = ' Religiosity ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 mwequFac  [pos = '4,1.2!', label = ' M&W 
  Equal ', shape = circle, fontsize=14 width=1.,fixedsize=true]
-consFac  [pos = '-4,0!', label = ' Conser- \n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
+consFac  [pos = '-4,0!', label = ' SP conser- \n vatism ', shape = circle, fontsize=14 width=1.,fixedsize=true]
 
 allPolFac  ->  fmFac  [label = ' 0.54 '  fontsize=18]
 allPolFac  ->  consFac  [label = ' 0.91 '  fontsize=18]

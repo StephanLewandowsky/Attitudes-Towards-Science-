@@ -97,7 +97,7 @@ Men \& women are the same &
 0.099  &
 \textit{MWEquDiff   }$\leftrightarrow$ \textit{MWEquInvent }
 \\
-Conservatism &
+Socio-political conservatism &
 281.49 &
 33 &
 0.045 &
@@ -174,7 +174,7 @@ Men \& women are the same &
 0.63 &
 0.4 \\ 
 
-Conservatism &
+Socio-political conservatism &
 1.2 &
 0.87 &
 0.19 \\ 
@@ -199,7 +199,7 @@ single-indicator manifest variable on its factor.}
  \rotatebox[origin=c]{80}{Men/women are the same} &
   \rotatebox[origin=c]{80}{Religiosity} &
      \rotatebox[origin=c]{80}{Vaccinations} &
-     \rotatebox[origin=c]{80}{Conservatism} \\
+     \rotatebox[origin=c]{80}{Socio-political conservatism} \\
 \hline \\[-2ex]
 
 \input{_t.lvcor.tex}
@@ -223,7 +223,7 @@ single-indicator manifest variable on its factor.}
 \rotatebox[origin=c]{80}{Men/women are the same} &
 \rotatebox[origin=c]{80}{Religiosity} &
 \rotatebox[origin=c]{80}{Vaccinations} &
-\rotatebox[origin=c]{80}{Conservatism} \\
+\rotatebox[origin=c]{80}{Socio-political conservatism} \\
 \hline
 \input{_t.compcor.tex}
 %\hline \\[-2ex]

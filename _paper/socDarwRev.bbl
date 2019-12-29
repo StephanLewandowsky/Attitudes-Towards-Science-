@@ -85,8 +85,8 @@ Attwell, K.%
 \newblock
 \APACrefYearMonthDay{2018}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {``Do-it-yourself'': {V}accine rejection and
-  complementary and alternative medicine ({CAM})} {``do-it-yourself'':
+{\BBOQ}\APACrefatitle {``{D}o-it-yourself'': {V}accine rejection and
+  complementary and alternative medicine ({CAM})} {``{D}o-it-yourself'':
   {V}accine rejection and complementary and alternative medicine
   ({CAM})}.{\BBCQ}
 \newblock
@@ -513,7 +513,7 @@ Everett, J\BPBI A.%
   {(SECS)}} {The 12 item social and economic conservatism scale
   {(SECS)}}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{PloS one}{8}{}{e82131}.
+\APACjournalVolNumPages{PLOS ONE}{8}{}{e82131}.
 \newblock
 \begin{APACrefDOI} \doi{10.1371/journal.pone.0082131} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
@@ -569,14 +569,14 @@ Fine, C.%
 \newblock
 \APACrefYearMonthDay{2014}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {Why Males$\ne$ Corvettes, Females$\ne$ Volvos, and
-  Scientific Criticism$\ne$ Ideology: A Response to ``Equal$\ne$ The Same: Sex
-  Differences in the Human Brain'' by Larry Cahill in Cerebrum} {Why males$\ne$
-  corvettes, females$\ne$ volvos, and scientific criticism$\ne$ ideology: A
-  response to ``equal$\ne$ the same: Sex differences in the human brain'' by
-  larry cahill in cerebrum}.{\BBCQ}
+{\BBOQ}\APACrefatitle {Why Males $\ne$ Corvettes, Females $\ne$ Volvos, and
+  Scientific Criticism $\ne$ Ideology: A Response to ``Equal $\ne$ The Same:
+  Sex Differences in the Human Brain'' by {L}arry {C}ahill in {C}erebrum} {Why
+  males $\ne$ corvettes, females $\ne$ volvos, and scientific criticism $\ne$
+  ideology: A response to ``equal $\ne$ the same: Sex differences in the human
+  brain'' by {L}arry {C}ahill in {C}erebrum}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{Cerebrum: the Dana forum on brain science}{}{}{}.
+\APACjournalVolNumPages{Cerebrum: The Dana forum on brain science}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1447,7 +1447,7 @@ Lewandowsky, S.%
   Predicting Rejection of Science} {The role of conspiracist ideation and
   worldviews in predicting rejection of science}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{PLoS ONE}{8}{}{e75637}.
+\APACjournalVolNumPages{PLOS ONE}{8}{}{e75637}.
 \newblock
 \begin{APACrefDOI} \doi{10.1371/journal.pone.0075637} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
@@ -1756,7 +1756,7 @@ Mooney, C.%
   why we don't believe science.}
 \newblock
 \begin{APACrefURL}
-  \url{http://motherjones.com/politics/2011/03/denial-science-chris-mooney?page=1}
+  \url{http://motherjones.com/politics/2011/03/denial-science-chris-mooney}
   \end{APACrefURL}
 \PrintBackRefs{\CurrentBib}
 
@@ -2084,9 +2084,9 @@ Shtulman, A.%
 {\BBOQ}\APACrefatitle {Cognitive reflection predicts science understanding}
   {Cognitive reflection predicts science understanding}.{\BBCQ}
 \newblock
-\BIn{} \APACrefbtitle {Proceedings of the Annual Meeting of the Cognitive
-  Science Society} {Proceedings of the annual meeting of the cognitive science
-  society}\ (\BVOL~36).
+\BIn{} \APACrefbtitle {Proceedings of the {A}nnual {M}eeting of the {C}ognitive
+  {S}cience {S}ociety} {Proceedings of the {A}nnual {M}eeting of the
+  {C}ognitive {S}cience {S}ociety}\ (\BVOL~36).
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -2265,6 +2265,8 @@ VonHippel17}%
 \newblock
 \BIn{} J\BPBI T.~Crawford\ \BBA {} L.~Jussim\ (\BEDS), \APACrefbtitle {Politics
   of Social Psychology} {Politics of social psychology}\ (\BPGS\ 17--35).
+\newblock
+\APACaddressPublisher{}{Psychology Press}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

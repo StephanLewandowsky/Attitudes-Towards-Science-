@@ -249,18 +249,20 @@ is at the heart of liberalism \cite<e.g.,>{Castagno17,Porter13},
 whereas disbelief or skepticism in that possibility
 characterizes conservatives. 
 Belief in the possibility of general human
-improvement is therefore higher among liberals than
+improvement is thus higher among liberals than
 conservatives \cite{Miller99}. 
 One long-standing and strong implication of liberal meliorism is 
 belief in gender equality. 
 Assuming that no important difference between the sexes is given by nature makes it easier to argue that all existing differences can be remedied by societal reform. 
 Conservatives, by contrast, reject this possibility and may
 therefore be more likely to find genders to be ineluctably unequal. 
-A large body of literature
+Indirect evidence for this hypothesis comes from a large body of literature that
 has found strong associations between conservatism and
 sexism \cite<e.g.,>{Hodson17}, and between other indicators 
 of rightwing politics such as Rightwing Authoritarianism or 
 social dominance orientation and sexism \cite<e.g.,>{Hellmer18,VanAssche19}.
+However, we know of no work that has examined conservatives' 
+beliefs concerning the origins of gender differences.
 
 The scientific debate whether nature (i.e., biology, evolution, and
 genetics) or nurture (i.e., social variables such as parenting and 
@@ -303,7 +305,7 @@ preferences have changed considerably over the past 50 years.
 Men
 increasingly prefer women with
 good financial prospects whereas housekeeping skills have
-become less important, and conversely, 
+become less important for choice, and conversely, 
 women increasingly desire men with good looks
 \cite<e.g.,>{Buss01}. Overall, there has been 
 substantial convergence between the sexes in their stated
@@ -311,7 +313,7 @@ mate preferences during the past few decades.
 Similarly, a purely constructivist view
 of gender differences is difficult to reconcile, at
 first glance, with the fact that the more gender-equal
-countries are, the \textit{greater} their gender gap in 
+countries are, the \textit{greater} is their gender gap in 
 the number of graduates in science,
 technology, engineering, and mathematics \cite{Stoet18}.
 For example, 
@@ -323,8 +325,8 @@ For our study, the unresolved scientific
 status of gender differences shifts
 emphasis from comparing 
 people's attitudes to a scientific ``gold standard''---as is possible
-with issues such as evolution, vaccinations, or climate change--- 
-to examining how people resolve dilemmas arising from 
+with issues such as evolution, vaccinations, or climate change---to 
+examining how people resolve dilemmas arising from 
 conflicting imperatives of their worldview. 
 It turns out that liberals' 
 belief in gender equality gives 
@@ -403,7 +405,7 @@ point to a resolution of the dilemma for scientists,
 but it remains to be seen how members of the public respond to the same dilemma.
 
 The reverse dilemma confronts conservatives:
-their known preference to reject gender equality could be 
+their pervasive preference to reject gender equality could be 
 buttressed by appealing to evolved, biological gender differences.
 However, any such appeal 
 would require at least tacit acceptance of Darwinian evolution, which 
@@ -457,7 +459,7 @@ gender equality.
 \end{figure}
 
 At least two possible resolutions of those dilemmas can be anticipated:
-First, people might recruit the explanatory construct (e.g., evolved
+First, people might recruit the explanatory construct (i.e., evolved
 gender differences) to support their core attitudes about gender. Thus,
 conservatives might accept evolved gender differences because they buttress
 their belief in differences between men and women, and liberals might
@@ -469,6 +471,8 @@ with liberals endorsing
 evolved gender differences and conservatives rejecting them. This resolution 
 would create conflict for both groups regarding their core attitudes towards 
 gender differences instead.
+Neither resolution, however, can entirely resolve the conflict posed by our competing
+constructs.
 
 \section{Method}
 
@@ -484,21 +488,21 @@ two scientific constructs, namely evolution and vaccinations.
 (2) We also measured people's attitudes towards
 one instance of pseudoscience, namely
 complementary and alternative medicines (CAM). 
-To faciliate comparison with the other scientific constructs,
+To facilitate comparison with the other scientific constructs,
 we coded this construct to represent \textit{rejection }of CAM
 (and hence acceptance of the scientific view that
 CAM is ineffective).
 (3) We measured people's worldviews via three
 related but distinct constructs; namely,
 religiosity, socio-political conservatism, and endorsement of free markets.
-(4) The three constructs related to gender differences (Figure~\ref{fig:dilemmas}).
+(4) We created three constructs related to gender differences (Figure~\ref{fig:dilemmas}).
 (5) The final construct comprised the
 three questions from the cognitive reflection test 
 (CRT; \citeNP{Frederick05}).
 The CRT measures people's propensity to engage in analytical reasoning.
 CRT performance 
 has been previously identified as a 
-strong predictor of science understanding \citeA{Shtulman14}, and we therefore
+strong predictor of science understanding \cite{Shtulman14}, and we therefore
 expect it to predict acceptance of science, and rejection of pseudoscience, in our
 study as well.
 
@@ -512,14 +516,14 @@ copy of the survey can be found on \textit{GitHub} at
 \subsection{Materials}
 The survey comprised 60 items, broken
 down into 2 demographic queries presented at the outset (age and gender); 
-14 items involving a ``slider'' scale (0-100) for the socio-political conservatism
+14 items involving a ``slider'' scale (0--100) for the socio-political conservatism
 construct; 
 40 items on a 7-point scale (from ``Strongly Disagree'' to ``Strongly Agree'') 
 to measure 
 our remaining core attitudinal constructs;
-the three items of the CRT;
-and one item that served as attention filter. 
-The attention filter asked people to identify which of a list of 5 items
+the 3 items of the CRT;
+and 1 item that served as attention filter. 
+The attention filter asked people to identify which of a list of 5 candidates
 was not an animal.
 
 The socio-political conservatism items were taken from \citeA{Everett13} 
@@ -540,9 +544,9 @@ Gun ownership (\textit{Guns}),
 Traditional marriage (\textit{TradMar}),
 Traditional values (\textit{TradVal}),
 Fiscal responsibility (\textit{FiscResp}),
-Business,
-The family unit (Family), and
-Patriotism.
+\textit{Business},
+the family unit (\textit{Family}), and
+\textit{Patriotism}.
 Each participant received the 14 slider scales 
 in a uniquely-generated random order. 
 
@@ -595,7 +599,7 @@ inspection of the data. We discovered that numerous participants
 in this preliminary sample 
 responded identically (before reverse-coding)
 to all items for one or more constructs. 
-To deal with this indicator
+To deal with this indication
 of inattention, a further attention filter question was
 inserted as part of the socio-political conservatism slider scale that asked
 participants to select the value ``20''. Upon relaunch, 
@@ -669,7 +673,7 @@ therefore depart from the preregistered analysis plan for the gender
 constructs. The conclusions from this study are not materially altered if 
 unadjusted responses are used instead. We do not report the 
 unadjusted analysis in this article but all output and figures for the unadjusted
-analysis can be found at \url{https://bit.ly/32nm3W9}.
+analysis can be found at \url{https://bit.ly/2teeDYI}.
 
 Composite scores for each construct in Table~\ref{tab:itemResponses}
  were then formed by averaging 
@@ -1003,7 +1007,7 @@ three binary indicators as described above.
 		\Sexpr{round(mwequSI$eSImod,2)} \\		
 		
 		Socio-political conservatism &
-		\Sexpr{round(consSI$SDSImod,2)} &
+		\Sexpr{round(consSI$SDSImod+.0001,2)} &  %to ensure printing of zero?
 		\Sexpr{round(consSI$OmegaSImod,2)} &
 		\Sexpr{round(consSI$eSImod,2)} \\		
 
@@ -1182,7 +1186,7 @@ The model captures the correlations between the three scientific constructs (alt
 unlike for the first-order correlations in Table~\ref{tab:lvcor}, 
 CAM rejection
 was not significantly correlated with evolution). 
-This replicates other findings that people's attitudes towards scientific issues often covary \cite<e.g.>{Lewandowsky12a}. 
+This replicates other findings that people's attitudes towards scientific issues often covary \cite<e.g.,>{Lewandowsky12a}. 
 Accordingly, one or more aspects of conservatism uniformly predicted reduced acceptance of scientific issues.
 The All conservatism factor was found to be negatively associated with rejection of CAM, suggesting that people with 
 conservative worldviews
@@ -1429,7 +1433,7 @@ John Birch Society in the U.S., and endorsement
 of ``alternative'' cancer treatments \cite{Markle78}.
 The present result adds to the list of failed attempts
 to discover science denial on the political left
-\cite<e.g.,>{Hamilton11,Hamilton15a,Hamilton15b,Hamilton15c,Kahan10a,Lewandowsky13b,Tom18}. 
+\cite<e.g.,>{Hamilton11,Hamilton15c,Hamilton15a,Hamilton15b,Kahan10a,Lewandowsky13b,Tom18}. 
 
 \subsection{Attitudes towards gender differences}
 We observed an intriguing 
@@ -1480,7 +1484,7 @@ rejected Darwinian evolution resolved their dilemma by
 endorsing 
 ``natural'' gender differences while rejecting
 evolved gender differences. Those participants were
-thus willing to forego endorsement gender differences to maintain
+thus willing to forego endorsement of gender differences to maintain
 consistency with their opposition to evolution. 
 Conversely, liberals who are strongly committed to gender equality
 tend to reject the idea of evolved gender differences, even though
@@ -1501,7 +1505,7 @@ differences.
 Our results contribute to two seemingly conflicting streams 
 of outcomes in the literature on 
 how worldviews moderate people's responses to scientific issues. 
-One the one hand, there is much evidence for pervasive attitudinal
+On the one hand, there is much evidence for pervasive attitudinal
 asymmetry, at least in the United States, with conservatives 
 being more likely to reject
 well-established scientific propositions than liberals. To date,
@@ -1521,11 +1525,11 @@ by worldview-triggered dilemmas, both liberals and conservatives
 resolve those dilemmas in an equally ``rational'' fashion,
 by selectively ``sacrificing'' endorsement of a specific
 construct about gender differences. 
-Liberals who endorse evolution in general believe that for 
+Liberals, who generally endorse evolution, believe that for 
 some reason it did not affect differences between the sexes; 
 this could be rationalized perhaps by assuming that evolution causes 
 differences only between but not within species. 
-Conservatives who reject evolution believe that men and women differ 
+Conservatives, who frequently reject evolution, believe that men and women differ 
 naturally without having evolved differently; this could be 
 rationalized by assuming, for instance, that those natural differences 
 were the result of divine intervention.

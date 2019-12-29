@@ -401,7 +401,7 @@ equpartcovgof <- fitMeasures(fitCorrelFM3)
 
 
 
-#------Beast route to modeling: first zero in on politics alone, then add other components.
+#------Best route to modeling: first zero in on politics alone, then add other components.
 polmodelVaxEvoCAM <- c("vaxFac   ~ fmFac + 0*allPolFac
                          evoFac   ~ religFac + 0*allPolFac 
                          camFac   ~ allPolFac 

@@ -1,3 +1,10 @@
+docs/
 miscellaneous not for public posting/
+_paper/cache/
+_sourceR/burialground.R
+_sourceR/darwinismQ - CAM as predictor.r
+_sourceR/plotSEM.R
 *.msg
 .Rproj.user
+_paper/covletRevision.*
+

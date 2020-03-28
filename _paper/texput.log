@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  29 DEC 2019 10:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  28 MAR 2020 10:22
 entering extended mode
-**socDarwRev.tex
+**socDarwFinProduction.tex
 
 ! Emergency stop.
-<*> socDarwRev.tex
-                  
+<*> socDarwFinProduction.tex
+                            
 *** (job aborted, file error in nonstop mode)
 
  
 Here is how much of TeX's memory you used:
  2 strings out of 492946
- 20 string characters out of 3135527
+ 30 string characters out of 3135527
  56557 words of memory out of 3000000
  4004 multiletter control sequences out of 15000+200000
  3640 words of font info for 14 fonts, out of 3000000 for 9000

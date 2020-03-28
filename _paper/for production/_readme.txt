@@ -1,0 +1,1 @@
+The files within this folder should compile into the final PDF if socDarwFinStandalone4Production.tex is compiled using a standard LaTeX platform.

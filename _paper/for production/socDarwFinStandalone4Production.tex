@@ -1,5 +1,54 @@
+\documentclass[fignum,man]{apa}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
 
-\documentclass[fignum,man]{apa}
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
 
 \usepackage{Sweave}
 \usepackage{apacite}
@@ -21,10 +70,10 @@
 \raggedbottom
 \newcommand{\helv}[1]{{\Huge\fontfamily{phv}\selectfont{#1}}}
 
-\makeatletter
-\def\input@path{{"../_outputTex/"}}
-\makeatother
-\graphicspath{{"../_figures/"}}
+%\makeatletter
+%\def\input@path{{"../_outputTex/"}}
+%\makeatother
+%\graphicspath{{"../_figures/"}}
 
 
 \makeatletter
@@ -96,19 +145,14 @@ URL: http://www.cogsciwa.com \\
 {% else, i.e., in jou and doc mode
 \note{}
 }
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 \maketitle
 %if cache=TRUE in knitr, then it keeps around the results without re-running it (https://tex.stackexchange.com/questions/93820/sweave-documents-saving-output-for-later-use)
-<<preamble, echo=FALSE, message=FALSE>>=
-knitr::opts_chunk$set(results="hide",echo=FALSE,message=FALSE,error=FALSE,cache=TRUE)
-@
-<<doanalysis, echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.keep='none'>>=
-# run the analysis which should generate figures and tables
 
-source({"../_sourceR/darwinismQ.r"})
-@
+
 %print big warning if the analysis is uncorreceted for affirmation bias
-\Sexpr{ifelse(correctaffirmbias,"","UNCORRECTED ANALYSIS")}
+
 There is no scientific debate about the fact that all species, including humans, evolved by a process of natural selection \cite{PRC15}. There is no debate in the 
 medical community about the
 vast improvement to public health that has resulted from
@@ -130,7 +174,7 @@ shared by 68\% of the public \cite{PRC15}.
 The presence of contrarian public opinions, even if they 
 are only held by a minority, can have adverse 
 consequences: anti-vaccination movements have had 
-discernable impact
+discernible impact
 on public health \cite{Gangarosa98,Smith07b} and
 organizations that oppose evolution have 
 undermined science curricula in many American school 
@@ -527,6 +571,7 @@ The attention filter asked people to identify which of a list of 5 candidates
 was not an animal.
 
 The socio-political conservatism items were taken from \citeA{Everett13} 
+(the full set reported in Table~1)
 and asked participants to indicate ``the extent 
 to which you feel positive or negative towards an issue'', with 50 taken
 to be the neutral point and 0 representing great negativity and 
@@ -610,7 +655,7 @@ for the full quota.
 
 \section{Results}
 The final sample, after exclusion of participants from 
-the initial softlaunch, included \Sexpr{dim(darwin1.5)[1]} responses that passed the Qualtrics
+the initial softlaunch, included 1017 responses that passed the Qualtrics
 quality checks (including the two attention filters). The sample size
 slightly exceeded the contracted quota of 1,000 because of a brief delay
 between achieving the quota and shutting down of the survey.
@@ -620,11 +665,11 @@ the R scripts for all analyses, and the \LaTeX ~source file
 that weaves the results of the analysis directly into the paper can be found 
 at \url{https://git.io/fjpL5}. 
 
-The final sample included \Sexpr{males} men and \Sexpr{females} women, with a mean age of 
-\Sexpr{mage} years
- (median \Sexpr{mdage};
-range \Sexpr{minage}--\Sexpr{maxage}). 
-Mean age differed between men (\Sexpr{sprintf("%4.1f",agebygender[3])}) and women (\Sexpr{sprintf("%4.1f",agebygender[4])}). 
+The final sample included 489 men and 528 women, with a mean age of 
+46.5 years
+ (median 47;
+range 18--99). 
+Mean age differed between men (52.0) and women (41.4). 
 
 
 \subsection{Data summary and adjustment}
@@ -635,10 +680,10 @@ shows the number and percentages of responses to the 40 core
 items before
 reverse-scoring (for item labels, see Table~\ref{tab:items}).
 For the constructs that contained items of varying polarities,
-the mean of the responses to all reverse-scored items (\Sexpr{round(mean(revmean),2)})
+the mean of the responses to all reverse-scored items (3.94)
 was found to be 
 closer to the midpoint of the scale (4) than the mean response to all non-reverse-scored
-items (\Sexpr{round(mean(posmean),2)}), suggesting the presence of an
+items (4.87), suggesting the presence of an
 affirmation bias, that is a tendency to respond ``yes'' to any item regardless of
 its polarity. Moreover, the magnitude of that affirmation bias (i.e., the difference 
 between the two item sets of different polarity for each participant) varied
@@ -673,7 +718,8 @@ therefore depart from the preregistered analysis plan for the gender
 constructs. The conclusions from this study are not materially altered if 
 unadjusted responses are used instead. We do not report the 
 unadjusted analysis in this article but all output and figures for the unadjusted
-analysis can be found at \url{https://bit.ly/2teeDYI}.
+analysis can be found in the \textit{docs} folder at the repository for this
+article (\url{https://git.io/fjpL5}).
 
 Composite scores for each construct in Table~\ref{tab:itemResponses}
  were then formed by averaging 
@@ -710,13 +756,13 @@ of the average scores for the 8 constructs.
 \end{figure}
 
 Analysis of the three items for the CRT revealed that participants on average
-achieved \Sexpr{round(crtmn,2)} correct (out of a possible 3).
+achieved 0.47 correct (out of a possible 3).
 This mean is lower than what is typically observed, although
 mean and distribution of responses were commensurate with the lowest-performing
 sample reported by \citeA{Frederick05}.
 The percentage of participants who got 0, 1, 2, or 3 correct was 
-\Sexpr{round(crtperc[1],1)}, \Sexpr{round(crtperc[2],1)}, \Sexpr{round(crtperc[3],1)},
-and \Sexpr{round(crtperc[4],1)}, respectively. (Missing values
+70.3, 16.8, 8.3,
+and 4.6, respectively. (Missing values
 arising from responses such as ``unsure'' or ``I don't know'' were omitted from computation
 of each person's total and were thus considered errors).
 
@@ -768,7 +814,7 @@ the fit statistics were similar and the
 correlated residuals involved the same items as before.
 All models fit well or extremely well, with the possible 
 exception of the measurement model for evolution, one of
-whose fit indices was not satisfactory (RMSEA=$\Sexpr{round(as.numeric(evogof["rmsea"]),3)}$).
+whose fit indices was not satisfactory (RMSEA=$0.128$).
 
 \begin{sidewaystable} %tab:indicatormodels
 \caption{Model fit indices associated with the
@@ -781,121 +827,126 @@ whose fit indices was not satisfactory (RMSEA=$\Sexpr{round(as.numeric(evogof["r
 \hline
 
 Free market & 
-\Sexpr{round(as.numeric(fmgof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(fmgof["df"]))} & 
-\Sexpr{round(as.numeric(fmgof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(fmgof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(fmgof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(fmgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(fmgof["rmsea.ci.upper"]),3)}  & 
+10.24 & 
+4 & 
+0.019 & 
+0.994 & 
+0.039 &
+0.009 -- 
+0.07  & 
 \textit{FMUnresBest}$\leftrightarrow$ \textit{FMMoreImp}
 \\
 Religiosity & 
-\Sexpr{round(as.numeric(religgof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(religgof["df"]))} & 
-\Sexpr{round(as.numeric(religgof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(religgof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(religgof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(religgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(religgof["rmsea.ci.upper"]),3)}  & 
+41.93 & 
+4 & 
+0.026 & 
+0.984 & 
+0.097 &
+0.071 -- 
+0.124  & 
 \textit{RelGod  }$\leftrightarrow$ \textit{RelAfterlife}
 \\
  
 Evolution & 
-\Sexpr{round(as.numeric(evogof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(evogof["df"]))} & 
-\Sexpr{round(as.numeric(evogof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(evogof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(evogof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(evogof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(evogof["rmsea.ci.upper"]),3)}  & 
+70.26 & 
+4 & 
+0.044 & 
+0.952 & 
+0.128 &
+0.102 -- 
+0.155  & 
 \textit{EvoCreated  }$\leftrightarrow$ \textit{EvoCrisis}
 \\
 
 Vaccinations & 
-\Sexpr{round(as.numeric(vaxgof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(vaxgof["df"]))} & 
-\Sexpr{round(as.numeric(vaxgof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(vaxgof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(vaxgof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(vaxgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(vaxgof["rmsea.ci.upper"]),3)}  & 
+14.21 & 
+4 & 
+0.017 & 
+0.995 & 
+0.05 &
+0.024 -- 
+0.079  & 
 \textit{VaxNegSide   }$\leftrightarrow$ \textit{VaxRisky }
 \\
 
 Rejection of CAM & 
-\Sexpr{round(as.numeric(camgof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(camgof["df"]))} & 
-\Sexpr{round(as.numeric(camgof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(camgof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(camgof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(camgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(camgof["rmsea.ci.upper"]),3)}  & 
+6.53 & 
+4 & 
+0.017 & 
+0.996 & 
+0.025 &
+0 -- 
+0.058  & 
 \textit{CAMDanger   }$\leftrightarrow$ \textit{CAMIneffect }
 \\
 
 Men \& women evolved differently & 
-\Sexpr{round(as.numeric(mwevogof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(mwevogof["df"]))} & 
-\Sexpr{round(as.numeric(mwevogof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(mwevogof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(mwevogof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(mwevogof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(mwevogof["rmsea.ci.upper"]),3)}  & 
+3.46 & 
+4 & 
+0.012 & 
+1 & 
+0 &
+0 -- 
+0.044  & 
 \textit{MWEvoViol   }$\leftrightarrow$ \textit{MWEvoNurture }
 \\
 
 Men \& women naturally different &
-\Sexpr{round(as.numeric(mwnatgof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(mwnatgof["df"]))} & 
-\Sexpr{round(as.numeric(mwnatgof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(mwnatgof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(mwnatgof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(mwnatgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(mwnatgof["rmsea.ci.upper"]),3)}  & 
+9.31 & 
+4 & 
+0.018 & 
+0.993 & 
+0.036 &
+0 -- 
+0.067  & 
 \textit{MWNatAggress }$\leftrightarrow$ \textit{MWNatCaring }
 \\
 
 Men \& women are the same &
-\Sexpr{round(as.numeric(mwequgof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(mwequgof["df"]))} & 
-\Sexpr{round(as.numeric(mwequgof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(mwequgof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(mwequgof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(mwequgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(mwequgof["rmsea.ci.upper"]),3)}  & 
+24.58 & 
+4 & 
+0.028 & 
+0.972 & 
+0.071 &
+0.046 -- 
+0.099  & 
 \textit{MWEquDiff   }$\leftrightarrow$ \textit{MWEquInvent }
 \\
 Socio-political conservatism &
-\Sexpr{round(as.numeric(consertismgof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(consertismgof["df"]))} & 
-\Sexpr{round(as.numeric(consertismgof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(consertismgof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(consertismgof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(consertismgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(consertismgof["rmsea.ci.upper"]),3)}  & 
+281.49 & 
+33 & 
+0.045 & 
+0.939 & 
+0.086 &
+0.077 -- 
+0.095  & 
 \textit{TradMarriage   }$\leftrightarrow$ \textit{TradValues} \\
 & & & & & & & 
 \textit{Military   }$\leftrightarrow$ \textit{Patriotism} 
 \\
 CRT &
-\Sexpr{round(as.numeric(crtmodgof["chisq"]),2)} & 
-\Sexpr{round(as.numeric(crtmodgof["df"]))} & 
-\Sexpr{round(as.numeric(crtmodgof["srmr"]),3)} & 
-\Sexpr{round(as.numeric(crtmodgof["cfi"]),3)} & 
-\Sexpr{round(as.numeric(crtmodgof["rmsea"]),3)} &
-\Sexpr{round(as.numeric(crtmodgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(crtmodgof["rmsea.ci.upper"]),3)} & \multicolumn{1}{c}{N/A} \\
+14.39 & 
+2 & 
+0.072 & 
+0.982 & 
+0.078 &
+0.044 -- 
+0.118 & \multicolumn{1}{c}{N/A} \\
 
 \thickline
 \end{tabular}
 \end{sidewaystable}
 
 Unlike for the other constructs, it proved impossible to create a unidimensional 
-model for the 14 items of the socio-political conservatism scale. Inspection of the correlations among
+model for the 14 items of the socio-political conservatism scale.
+Inspection of the correlations among
 items revealed that items of different polarity correlated little with each
 other: that is, responses to the issues abortion, welfare, tax, and immigration
-correlated little with the remaining issues, even after reverse scoring. 
+correlated little with the remaining issues, even after reverse 
+scoring.\footnote{ \citeA{Everett13} reported a two-factor solution for his 
+	scale and the difficulties of fitting a unidimensional model
+	are thus not unexpected. However,
+	the correlational pattern observed here differed from that reported by Everett.}  
 We resolved this difficulty in two ways: First, we focused
 exclusively on the 10 items
 with a conservative polarity to create 
@@ -965,51 +1016,51 @@ three binary indicators as described above.
 		\multicolumn{1}{c}{Construct}   & $s$ \tabfnm{\textit{a}}&  $\omega$ \tabfnm{\textit{b}}& $(1-\omega) \times s^2$ \tabfnm{\textit{c}} \\
 		\hline
 		Free market & 
-		\Sexpr{round(fmSI$SDSImod,2)} &
-		\Sexpr{round(fmSI$OmegaSImod,2)} &
-		\Sexpr{round(fmSI$eSImod,3)} \\		
+		0.99 &
+		0.58 &
+		0.413 \\		
 		
 		Religiosity & 
-		\Sexpr{round(religSI$SDSImod,2)} &
-		\Sexpr{round(religSI$OmegaSImod,2)} &
-		\Sexpr{round(religSI$eSImod,3)} \\
+		1.57 &
+		0.85 &
+		0.364 \\
 		
 		Evolution & 
-		\Sexpr{round(evoSI$SDSImod,2)} &
-		\Sexpr{round(evoSI$OmegaSImod,2)} &
-		\Sexpr{round(evoSI$eSImod,3)} \\			
+		1.17 &
+		0.69 &
+		0.423 \\			
 		
 		Vaccinations & 
-		\Sexpr{round(vaxSI$SDSImod,2)} &
-		\Sexpr{round(vaxSI$OmegaSImod,2)} &
-		\Sexpr{round(vaxSI$eSImod,3)} \\		
+		1.28 &
+		0.76 &
+		0.389 \\		
 		
         Rejection of CAM & 
-		\Sexpr{round(camSI$SDSImod,2)} &
-		\Sexpr{round(camSI$OmegaSImod,2)} &
-		\Sexpr{round(camSI$eSImod,3)} \\		
+		0.76 &
+		0.4 &
+		0.344 \\		
         
         
         Men \& women evolved differently & 
-		\Sexpr{round(mwevoSI$SDSImod,2)} &
-		\Sexpr{round(mwevoSI$OmegaSImod,2)} &
-		\Sexpr{round(mwevoSI$eSImod,3)} \\		
+		0.94 &
+		0.56 &
+		0.394 \\		
         
         Men \& women naturally different & 
-		\Sexpr{round(mwnatSI$SDSImod,2)} &
-		\Sexpr{round(mwnatSI$OmegaSImod,2)} &
-		\Sexpr{round(mwnatSI$eSImod,3)} \\		
+		1.01 &
+		0.61 &
+		0.394 \\		
 
 
 		Men \& women are the same & 
-		\Sexpr{round(mwequSI$SDSImod,2)} &
-		\Sexpr{round(mwequSI$OmegaSImod,2)} &
-		\Sexpr{round(mwequSI$eSImod,2)} \\		
+		1.04 &
+		0.63 &
+		0.4 \\		
 		
 		Socio-political conservatism &
-		\Sexpr{round(consSI$SDSImod+.0001,2)} &  %to ensure printing of zero?
-		\Sexpr{round(consSI$OmegaSImod,2)} &
-		\Sexpr{round(consSI$eSImod,2)} \\		
+		1.2 &  %to ensure printing of zero?
+		0.87 &
+		0.19 \\		
 
 		\thickline
 	\end{tabular}
@@ -1107,23 +1158,23 @@ constructs to be equal, and in the second, fully constrained model
 all covariances
 among latent variables were forced to be equal between groups.
 The partially constrained model fit as well as the 
-full model, $\chi^2$(\Sexpr{aovresult$"Df diff"[2]})$=$\Sexpr{round(aovresult$"Chisq diff"[2],2)}, 
-$p < \Sexpr{sprintf("%5.4f",aovresult$"Pr(>Chisq)"[2]+.0001)}$.
+full model, $\chi^2$(3)$=$0.07, 
+$p < 0.9950$.
 The fully constrained model, by contrast, 
 incurred a significant loss of fit compared to the partially constrained model, 
-$\chi^2$(\Sexpr{aovresult$"Df diff"[3]})$=$\Sexpr{round(aovresult$"Chisq diff"[3],2)}, 
-$p < \Sexpr{sprintf("%5.4f",aovresult$"Pr(>Chisq)"[3]+.0001)}$.
+$\chi^2$(42)$=$96.88, 
+$p < 0.0001$.
 
 Because the associations among the gender related constructs did not differ 
 with gender of the participants, 
 and because the 
 fully constrained model nonetheless
 fit well in absolute terms, SRMR=
-\Sexpr{round(as.numeric(equcovgof["srmr"]),3)}; 
-CFI=\Sexpr{round(as.numeric(equcovgof["cfi"]),3)}; RMSEA= 
-\Sexpr{round(as.numeric(equcovgof["rmsea"]),3)}, CI:
-\Sexpr{round(as.numeric(equcovgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(equcovgof["rmsea.ci.upper"]),3)},
+0.043; 
+CFI=0.966; RMSEA= 
+0.042, CI:
+0.031 -- 
+0.052,
 we decided that for our purposes, the fully constrained model provided an adequate
 description of the data. We therefore  
 do not consider the
@@ -1141,7 +1192,9 @@ three aspects of political worldview are differentially related to the three sci
 Rejection of evolution is mostly motivated religiously; 
 concerning vaccinations, \citeA{Lewandowsky13b} found opposite-signed regression weights for free market (negative) 
 and another measure of socio-political conservatism (positive). 
-Therefore, we aimed to tease apart the contributions of general political orientation as well as more specific aspects of political orientation to science rejection in the three domains. 
+Therefore, we aimed to tease apart the contributions of general political orientation
+from its more specific aspects 
+to science rejection in the three domains. 
 Development of the following models was thus guided by prior theorizing and results, 
 but also informed by the present data, and therefore they must be considered exploratory
 
@@ -1155,11 +1208,11 @@ and constraining non-significant links to zero when possible without
 incurring loss of fit.
 The final political model obtained in this manner fit very well,
 SRMR=
-\Sexpr{round(as.numeric(finalpolmodelgof["srmr"]),3)}; 
-CFI=\Sexpr{round(as.numeric(finalpolmodelgof["cfi"]),3)}; RMSEA= 
-\Sexpr{round(as.numeric(finalpolmodelgof["rmsea"]),3)}, CI:
-\Sexpr{round(as.numeric(finalpolmodelgof["rmsea.ci.lower"]),3)} -- 
-\Sexpr{round(as.numeric(finalpolmodelgof["rmsea.ci.upper"]),3)},
+0.037; 
+CFI=0.953; RMSEA= 
+0.073, CI:
+0.053 -- 
+0.094,
  and is shown in Figure~\ref{fig:finalpolSEM} (panel a).
 \begin{figure}[tp] %fig:finalpolSEM
 \begin{center}
@@ -1205,11 +1258,11 @@ the regression estimates to their values from the original model.
 This expanded model is shown in panel b of Figure~\ref{fig:finalpolSEM} and, notwithstanding the imposition
 of strong constraints,
 it fit acceptably well, 
-$\chi^2(\Sexpr{supermodelgof["df"]})=\Sexpr{round(supermodelgof["chisq"],2)}$; 
-SRMR=\Sexpr{round(supermodelgof["srmr"],3)}; CFI=\Sexpr{round(supermodelgof["cfi"],3)}; 
-RMSEA=\Sexpr{round(supermodelgof["rmsea"],3)} (90\% CI:
-\Sexpr{round(supermodelgof["rmsea.ci.lower"],3)}--
-\Sexpr{round(supermodelgof["rmsea.ci.upper"],3)}).
+$\chi^2(26)=113.86$; 
+SRMR=0.064; CFI=0.951; 
+RMSEA=0.058 (90\% CI:
+0.047--
+0.069).
 The uniformly positive weights between CRT performance and endorsement of science again
 replicate earlier results \cite{Shtulman14,WagnerEgger18} and confirm that the
 first-order correlations in Table~\ref{tab:lvcor} stand up to the inclusion of all worldview-related constructs.
@@ -1217,11 +1270,11 @@ first-order correlations in Table~\ref{tab:lvcor} stand up to the inclusion of a
 \subsubsection{Predicting attitudes towards gender equality}
 We developed a parallel hierarchical model to predict attitudes towards the gender-related constructs from the same set of worldview constructs.
 The model is shown in Figure~\ref{fig:genderSEM} and fit very well,
-$\chi^2(\Sexpr{gofpolmodelgender["df"]})=\Sexpr{round(gofpolmodelgender["chisq"],2)}$; 
-SRMR=\Sexpr{round(gofpolmodelgender["srmr"],3)}; CFI=\Sexpr{round(gofpolmodelgender["cfi"],3)}; 
-RMSEA=\Sexpr{round(gofpolmodelgender["rmsea"],3)} (90\% CI:
-\Sexpr{round(gofpolmodelgender["rmsea.ci.lower"],3)}--
-\Sexpr{round(gofpolmodelgender["rmsea.ci.upper"],3)}).
+$\chi^2(5)=20.45$; 
+SRMR=0.032; CFI=0.985; 
+RMSEA=0.055 (90\% CI:
+0.032--
+0.081).
 The model shows that the All conservatism factor predicted all aspects of gender attitudes in the expected direction: greater
 conservatism predicted less endorsement of the idea that men and women are equal, and it predicted greater acceptance of
 evolved or natural differences between men and women. In addition, religiosity uniquely predicted rejection of the idea that men and
@@ -1545,7 +1598,2477 @@ are other circumstances in which a more nuanced differentiation
 between different aspects of worldviews provides considerably 
 greater explanatory power.
 
-\bibliography{mega,megaIPsub}
+%\bibliography{mega,megaIPsub}
+\begin{thebibliography}{}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Allum%
+		, Sturgis%
+		, Tabourazi%
+		\BCBL {}\ \BBA {} Brunton-Smith%
+	}{%
+		Allum%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2008}}%
+	}]{%
+		Allum08}
+	\APACinsertmetastar {%
+		Allum08}%
+	\begin{APACrefauthors}%
+		Allum, N.%
+		, Sturgis, P.%
+		, Tabourazi, D.%
+		\BCBL {}\ \BBA {} Brunton-Smith, I.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2008}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Science knowledge and attitudes across cultures: a
+		meta-analysis} {Science knowledge and attitudes across cultures: a
+		meta-analysis}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Public Understanding of Science}{17}{}{35--54}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/0963662506070159} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Anderson%
+		\ \BBA {} Peters%
+	}{%
+		Anderson%
+		\ \BBA {} Peters%
+	}{%
+		{\protect \APACyear {2016}}%
+	}]{%
+		Anderson16}
+	\APACinsertmetastar {%
+		Anderson16}%
+	\begin{APACrefauthors}%
+		Anderson, K.%
+		\BCBT {}\ \BBA {} Peters, G.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2016}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The trouble with negative emissions} {The trouble with
+		negative emissions}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Science}{354}{6309}{182--183}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1126/science.aah4567} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Attwell%
+		, Ward%
+		, Meyer%
+		, Rokkas%
+		\BCBL {}\ \BBA {} Leask%
+	}{%
+		Attwell%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Attwell18}
+	\APACinsertmetastar {%
+		Attwell18}%
+	\begin{APACrefauthors}%
+		Attwell, K.%
+		, Ward, P\BPBI R.%
+		, Meyer, S\BPBI B.%
+		, Rokkas, P\BPBI J.%
+		\BCBL {}\ \BBA {} Leask, J.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {``{D}o-it-yourself'': {V}accine rejection and
+		complementary and alternative medicine ({CAM})} {``{D}o-it-yourself'':
+		{V}accine rejection and complementary and alternative medicine
+		({CAM})}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Social Science \& Medicine}{196}{}{106--114}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.socscimed.2017.11.022} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Baumgaertner%
+		, Carlisle%
+		\BCBL {}\ \BBA {} Justwan%
+	}{%
+		Baumgaertner%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Baumgaertner18}
+	\APACinsertmetastar {%
+		Baumgaertner18}%
+	\begin{APACrefauthors}%
+		Baumgaertner, B.%
+		, Carlisle, J\BPBI E.%
+		\BCBL {}\ \BBA {} Justwan, F.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The influence of political ideology and trust on
+		willingness to vaccinate} {The influence of political ideology and trust on
+		willingness to vaccinate}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{{PLOS} {ONE}}{13}{}{e0191728}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1371/journal.pone.0191728} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Bentler%
+		\ \BBA {} Chou%
+	}{%
+		Bentler%
+		\ \BBA {} Chou%
+	}{%
+		{\protect \APACyear {1987}}%
+	}]{%
+		Bentler87}
+	\APACinsertmetastar {%
+		Bentler87}%
+	\begin{APACrefauthors}%
+		Bentler, P\BPBI M.%
+		\BCBT {}\ \BBA {} Chou, C\BHBI P.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1987}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Practical Issues in Structural Modeling} {Practical
+		issues in structural modeling}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Sociological Methods \& Research}{16}{}{78--117}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Browne%
+		, Thomson%
+		, Rockloff%
+		\BCBL {}\ \BBA {} Pennycook%
+	}{%
+		Browne%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2015}}%
+	}]{%
+		Browne15}
+	\APACinsertmetastar {%
+		Browne15}%
+	\begin{APACrefauthors}%
+		Browne, M.%
+		, Thomson, P.%
+		, Rockloff, M\BPBI J.%
+		\BCBL {}\ \BBA {} Pennycook, G.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2015}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Going against the Herd: Psychological and Cultural
+		Factors Underlying the `Vaccination Confidence Gap'} {Going against the herd:
+		Psychological and cultural factors underlying the `vaccination confidence
+		gap'}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{{PLOS} {ONE}}{10}{}{e0132562}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1371/journal.pone.0132562} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Bryden%
+		, Browne%
+		, Rockloff%
+		\BCBL {}\ \BBA {} Unsworth%
+	}{%
+		Bryden%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Bryden18}
+	\APACinsertmetastar {%
+		Bryden18}%
+	\begin{APACrefauthors}%
+		Bryden, G\BPBI M.%
+		, Browne, M.%
+		, Rockloff, M.%
+		\BCBL {}\ \BBA {} Unsworth, C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Anti-vaccination and pro-{CAM} attitudes both reflect
+		magical beliefs about health} {Anti-vaccination and pro-{CAM} attitudes both
+		reflect magical beliefs about health}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Vaccine}{36}{}{1227--1234}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.vaccine.2017.12.068} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Buss%
+	}{%
+		Buss%
+	}{%
+		{\protect \APACyear {1989}}%
+	}]{%
+		Buss89}
+	\APACinsertmetastar {%
+		Buss89}%
+	\begin{APACrefauthors}%
+		Buss, D\BPBI M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1989}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Sex differences in human mate preferences:
+		{E}volutionary hypotheses tested in 37 cultures} {Sex differences in human
+		mate preferences: {E}volutionary hypotheses tested in 37 cultures}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Behavioral and Brain Sciences}{12}{}{1--49}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Buss%
+	}{%
+		Buss%
+	}{%
+		{\protect \APACyear {1996}}%
+	}]{%
+		Buss96}
+	\APACinsertmetastar {%
+		Buss96}%
+	\begin{APACrefauthors}%
+		Buss, D\BPBI M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1996}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Sexual conflict: Evolutionary insights into feminism and
+		the “battle of the sexes.”} {Sexual conflict: Evolutionary insights into
+		feminism and the “battle of the sexes.”}.{\BBCQ}
+	\newblock
+	\BIn{} D\BPBI M.~Buss\ \BBA {} N.~Malamuth\ (\BEDS), \APACrefbtitle {Sex,
+		power, conflict: Evolutionary and feminist perspectives} {Sex, power,
+		conflict: Evolutionary and feminist perspectives}\ (\BPGS\ 296--318).
+	\newblock
+	\APACaddressPublisher{}{Oxford University Press}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Buss%
+		, Shackelford%
+		, Kirkpatrick%
+		\BCBL {}\ \BBA {} Larsen%
+	}{%
+		Buss%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2001}}%
+	}]{%
+		Buss01}
+	\APACinsertmetastar {%
+		Buss01}%
+	\begin{APACrefauthors}%
+		Buss, D\BPBI M.%
+		, Shackelford, T\BPBI K.%
+		, Kirkpatrick, L\BPBI A.%
+		\BCBL {}\ \BBA {} Larsen, R\BPBI J.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2001}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {A Half Century of Mate Preferences: The Cultural
+		Evolution of Values} {A half century of mate preferences: The cultural
+		evolution of values}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Journal of Marriage and Family}{63}{}{491--503}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1111/j.1741-3737.2001.00491.x} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Cain%
+	}{%
+		Cain%
+	}{%
+		{\protect \APACyear {1989}}%
+	}]{%
+		Cain89}
+	\APACinsertmetastar {%
+		Cain89}%
+	\begin{APACrefauthors}%
+		Cain, P\BPBI A.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1989}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Feminism and the Limits of Equality} {Feminism and the
+		limits of equality}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Georgia Law Review}{24}{}{803 -- 847}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Castagno%
+	}{%
+		Castagno%
+	}{%
+		{\protect \APACyear {2017}}%
+	}]{%
+		Castagno17}
+	\APACinsertmetastar {%
+		Castagno17}%
+	\begin{APACrefauthors}%
+		Castagno, A\BPBI E.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2017}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Liberal Ideologies and Federal School Reform: Following
+		Individualism, Meliorism, and Neutrality Through {SIG} Policy to Adelante
+		Alternative School} {Liberal ideologies and federal school reform: Following
+		individualism, meliorism, and neutrality through {SIG} policy to adelante
+		alternative school}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Urban Education}{}{}{}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/0042085916685762} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Coffman%
+		\ \BBA {} MacCallum%
+	}{%
+		Coffman%
+		\ \BBA {} MacCallum%
+	}{%
+		{\protect \APACyear {2005}}%
+	}]{%
+		Coffman05}
+	\APACinsertmetastar {%
+		Coffman05}%
+	\begin{APACrefauthors}%
+		Coffman, D\BPBI L.%
+		\BCBT {}\ \BBA {} MacCallum, R\BPBI C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2005}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Using Parcels to Convert Path Analysis Models Into
+		Latent Variable Models} {Using parcels to convert path analysis models into
+		latent variable models}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Multivariate Behavioral Research}{40}{}{235--259}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Eagly%
+	}{%
+		Eagly%
+	}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Eagly18}
+	\APACinsertmetastar {%
+		Eagly18}%
+	\begin{APACrefauthors}%
+		Eagly, A\BPBI H.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The Shaping of Science by Ideology: How Feminism
+		Inspired, Led, and Constrained Scientific Understanding of Sex and Gender}
+	{The shaping of science by ideology: How feminism inspired, led, and
+		constrained scientific understanding of sex and gender}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Journal of Social Issues}{74}{}{871--888}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1111/josi.12291} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Eagly%
+		\ \BBA {} Wood%
+	}{%
+		Eagly%
+		\ \BBA {} Wood%
+	}{%
+		{\protect \APACyear {2013}}%
+	}]{%
+		Eagly13}
+	\APACinsertmetastar {%
+		Eagly13}%
+	\begin{APACrefauthors}%
+		Eagly, A\BPBI H.%
+		\BCBT {}\ \BBA {} Wood, W.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2013}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The Nature{\textendash}Nurture Debates} {The
+		nature{\textendash}nurture debates}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Perspectives on Psychological Science}{8}{}{340--357}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/1745691613484767} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Ecklund%
+		, Scheitle%
+		, Peifer%
+		\BCBL {}\ \BBA {} Bolger%
+	}{%
+		Ecklund%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2017}}%
+	}]{%
+		Ecklund17}
+	\APACinsertmetastar {%
+		Ecklund17}%
+	\begin{APACrefauthors}%
+		Ecklund, E\BPBI H.%
+		, Scheitle, C\BPBI P.%
+		, Peifer, J.%
+		\BCBL {}\ \BBA {} Bolger, D.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2017}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Examining Links Between Religion, Evolution Views, and
+		Climate Change Skepticism} {Examining links between religion, evolution
+		views, and climate change skepticism}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Environment and Behavior}{49}{}{985--1006}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/0013916516674246} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Ernst%
+	}{%
+		Ernst%
+	}{%
+		{\protect \APACyear {2002}}%
+	}]{%
+		Ernst02}
+	\APACinsertmetastar {%
+		Ernst02}%
+	\begin{APACrefauthors}%
+		Ernst, E.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2002}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Rise in popularity of complementary and alternative
+		medicine: reasons and consequences for vaccination} {Rise in popularity of
+		complementary and alternative medicine: reasons and consequences for
+		vaccination}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Vaccine}{20}{}{S90--S93}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/S0264-410X(01)00290-0} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Everett%
+	}{%
+		Everett%
+	}{%
+		{\protect \APACyear {2013}}%
+	}]{%
+		Everett13}
+	\APACinsertmetastar {%
+		Everett13}%
+	\begin{APACrefauthors}%
+		Everett, J\BPBI A.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2013}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The 12 Item Social and Economic Conservatism Scale
+		{(SECS)}} {The 12 item social and economic conservatism scale
+		{(SECS)}}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{PLOS ONE}{8}{}{e82131}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1371/journal.pone.0082131} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Fine%
+	}{%
+		Fine%
+	}{%
+		{\protect \APACyear {2013}}%
+	}]{%
+		Fine13}
+	\APACinsertmetastar {%
+		Fine13}%
+	\begin{APACrefauthors}%
+		Fine, C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2013}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Is There Neurosexism in Functional Neuroimaging
+		Investigations of Sex Differences?} {Is there neurosexism in functional
+		neuroimaging investigations of sex differences?}{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Neuroethics}{6}{}{369--409}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1007/s12152-012-9169-1} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Fine%
+		, Joel%
+		, Jordan-Young%
+		, Kaiser~Trujillo%
+		\BCBL {}\ \BBA {} Rippon%
+	}{%
+		Fine%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2014}}%
+	}]{%
+		Fine14}
+	\APACinsertmetastar {%
+		Fine14}%
+	\begin{APACrefauthors}%
+		Fine, C.%
+		, Joel, D.%
+		, Jordan-Young, R.%
+		, Kaiser~Trujillo, A\BPBI C.%
+		\BCBL {}\ \BBA {} Rippon, G.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2014}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Why Males $\ne$ Corvettes, Females $\ne$ Volvos, and
+		Scientific Criticism $\ne$ Ideology: A Response to ``Equal $\ne$ The Same:
+		Sex Differences in the Human Brain'' by {L}arry {C}ahill in {C}erebrum} {Why
+		males $\ne$ corvettes, females $\ne$ volvos, and scientific criticism $\ne$
+		ideology: A response to ``equal $\ne$ the same: Sex differences in the human
+		brain'' by {L}arry {C}ahill in {C}erebrum}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Cerebrum: The Dana forum on brain science}{}{}{}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Fine%
+		, Jordan-Young%
+		, Kaiser%
+		\BCBL {}\ \BBA {} Rippon%
+	}{%
+		Fine%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2013}}%
+	}]{%
+		Fine13a}
+	\APACinsertmetastar {%
+		Fine13a}%
+	\begin{APACrefauthors}%
+		Fine, C.%
+		, Jordan-Young, R.%
+		, Kaiser, A.%
+		\BCBL {}\ \BBA {} Rippon, G.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2013}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Plasticity, plasticity, plasticity{\ldots}and the rigid
+		problem of sex} {Plasticity, plasticity, plasticity{\ldots}and the rigid
+		problem of sex}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Trends in Cognitive Sciences}{17}{}{550--551}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.tics.2013.08.010} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Frederick%
+	}{%
+		Frederick%
+	}{%
+		{\protect \APACyear {2005}}%
+	}]{%
+		Frederick05}
+	\APACinsertmetastar {%
+		Frederick05}%
+	\begin{APACrefauthors}%
+		Frederick, S.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2005}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Cognitive Reflection and Decision Making} {Cognitive
+		reflection and decision making}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{The Journal of Economic Perspectives}{19}{}{25--42}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Gale%
+	}{%
+		Gale%
+	}{%
+		{\protect \APACyear {2014}}%
+	}]{%
+		Gale14}
+	\APACinsertmetastar {%
+		Gale14}%
+	\begin{APACrefauthors}%
+		Gale, N.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2014}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The Sociology of Traditional, Complementary and
+		Alternative Medicine} {The sociology of traditional, complementary and
+		alternative medicine}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Sociology Compass}{8}{}{805--822}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1111/soc4.12182} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Gangarosa%
+		\ \protect \BOthers {.}}{%
+		Gangarosa%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {1998}}%
+	}]{%
+		Gangarosa98}
+	\APACinsertmetastar {%
+		Gangarosa98}%
+	\begin{APACrefauthors}%
+		Gangarosa, E\BPBI J.%
+		, Galazka, A\BPBI M.%
+		, Wolfe, C\BPBI R.%
+		, Phillips, L\BPBI M.%
+		, Gangarosa, R\BPBI E.%
+		, Miller, E.%
+		\BCBL {}\ \BBA {} Chen, R\BPBI T.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1998}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Impact of anti-vaccine movements on pertussis control:
+		the untold story} {Impact of anti-vaccine movements on pertussis control: the
+		untold story}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Lancet}{351}{}{356--361}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/S0140-6736(97)04334-1} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Gervais%
+		\ \BBA {} Norenzayan%
+	}{%
+		Gervais%
+		\ \BBA {} Norenzayan%
+	}{%
+		{\protect \APACyear {2012}}%
+	}]{%
+		Gervais12a}
+	\APACinsertmetastar {%
+		Gervais12a}%
+	\begin{APACrefauthors}%
+		Gervais, W\BPBI M.%
+		\BCBT {}\ \BBA {} Norenzayan, A.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2012}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Analytic Thinking Promotes Religious Disbelief}
+	{Analytic thinking promotes religious disbelief}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Science}{336}{}{493--496}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1126/science.1215647} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hamilton%
+	}{%
+		Hamilton%
+	}{%
+		{\protect \APACyear {2011}}%
+	}]{%
+		Hamilton11}
+	\APACinsertmetastar {%
+		Hamilton11}%
+	\begin{APACrefauthors}%
+		Hamilton, L\BPBI C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2011}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Education, politics and opinions about climate change
+		evidence for interaction effects} {Education, politics and opinions about
+		climate change evidence for interaction effects}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Climatic Change}{104}{}{231--242}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1007/s10584-010-9957-8} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hamilton%
+	}{%
+		Hamilton%
+	}{%
+		{\protect \APACyear {2015}}%
+	}]{%
+		Hamilton15c}
+	\APACinsertmetastar {%
+		Hamilton15c}%
+	\begin{APACrefauthors}%
+		Hamilton, L\BPBI C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2015}{}{}.
+	\newblock
+	\APACrefbtitle {Conservative and Liberal Views of Science: Does Trust Depend on
+		Topic?} {Conservative and liberal views of science: Does trust depend on
+		topic?}\ \APACbVolEdTR {}{Regional issue brief\ \BNUM~45}.
+	\newblock
+	\APACaddressInstitution{}{University of New Hampshire}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hamilton%
+		, Hartter%
+		, Lemcke-Stampone%
+		, Moore%
+		\BCBL {}\ \BBA {} Safford%
+	}{%
+		Hamilton%
+		, Hartter%
+		, Lemcke-Stampone%
+		\BCBL {}\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2015}}%
+	}]{%
+		Hamilton15b}
+	\APACinsertmetastar {%
+		Hamilton15b}%
+	\begin{APACrefauthors}%
+		Hamilton, L\BPBI C.%
+		, Hartter, J.%
+		, Lemcke-Stampone, M.%
+		, Moore, D\BPBI W.%
+		\BCBL {}\ \BBA {} Safford, T\BPBI G.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2015}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Tracking Public Beliefs About Anthropogenic Climate
+		Change} {Tracking public beliefs about anthropogenic climate change}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{PLOS ONE}{10}{}{e0138208}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1371/journal.pone.0138208} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hamilton%
+		, Hartter%
+		\BCBL {}\ \BBA {} Saito%
+	}{%
+		Hamilton%
+		, Hartter%
+		\BCBL {}\ \BBA {} Saito%
+	}{%
+		{\protect \APACyear {2015}}%
+	}]{%
+		Hamilton15a}
+	\APACinsertmetastar {%
+		Hamilton15a}%
+	\begin{APACrefauthors}%
+		Hamilton, L\BPBI C.%
+		, Hartter, J.%
+		\BCBL {}\ \BBA {} Saito, K.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2015}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Trust in Scientists on Climate Change and Vaccines}
+	{Trust in scientists on climate change and vaccines}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{{SAGE} {O}pen}{5}{}{}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/2158244015602752} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hayduk%
+	}{%
+		Hayduk%
+	}{%
+		{\protect \APACyear {1996}}%
+	}]{%
+		Hayduk96}
+	\APACinsertmetastar {%
+		Hayduk96}%
+	\begin{APACrefauthors}%
+		Hayduk, L.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYear{1996}.
+	\newblock
+	\APACrefbtitle {{LISREL} issues, debates, and strategies} {{LISREL} issues,
+		debates, and strategies}.
+	\newblock
+	\APACaddressPublisher{Baltimore, MD}{Johns Hopkins University.}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hellmer%
+		, Stenson%
+		\BCBL {}\ \BBA {} Jylhä%
+	}{%
+		Hellmer%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Hellmer18}
+	\APACinsertmetastar {%
+		Hellmer18}%
+	\begin{APACrefauthors}%
+		Hellmer, K.%
+		, Stenson, J\BPBI T.%
+		\BCBL {}\ \BBA {} Jylhä, K\BPBI M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {What's (not) underpinning ambivalent sexism?:
+		{R}evisiting the roles of ideology, religiosity, personality, demographics,
+		and men's facial hair in explaining hostile and benevolent sexism} {What's
+		(not) underpinning ambivalent sexism?: {R}evisiting the roles of ideology,
+		religiosity, personality, demographics, and men's facial hair in explaining
+		hostile and benevolent sexism}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Personality and Individual Differences}{122}{}{29--37}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.paid.2017.10.001} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hodson%
+		\ \BBA {} MacInnis%
+	}{%
+		Hodson%
+		\ \BBA {} MacInnis%
+	}{%
+		{\protect \APACyear {2017}}%
+	}]{%
+		Hodson17}
+	\APACinsertmetastar {%
+		Hodson17}%
+	\begin{APACrefauthors}%
+		Hodson, G.%
+		\BCBT {}\ \BBA {} MacInnis, C\BPBI C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2017}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Can left-right differences in abortion support be
+		explained by sexism?} {Can left-right differences in abortion support be
+		explained by sexism?}{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Personality and Individual
+		Differences}{104}{}{118--121}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.paid.2016.07.044} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hooper%
+		, Coughlan%
+		\BCBL {}\ \BBA {} Mullen%
+	}{%
+		Hooper%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2008}}%
+	}]{%
+		Hooper08}
+	\APACinsertmetastar {%
+		Hooper08}%
+	\begin{APACrefauthors}%
+		Hooper, D.%
+		, Coughlan, J.%
+		\BCBL {}\ \BBA {} Mullen, M\BPBI R.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2008}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Structural equation modelling: Guidelines for
+		determining model fit} {Structural equation modelling: Guidelines for
+		determining model fit}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Electronic Journal of Business Research
+		Methods}{6}{}{53--60}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hornsey%
+		, Harris%
+		\BCBL {}\ \BBA {} Fielding%
+	}{%
+		Hornsey%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Hornsey18}
+	\APACinsertmetastar {%
+		Hornsey18}%
+	\begin{APACrefauthors}%
+		Hornsey, M\BPBI J.%
+		, Harris, E.%
+		\BCBL {}\ \BBA {} Fielding, K\BPBI S.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The psychological roots of anti-vaccination attitudes: A
+		24-nation investigation} {The psychological roots of anti-vaccination
+		attitudes: A 24-nation investigation}.{\BBCQ}
+	\newblock
+	
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hornsey%
+		, Harris%
+		, Bain%
+		\BCBL {}\ \BBA {} Fielding%
+	}{%
+		Hornsey%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2016}}%
+	}]{%
+		Hornsey16}
+	\APACinsertmetastar {%
+		Hornsey16}%
+	\begin{APACrefauthors}%
+		Hornsey, M\BPBI J.%
+		, Harris, E\BPBI A.%
+		, Bain, P\BPBI G.%
+		\BCBL {}\ \BBA {} Fielding, K\BPBI S.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2016}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Meta-analyses of the determinants and outcomes of belief
+		in climate change} {Meta-analyses of the determinants and outcomes of belief
+		in climate change}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Nature Climate Change}{}{}{}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1038/nclimate2943} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Horowitz%
+		, Yaworsky%
+		\BCBL {}\ \BBA {} Kickham%
+	}{%
+		Horowitz%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2014}}%
+	}]{%
+		Horowitz14}
+	\APACinsertmetastar {%
+		Horowitz14}%
+	\begin{APACrefauthors}%
+		Horowitz, M.%
+		, Yaworsky, W.%
+		\BCBL {}\ \BBA {} Kickham, K.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2014}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Whither the Blank Slate? {A} Report on the Reception of
+		Evolutionary Biological Ideas among Sociological Theorists} {Whither the
+		blank slate? {A} report on the reception of evolutionary biological ideas
+		among sociological theorists}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Sociological Spectrum}{34}{}{489-509}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1080/02732173.2014.947451} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Hyland%
+		, Lewith%
+		\BCBL {}\ \BBA {} Westoby%
+	}{%
+		Hyland%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2003}}%
+	}]{%
+		Hyland03}
+	\APACinsertmetastar {%
+		Hyland03}%
+	\begin{APACrefauthors}%
+		Hyland, M\BPBI E.%
+		, Lewith, G\BPBI T.%
+		\BCBL {}\ \BBA {} Westoby, C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2003}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Developing a measure of attitudes: the holistic
+		complementary and alternative medicine questionnaire} {Developing a measure
+		of attitudes: the holistic complementary and alternative medicine
+		questionnaire}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Complementary Therapies in Medicine}{11}{}{33--38}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Jack%
+		, Friedman%
+		, Boyatzis%
+		\BCBL {}\ \BBA {} Taylor%
+	}{%
+		Jack%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2016}}%
+	}]{%
+		Jack16}
+	\APACinsertmetastar {%
+		Jack16}%
+	\begin{APACrefauthors}%
+		Jack, A\BPBI I.%
+		, Friedman, J\BPBI P.%
+		, Boyatzis, R\BPBI E.%
+		\BCBL {}\ \BBA {} Taylor, S\BPBI N.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2016}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Why do you believe in {G}od? {R}elationships between
+		religious belief, analytic thinking, mentalizing and moral concern} {Why do
+		you believe in {G}od? {R}elationships between religious belief, analytic
+		thinking, mentalizing and moral concern}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{PLOS ONE}{11}{}{e0149989}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Johnson%
+		, Park%
+		, Gross%
+		\BCBL {}\ \BBA {} Yu%
+	}{%
+		Johnson%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Johnson18}
+	\APACinsertmetastar {%
+		Johnson18}%
+	\begin{APACrefauthors}%
+		Johnson, S\BPBI B.%
+		, Park, H\BPBI S.%
+		, Gross, C\BPBI P.%
+		\BCBL {}\ \BBA {} Yu, J\BPBI B.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Complementary medicine, refusal of conventional cancer
+		therapy, and survival among patients with curable cancers} {Complementary
+		medicine, refusal of conventional cancer therapy, and survival among patients
+		with curable cancers}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{JAMA Oncology}{}{}{}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1001/jamaoncol.2018.2487} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		J\"{o}reskog%
+		\ \BBA {} S\"{o}rbom%
+	}{%
+		J\"{o}reskog%
+		\ \BBA {} S\"{o}rbom%
+	}{%
+		{\protect \APACyear {1982}}%
+	}]{%
+		Joreskog82}
+	\APACinsertmetastar {%
+		Joreskog82}%
+	\begin{APACrefauthors}%
+		J\"{o}reskog, K\BPBI G.%
+		\BCBT {}\ \BBA {} S\"{o}rbom, D.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1982}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Recent developments in structural equation modeling}
+	{Recent developments in structural equation modeling}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Journal of Marketing Research}{19}{}{404--416}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Jost%
+	}{%
+		Jost%
+	}{%
+		{\protect \APACyear {2017}}%
+	}]{%
+		Jost17}
+	\APACinsertmetastar {%
+		Jost17}%
+	\begin{APACrefauthors}%
+		Jost, J\BPBI T.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2017}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Ideological Asymmetries and the Essence of Political
+		Psychology} {Ideological asymmetries and the essence of political
+		psychology}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Political Psychology}{38}{}{167--208}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1111/pops.12407} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Kahan%
+	}{%
+		Kahan%
+	}{%
+		{\protect \APACyear {2015}}%
+	}]{%
+		Kahan15}
+	\APACinsertmetastar {%
+		Kahan15}%
+	\begin{APACrefauthors}%
+		Kahan, D\BPBI M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2015}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Climate-Science Communication and the Measurement
+		Problem} {Climate-science communication and the measurement problem}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Political Psychology}{36}{}{1--43}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1111/pops.12244} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Kahan%
+		, Braman%
+		, Cohen%
+		, Gastil%
+		\BCBL {}\ \BBA {} Slovic%
+	}{%
+		Kahan%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2010}}%
+	}]{%
+		Kahan10a}
+	\APACinsertmetastar {%
+		Kahan10a}%
+	\begin{APACrefauthors}%
+		Kahan, D\BPBI M.%
+		, Braman, D.%
+		, Cohen, G\BPBI L.%
+		, Gastil, J.%
+		\BCBL {}\ \BBA {} Slovic, P.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2010}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Who Fears the {HPV} Vaccine, Who Doesn’t, and Why?
+		{A}n Experimental Study of the Mechanisms of Cultural Cognition} {Who fears
+		the {HPV} vaccine, who doesn’t, and why? {A}n experimental study of the
+		mechanisms of cultural cognition}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Law and Human Behavior}{34}{}{501--516}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Kahan%
+		, Peters%
+		, Dawson%
+		\BCBL {}\ \BBA {} Slovic%
+	}{%
+		Kahan%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2017}}%
+	}]{%
+		Kahan17b}
+	\APACinsertmetastar {%
+		Kahan17b}%
+	\begin{APACrefauthors}%
+		Kahan, D\BPBI M.%
+		, Peters, E.%
+		, Dawson, E\BPBI C.%
+		\BCBL {}\ \BBA {} Slovic, P.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2017}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Motivated numeracy and enlightened self-government}
+	{Motivated numeracy and enlightened self-government}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Behavioural Public Policy}{1}{}{54–86}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1017/bpp.2016.2} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Kennedy%
+	}{%
+		Kennedy%
+	}{%
+		{\protect \APACyear {2019}}%
+	}]{%
+		Kennedy19}
+	\APACinsertmetastar {%
+		Kennedy19}%
+	\begin{APACrefauthors}%
+		Kennedy, J.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2019}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Populist politics and vaccine hesitancy in {W}estern
+		{E}urope: an analysis of national-level data} {Populist politics and vaccine
+		hesitancy in {W}estern {E}urope: an analysis of national-level data}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{European Journal of Public Health}{}{}{}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1093/eurpub/ckz004} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Keshet%
+	}{%
+		Keshet%
+	}{%
+		{\protect \APACyear {2009}}%
+	}]{%
+		Keshet09}
+	\APACinsertmetastar {%
+		Keshet09}%
+	\begin{APACrefauthors}%
+		Keshet, Y.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2009}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The untenable boundaries of biomedical knowledge:
+		epistemologies and rhetoric strategies in the debate over evaluating
+		complementary and alternative medicine} {The untenable boundaries of
+		biomedical knowledge: epistemologies and rhetoric strategies in the debate
+		over evaluating complementary and alternative medicine}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Health: An Interdisciplinary Journal for the Social
+		Study of Health, Illness and Medicine}{13}{}{131--155}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/1363459308099681} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Knutti%
+		\ \BBA {} Rogelj%
+	}{%
+		Knutti%
+		\ \BBA {} Rogelj%
+	}{%
+		{\protect \APACyear {2015}}%
+	}]{%
+		Knutti15}
+	\APACinsertmetastar {%
+		Knutti15}%
+	\begin{APACrefauthors}%
+		Knutti, R.%
+		\BCBT {}\ \BBA {} Rogelj, J.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2015}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The legacy of our {CO}\ensuremath{_2} emissions: a clash
+		of scientific facts, politics and ethics} {The legacy of our
+		{CO}\ensuremath{_2} emissions: a clash of scientific facts, politics and
+		ethics}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Climatic Change}{133}{}{361-373}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1007/s10584-015-1340-3} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Komaroff%
+	}{%
+		Komaroff%
+	}{%
+		{\protect \APACyear {1997}}%
+	}]{%
+		Komaroff97}
+	\APACinsertmetastar {%
+		Komaroff97}%
+	\begin{APACrefauthors}%
+		Komaroff, E.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1997}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Effect of simultaneous violations of essential
+		tau-equivalence and uncorrelated error on coefficient alpha} {Effect of
+		simultaneous violations of essential tau-equivalence and uncorrelated error
+		on coefficient alpha}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Applied Psychological Measurement}{21}{}{337--348}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/01466216970214004} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Legare%
+		, Opfer%
+		, Busch%
+		\BCBL {}\ \BBA {} Shtulman%
+	}{%
+		Legare%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Legare18}
+	\APACinsertmetastar {%
+		Legare18}%
+	\begin{APACrefauthors}%
+		Legare, C\BPBI H.%
+		, Opfer, J\BPBI E.%
+		, Busch, J\BPBI T\BPBI A.%
+		\BCBL {}\ \BBA {} Shtulman, A.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {A field guide for teaching evolution in the social
+		sciences} {A field guide for teaching evolution in the social
+		sciences}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Evolution and Human Behavior}{39}{}{257--268}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.evolhumbehav.2018.01.002} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Lewandowsky%
+		, Gignac%
+		\BCBL {}\ \BBA {} Oberauer%
+	}{%
+		Lewandowsky%
+		, Gignac%
+		\BCBL {}\ \BBA {} Oberauer%
+	}{%
+		{\protect \APACyear {2013}}%
+	}]{%
+		Lewandowsky13b}
+	\APACinsertmetastar {%
+		Lewandowsky13b}%
+	\begin{APACrefauthors}%
+		Lewandowsky, S.%
+		, Gignac, G\BPBI E.%
+		\BCBL {}\ \BBA {} Oberauer, K.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2013}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The Role of Conspiracist Ideation and Worldviews in
+		Predicting Rejection of Science} {The role of conspiracist ideation and
+		worldviews in predicting rejection of science}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{PLOS ONE}{8}{}{e75637}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1371/journal.pone.0075637} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Lewandowsky%
+		, Gignac%
+		\BCBL {}\ \BBA {} Vaughan%
+	}{%
+		Lewandowsky%
+		, Gignac%
+		\BCBL {}\ \BBA {} Vaughan%
+	}{%
+		{\protect \APACyear {2013}}%
+	}]{%
+		Lewandowsky12a}
+	\APACinsertmetastar {%
+		Lewandowsky12a}%
+	\begin{APACrefauthors}%
+		Lewandowsky, S.%
+		, Gignac, G\BPBI E.%
+		\BCBL {}\ \BBA {} Vaughan, S.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2013}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The Pivotal Role of Perceived Scientific Consensus in
+		Acceptance of Science} {The pivotal role of perceived scientific consensus in
+		acceptance of science}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Nature Climate Change}{3}{}{399--404}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1038/nclimate1720} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Lindeman%
+	}{%
+		Lindeman%
+	}{%
+		{\protect \APACyear {2011}}%
+	}]{%
+		Lindeman11}
+	\APACinsertmetastar {%
+		Lindeman11}%
+	\begin{APACrefauthors}%
+		Lindeman, M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2011}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Biases in intuitive reasoning and belief in
+		complementary and alternative medicine} {Biases in intuitive reasoning and
+		belief in complementary and alternative medicine}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Psychology {\&} Health}{26}{}{371--382}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1080/08870440903440707} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Little%
+		, Cunningham%
+		, Shahar%
+		\BCBL {}\ \BBA {} Widaman%
+	}{%
+		Little%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2002}}%
+	}]{%
+		Little02}
+	\APACinsertmetastar {%
+		Little02}%
+	\begin{APACrefauthors}%
+		Little, T\BPBI D.%
+		, Cunningham, W\BPBI A.%
+		, Shahar, G.%
+		\BCBL {}\ \BBA {} Widaman, K\BPBI F.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2002}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {To parcel or not to parcel: {E}xploring the question,
+		weighing the merits} {To parcel or not to parcel: {E}xploring the question,
+		weighing the merits}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Structural Equation Modeling}{9}{}{151--173}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1207/S15328007SEM0902_1} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Lombrozo%
+		, Thanukos%
+		\BCBL {}\ \BBA {} Weisberg%
+	}{%
+		Lombrozo%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2008}}%
+	}]{%
+		Lombrozo08}
+	\APACinsertmetastar {%
+		Lombrozo08}%
+	\begin{APACrefauthors}%
+		Lombrozo, T.%
+		, Thanukos, A.%
+		\BCBL {}\ \BBA {} Weisberg, M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2008}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The Importance of Understanding the Nature of Science
+		for Accepting Evolution} {The importance of understanding the nature of
+		science for accepting evolution}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Evolution: Education and Outreach}{1}{}{290--298}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		MacKinnon%
+	}{%
+		MacKinnon%
+	}{%
+		{\protect \APACyear {1989}}%
+	}]{%
+		MacKinnon89}
+	\APACinsertmetastar {%
+		MacKinnon89}%
+	\begin{APACrefauthors}%
+		MacKinnon, C\BPBI A.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYear{1989}.
+	\newblock
+	\APACrefbtitle {Toward a feminist theory of the state} {Toward a feminist
+		theory of the state}.
+	\newblock
+	\APACaddressPublisher{}{Harvard University Press}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Malka%
+		, Lelkes%
+		, Srivastava%
+		, Cohen%
+		\BCBL {}\ \BBA {} Miller%
+	}{%
+		Malka%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2012}}%
+	}]{%
+		Malka12}
+	\APACinsertmetastar {%
+		Malka12}%
+	\begin{APACrefauthors}%
+		Malka, A.%
+		, Lelkes, Y.%
+		, Srivastava, S.%
+		, Cohen, A\BPBI B.%
+		\BCBL {}\ \BBA {} Miller, D\BPBI T.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2012}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The Association of Religiosity and Political
+		Conservatism: The Role of Political Engagement} {The association of
+		religiosity and political conservatism: The role of political
+		engagement}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Political Psychology}{33}{}{275--299}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Markle%
+		, Petersen%
+		\BCBL {}\ \BBA {} Wagenfeld%
+	}{%
+		Markle%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {1978}}%
+	}]{%
+		Markle78}
+	\APACinsertmetastar {%
+		Markle78}%
+	\begin{APACrefauthors}%
+		Markle, G\BPBI E.%
+		, Petersen, J\BPBI C.%
+		\BCBL {}\ \BBA {} Wagenfeld, M\BPBI O.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1978}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Notes from the cancer underground: {P}articipation in
+		the {L}aetrile movement} {Notes from the cancer underground: {P}articipation
+		in the {L}aetrile movement}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Social Science {\&} Medicine}{12}{}{31--37}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/0271-7123(78)90020-2} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Mazur%
+	}{%
+		Mazur%
+	}{%
+		{\protect \APACyear {2004}}%
+	}]{%
+		Mazur04}
+	\APACinsertmetastar {%
+		Mazur04}%
+	\begin{APACrefauthors}%
+		Mazur, A.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2004}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Believers and disbelievers in evolution} {Believers and
+		disbelievers in evolution}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Politics and the Life Sciences}{23}{}{55--61}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		J\BPBI D.~Miller%
+		, Scott%
+		\BCBL {}\ \BBA {} Okamoto%
+	}{%
+		J\BPBI D.~Miller%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2006}}%
+	}]{%
+		Miller06c}
+	\APACinsertmetastar {%
+		Miller06c}%
+	\begin{APACrefauthors}%
+		Miller, J\BPBI D.%
+		, Scott, E\BPBI C.%
+		\BCBL {}\ \BBA {} Okamoto, S.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2006}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Public acceptance of evolution} {Public acceptance of
+		evolution}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Science}{313}{}{765--766}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		L.~Miller%
+		\ \BBA {} Seligman%
+	}{%
+		L.~Miller%
+		\ \BBA {} Seligman%
+	}{%
+		{\protect \APACyear {1999}}%
+	}]{%
+		Miller99}
+	\APACinsertmetastar {%
+		Miller99}%
+	\begin{APACrefauthors}%
+		Miller, L.%
+		\BCBT {}\ \BBA {} Seligman, M\BPBI E\BPBI P.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1999}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Beliefs about Responsibility and Improvement Associated
+		with Liberal-Conservative Justice Beliefs} {Beliefs about responsibility and
+		improvement associated with liberal-conservative justice beliefs}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Psychological Reports}{84}{}{329-338}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.2466/pr0.1999.84.1.329} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Mooney%
+	}{%
+		Mooney%
+	}{%
+		{\protect \APACyear {2011}}%
+	}]{%
+		Mooney11W}
+	\APACinsertmetastar {%
+		Mooney11W}%
+	\begin{APACrefauthors}%
+		Mooney, C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2011}{June}{}.
+	\newblock
+	\APACrefbtitle {The Science of Why We Don't Believe Science.} {The science of
+		why we don't believe science.}
+	\newblock
+	\begin{APACrefURL}
+		\url{http://motherjones.com/politics/2011/03/denial-science-chris-mooney}
+	\end{APACrefURL}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Pennycook%
+		\ \BBA {} Rand%
+	}{%
+		Pennycook%
+		\ \BBA {} Rand%
+	}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Pennycook18}
+	\APACinsertmetastar {%
+		Pennycook18}%
+	\begin{APACrefauthors}%
+		Pennycook, G.%
+		\BCBT {}\ \BBA {} Rand, D\BPBI G.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Lazy, not biased: {S}usceptibility to partisan fake news
+		is better explained by lack of reasoning than by motivated reasoning} {Lazy,
+		not biased: {S}usceptibility to partisan fake news is better explained by
+		lack of reasoning than by motivated reasoning}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Cognition}{}{}{}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.cognition.2018.06.011} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		{Pew Research Center}%
+	}{%
+		{Pew Research Center}%
+	}{%
+		{\protect \APACyear {2015}}%
+	}]{%
+		PRC15}
+	\APACinsertmetastar {%
+		PRC15}%
+	\begin{APACrefauthors}%
+		{Pew Research Center}.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2015}{}{}.
+	\newblock
+	\APACrefbtitle {Public and Scientists' views on Science and Society.} {Public
+		and scientists' views on science and society.}
+	\newblock
+	\begin{APACrefURL}
+		\url{https://www.pewinternet.org/wp-content/uploads/sites/9/2015/01/PI_ScienceandSociety_Report_012915.pdf}
+	\end{APACrefURL}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Porter%
+	}{%
+		Porter%
+	}{%
+		{\protect \APACyear {2013}}%
+	}]{%
+		Porter13}
+	\APACinsertmetastar {%
+		Porter13}%
+	\begin{APACrefauthors}%
+		Porter, C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2013}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Liberalism, Optimism, and Utopia} {Liberalism, optimism,
+		and utopia}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{International Trade \& Business Law Review}{16}{}{555}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Rabinowitz%
+		, Latella%
+		, Stern%
+		\BCBL {}\ \BBA {} Jost%
+	}{%
+		Rabinowitz%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2016}}%
+	}]{%
+		Rabinowitz16}
+	\APACinsertmetastar {%
+		Rabinowitz16}%
+	\begin{APACrefauthors}%
+		Rabinowitz, M.%
+		, Latella, L.%
+		, Stern, C.%
+		\BCBL {}\ \BBA {} Jost, J\BPBI T.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2016}{07}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Beliefs about Childhood Vaccination in the United
+		States: Political Ideology, False Consensus, and the Illusion of Uniqueness}
+	{Beliefs about childhood vaccination in the united states: Political
+		ideology, false consensus, and the illusion of uniqueness}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{PLOS ONE}{11}{7}{e0158382}.
+	\newblock
+	\begin{APACrefURL} \url{https://doi.org/10.1371/journal.pone.0158382}
+	\end{APACrefURL}
+	\newblock
+	\begin{APACrefDOI} \doi{10.1371/journal.pone.0158382} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Raykov%
+	}{%
+		Raykov%
+	}{%
+		{\protect \APACyear {1997}}%
+	}]{%
+		Raykov97}
+	\APACinsertmetastar {%
+		Raykov97}%
+	\begin{APACrefauthors}%
+		Raykov, T.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1997}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Estimation of composite reliability for congeneric
+		measures} {Estimation of composite reliability for congeneric
+		measures}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Applied Psychological Measurement}{21}{}{173--184}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Rosseel%
+	}{%
+		Rosseel%
+	}{%
+		{\protect \APACyear {2012}}%
+	}]{%
+		Rosseel12}
+	\APACinsertmetastar {%
+		Rosseel12}%
+	\begin{APACrefauthors}%
+		Rosseel, Y.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2012}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {{lavaan}: An {R} Package for Structural Equation
+		Modeling} {{lavaan}: An {R} package for structural equation modeling}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Journal of Statistical Software}{48}{2}{1--36}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Rutjens%
+		, Sutton%
+		\BCBL {}\ \BBA {} van~der Lee%
+	}{%
+		Rutjens%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Rutjens17}
+	\APACinsertmetastar {%
+		Rutjens17}%
+	\begin{APACrefauthors}%
+		Rutjens, B\BPBI T.%
+		, Sutton, R\BPBI M.%
+		\BCBL {}\ \BBA {} van~der Lee, R.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Not all skepticism is equal: Exploring the ideological
+		antecedents of science acceptance and rejection} {Not all skepticism is
+		equal: Exploring the ideological antecedents of science acceptance and
+		rejection}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Personality and Social Psychology
+		Bulletin}{44}{}{384--405}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/0146167217741314} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Schlenker%
+		, Chambers%
+		\BCBL {}\ \BBA {} Le%
+	}{%
+		Schlenker%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2012}}%
+	}]{%
+		Schlenker12}
+	\APACinsertmetastar {%
+		Schlenker12}%
+	\begin{APACrefauthors}%
+		Schlenker, B\BPBI R.%
+		, Chambers, J\BPBI R.%
+		\BCBL {}\ \BBA {} Le, B\BPBI M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2012}{{\APACmonth{04}}}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Conservatives are happier than liberals, but why?
+		{P}olitical ideology, personality, and life satisfaction} {Conservatives are
+		happier than liberals, but why? {P}olitical ideology, personality, and life
+		satisfaction}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Journal of Research In Personality}{46}{}{127--146}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.jrp.2011.12.009} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Scott%
+	}{%
+		Scott%
+	}{%
+		{\protect \APACyear {1998}}%
+	}]{%
+		Scott98a}
+	\APACinsertmetastar {%
+		Scott98a}%
+	\begin{APACrefauthors}%
+		Scott, A.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1998}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Homoeopathy as a Feminist Form of Medicine} {Homoeopathy
+		as a feminist form of medicine}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Sociology of Health {\&} Illness}{20}{}{191--214}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1111/1467-9566.00097} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Shenhav%
+		, Rand%
+		\BCBL {}\ \BBA {} Greene%
+	}{%
+		Shenhav%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2012}}%
+	}]{%
+		Shenhav12}
+	\APACinsertmetastar {%
+		Shenhav12}%
+	\begin{APACrefauthors}%
+		Shenhav, A.%
+		, Rand, D\BPBI G.%
+		\BCBL {}\ \BBA {} Greene, J\BPBI D.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2012}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Divine intuition: cognitive style influences belief in
+		God.} {Divine intuition: cognitive style influences belief in god.}{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Journal of Experimental Psychology:
+		General}{141}{}{423--428}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Shermer%
+	}{%
+		Shermer%
+	}{%
+		{\protect \APACyear {2013}}%
+	}]{%
+		Shermer13W}
+	\APACinsertmetastar {%
+		Shermer13W}%
+	\begin{APACrefauthors}%
+		Shermer, M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2013}{January}{}.
+	\newblock
+	\APACrefbtitle {The Liberals' War on Science.} {The liberals' war on science.}
+	\newblock
+	\begin{APACrefURL}
+		\url{http://www.scientificamerican.com/\\article.cfm?id=the-liberals-war-on-science}
+	\end{APACrefURL}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Shtulman%
+		\ \BBA {} McCallum%
+	}{%
+		Shtulman%
+		\ \BBA {} McCallum%
+	}{%
+		{\protect \APACyear {2014}}%
+	}]{%
+		Shtulman14}
+	\APACinsertmetastar {%
+		Shtulman14}%
+	\begin{APACrefauthors}%
+		Shtulman, A.%
+		\BCBT {}\ \BBA {} McCallum, K.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2014}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Cognitive reflection predicts science understanding}
+	{Cognitive reflection predicts science understanding}.{\BBCQ}
+	\newblock
+	\BIn{} \APACrefbtitle {Proceedings of the {A}nnual {M}eeting of the {C}ognitive
+		{S}cience {S}ociety} {Proceedings of the {A}nnual {M}eeting of the
+		{C}ognitive {S}cience {S}ociety}\ (\BVOL~36).
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Smith%
+		, Yarwood%
+		\BCBL {}\ \BBA {} Salisbury%
+	}{%
+		Smith%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2007}}%
+	}]{%
+		Smith07b}
+	\APACinsertmetastar {%
+		Smith07b}%
+	\begin{APACrefauthors}%
+		Smith, A.%
+		, Yarwood, J.%
+		\BCBL {}\ \BBA {} Salisbury, D\BPBI M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2007}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Tracking mothers’ attitudes to {MMR} immunisation
+		1996--2006} {Tracking mothers’ attitudes to {MMR} immunisation
+		1996--2006}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Vaccine}{25}{}{3996--4002}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.vaccine.2007.02.071} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Stagnaro%
+		, Ross%
+		, Pennycook%
+		\BCBL {}\ \BBA {} Rand%
+	}{%
+		Stagnaro%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2019}}%
+	}]{%
+		Stagnaro19}
+	\APACinsertmetastar {%
+		Stagnaro19}%
+	\begin{APACrefauthors}%
+		Stagnaro, M\BPBI N.%
+		, Ross, R\BPBI M.%
+		, Pennycook, G.%
+		\BCBL {}\ \BBA {} Rand, D\BPBI G.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2019}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Cross-cultural support for a link between analytic
+		thinking and disbelief in {G}od: {E}vidence from {I}ndia and the {U}nited
+		{K}ingdom} {Cross-cultural support for a link between analytic thinking and
+		disbelief in {G}od: {E}vidence from {I}ndia and the {U}nited
+		{K}ingdom}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Judgment and Decision Making}{14}{}{179--186}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Stoet%
+		\ \BBA {} Geary%
+	}{%
+		Stoet%
+		\ \BBA {} Geary%
+	}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Stoet18}
+	\APACinsertmetastar {%
+		Stoet18}%
+	\begin{APACrefauthors}%
+		Stoet, G.%
+		\BCBT {}\ \BBA {} Geary, D\BPBI C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {The Gender-Equality Paradox in Science, Technology,
+		Engineering, and Mathematics Education} {The gender-equality paradox in
+		science, technology, engineering, and mathematics education}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Psychological Science}{29}{}{581--593}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/0956797617741719} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Tom%
+	}{%
+		Tom%
+	}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Tom18}
+	\APACinsertmetastar {%
+		Tom18}%
+	\begin{APACrefauthors}%
+		Tom, J\BPBI C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Social Origins of Scientific Deviance: Examining
+		Creationism and Global Warming Skepticism} {Social origins of scientific
+		deviance: Examining creationism and global warming skepticism}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Sociological Perspectives}{61}{}{341--360}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/0731121417710459} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		{Van~Assche}%
+		, Ko{\c{c}}%
+		\BCBL {}\ \BBA {} Roets%
+	}{%
+		{Van~Assche}%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2019}}%
+	}]{%
+		VanAssche19}
+	\APACinsertmetastar {%
+		VanAssche19}%
+	\begin{APACrefauthors}%
+		{Van~Assche}, J.%
+		, Ko{\c{c}}, Y.%
+		\BCBL {}\ \BBA {} Roets, A.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2019}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Religiosity or ideology? {O}n the individual differences
+		predictors of sexism} {Religiosity or ideology? {O}n the individual
+		differences predictors of sexism}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Personality and Individual
+		Differences}{139}{}{191--197}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.paid.2018.11.016} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		{Von~Hippel}%
+		\ \BBA {} Buss%
+	}{%
+		{Von~Hippel}%
+		\ \BBA {} Buss%
+	}{%
+		{\protect \APACyear {2017}}%
+	}]{%
+		VonHippel17}
+	\APACinsertmetastar {%
+		VonHippel17}%
+	\begin{APACrefauthors}%
+		{Von~Hippel}, W.%
+		\BCBT {}\ \BBA {} Buss, D\BPBI M.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2017}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Do ideologically driven scientific agendas impede the
+		understanding and acceptance of evolutionary principles in social
+		psychology?} {Do ideologically driven scientific agendas impede the
+		understanding and acceptance of evolutionary principles in social
+		psychology?}{\BBCQ}
+	\newblock
+	\BIn{} J\BPBI T.~Crawford\ \BBA {} L.~Jussim\ (\BEDS), \APACrefbtitle {Politics
+		of Social Psychology} {Politics of social psychology}\ (\BPGS\ 17--35).
+	\newblock
+	\APACaddressPublisher{}{Psychology Press}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Wagner-Egger%
+		, Delouv\'{e}e%
+		, Gauvrit%
+		\BCBL {}\ \BBA {} Dieguez%
+	}{%
+		Wagner-Egger%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		WagnerEgger18}
+	\APACinsertmetastar {%
+		WagnerEgger18}%
+	\begin{APACrefauthors}%
+		Wagner-Egger, P.%
+		, Delouv\'{e}e, S.%
+		, Gauvrit, N.%
+		\BCBL {}\ \BBA {} Dieguez, S.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Creationism and conspiracism share a common teleological
+		bias} {Creationism and conspiracism share a common teleological bias}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Current Biology}{28}{}{R867--R868}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1016/j.cub.2018.06.072} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Washburn%
+		\ \BBA {} Skitka%
+	}{%
+		Washburn%
+		\ \BBA {} Skitka%
+	}{%
+		{\protect \APACyear {2018}}%
+	}]{%
+		Washburn17}
+	\APACinsertmetastar {%
+		Washburn17}%
+	\begin{APACrefauthors}%
+		Washburn, A\BPBI N.%
+		\BCBT {}\ \BBA {} Skitka, L\BPBI J.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2018}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Science Denial Across the Political Divide} {Science
+		denial across the political divide}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Social Psychological and Personality
+		Science}{9}{}{972--980}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/1948550617731500} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Watts%
+		, Hossfeld%
+		, Tolstikova%
+		\BCBL {}\ \BBA {} Levit%
+	}{%
+		Watts%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2017}}%
+	}]{%
+		Watts17}
+	\APACinsertmetastar {%
+		Watts17}%
+	\begin{APACrefauthors}%
+		Watts, E.%
+		, Hossfeld, U.%
+		, Tolstikova, I.%
+		\BCBL {}\ \BBA {} Levit, G\BPBI S.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2017}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Beyond borders: on the influence of the creationist
+		movement on the educational landscape in the {USA} and {R}ussia} {Beyond
+		borders: on the influence of the creationist movement on the educational
+		landscape in the {USA} and {R}ussia}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Theory in Biosciences}{136}{}{31--48}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1007/s12064-016-0238-6} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		West%
+	}{%
+		West%
+	}{%
+		{\protect \APACyear {1988}}%
+	}]{%
+		West88}
+	\APACinsertmetastar {%
+		West88}%
+	\begin{APACrefauthors}%
+		West, R.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1988}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Jurisprudence and gender} {Jurisprudence and
+		gender}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{University of Chicago Law Review}{55}{}{1 -- 72}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Whitney%
+		, Zhou%
+		, Singleton%
+		\BCBL {}\ \BBA {} Schuchat%
+	}{%
+		Whitney%
+		\ \protect \BOthers {.}}{%
+		{\protect \APACyear {2014}}%
+	}]{%
+		Whitney14}
+	\APACinsertmetastar {%
+		Whitney14}%
+	\begin{APACrefauthors}%
+		Whitney, C\BPBI G.%
+		, Zhou, F.%
+		, Singleton, J.%
+		\BCBL {}\ \BBA {} Schuchat, A.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2014}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Benefits from immunization during the vaccines for
+		children program era—{U}nited {S}tates, 1994--2013} {Benefits from
+		immunization during the vaccines for children program era—{U}nited
+		{S}tates, 1994--2013}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{MMWR. Morbidity and mortality weekly
+		report}{63}{}{352--355}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Williams%
+	}{%
+		Williams%
+	}{%
+		{\protect \APACyear {1989}}%
+	}]{%
+		Williams89}
+	\APACinsertmetastar {%
+		Williams89}%
+	\begin{APACrefauthors}%
+		Williams, J\BPBI C.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{1989}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Deconstructing Gender} {Deconstructing gender}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Michigan Law Review}{87}{}{797--845}.
+	\PrintBackRefs{\CurrentBib}
+	
+	\bibitem [\protect \citeauthoryear {%
+		Zentner%
+		\ \BBA {} Mitura%
+	}{%
+		Zentner%
+		\ \BBA {} Mitura%
+	}{%
+		{\protect \APACyear {2012}}%
+	}]{%
+		Zentner12}
+	\APACinsertmetastar {%
+		Zentner12}%
+	\begin{APACrefauthors}%
+		Zentner, M.%
+		\BCBT {}\ \BBA {} Mitura, K.%
+	\end{APACrefauthors}%
+	\unskip\
+	\newblock
+	\APACrefYearMonthDay{2012}{}{}.
+	\newblock
+	{\BBOQ}\APACrefatitle {Stepping Out of the Caveman's Shadow} {Stepping out of
+		the caveman's shadow}.{\BBCQ}
+	\newblock
+	\APACjournalVolNumPages{Psychological Science}{23}{}{1176--1185}.
+	\newblock
+	\begin{APACrefDOI} \doi{10.1177/0956797612441004} \end{APACrefDOI}
+	\PrintBackRefs{\CurrentBib}
+	
+\end{thebibliography}
 
 
 \pagebreak

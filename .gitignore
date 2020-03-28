@@ -7,4 +7,5 @@ _sourceR/plotSEM.R
 *.msg
 .Rproj.user
 _paper/covletRevision.*
+_paper/for production
 
